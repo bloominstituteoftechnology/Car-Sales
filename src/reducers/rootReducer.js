@@ -41,6 +41,8 @@ export default (state=initialState, action) => {
                 store: [...state.store, action.payload],
                 additionalPrice: state.additionalPrice - action.payload.price
             }
+        default:
+            return state
     }
     return state
 }
