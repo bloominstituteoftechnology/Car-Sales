@@ -7,7 +7,7 @@ const AdditionalFeatures = props => {
       <h4>Additional Features</h4>
       {props.store.length ? (
         <ol type="1">
-          {props.store.map(item => (
+          {props.store.sort((a,b) => a.name>b.name ? 1 : -1).map(item => (
             <AdditionalFeature key={item.id} feature={item} addFeature={props.addFeature} />
           ))}
         </ol>

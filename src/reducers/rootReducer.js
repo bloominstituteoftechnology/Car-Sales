@@ -17,29 +17,29 @@ const initialState = {
     ]
 }
 
-export default (state=initialState, action) => {
-    switch(action.type){
+export default (state=initialState, {type, payload}) => {
+    switch(type){
         case ADD_FEATURE:
-            const newStore = state.store.filter(item => item.id !==action.payload.id)
+            const newStore = state.store.filter(item => item.id !==payload.id)
             return{
                 ...state,
                 car:{
                     ...state.car,
-                    features: [...state.car.features, action.payload]
+                    features: [...state.car.features, payload]
                 },
                 store: [...newStore],
-                additionalPrice: state.additionalPrice + action.payload.price
+                additionalPrice: state.additionalPrice + payload.price
             }
         case REMOVE_FEATURE:
-            const newFeatures = state.car.features.filter(item => item.id !==action.payload.id)
+            const newFeatures = state.car.features.filter(item => item.id !==payload.id)
             return{
                 ...state,
                 car:{
                     ...state.car,
                     features: [...newFeatures]
                 },
-                store: [...state.store, action.payload],
-                additionalPrice: state.additionalPrice - action.payload.price
+                store: [...state.store, payload],
+                additionalPrice: state.additionalPrice - payload.price
             }
         default:
             return state

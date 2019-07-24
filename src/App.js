@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallowEqual, useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { ADD_FEATURE, REMOVE_FEATURE } from './actions'
 import Header from './components/Header';
@@ -8,7 +8,7 @@ import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
 const App = () => {
-    const [car, store, additionalPrice] = useSelector(state => [state.car, state.store, state.additionalPrice], shallowEqual)
+    const [car, store, additionalPrice] = useSelector(state => [state.car, state.store, state.additionalPrice])
    
     const dispatch = useDispatch()
 
