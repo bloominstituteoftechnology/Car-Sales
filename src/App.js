@@ -6,7 +6,8 @@ import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
 import { useSelector, useDispatch } from 'react-redux'
-
+export const ADD_ITEM = 'ADD_ITEM'
+export const REMOVE = 'REMOVE_FEATURE'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -18,14 +19,14 @@ const App = () => {
   const removeFeature = feature => {
 
     console.log(feature)
-    dispatch({ type: 'REMOVE_FEATURE', payload: feature })
+    dispatch({ type: REMOVE, payload: feature })
 
   };
 
   const buyItem = item => {
 
     let index = car.features.findIndex(element => element.name === item.name)
-    index === -1 && dispatch({ type: 'ADD_ITEM', payload: item })
+    index === -1 && dispatch({ type: ADD_ITEM, payload: item })
 
   };
 
