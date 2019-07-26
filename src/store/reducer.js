@@ -1,5 +1,5 @@
 import { ADD_ITEM, 
-         REMOVE 
+    
     } from './actions'
 
 
@@ -38,7 +38,7 @@ const initialState = {
                 additionalPrice: state.additionalPrice + action.payload.price
             }
 
-        case REMOVE:
+        case 'REMOVE_FEATURE':
             let newArray = state.car.features.filter(feature => feature.name !== action.payload)
             let index = state.store.findIndex(element => element.name === action.payload)
             

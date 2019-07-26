@@ -5,20 +5,28 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-import { connect } from 'react-redux'
-import { addCar, remove} from './store/actions'
+import { useSelector, useDispatch } from 'react-redux'
 
-const App = ({ additionalPrice, car, store, addCar, remove}) => {
-  // console.log(store)
+
+const App = () => {
+  const dispatch = useDispatch()
+  //selectors from State
+  const additionalPrice = useSelector(state => state.additionalPrice)
+  const car = useSelector(state => state.car)
+  const store = useSelector(state => state.store)  
 
   const removeFeature = feature => {
+
     console.log(feature)
-    remove(feature)    
+    dispatch({ type: 'REMOVE_FEATURE', payload: feature })
+
   };
 
   const buyItem = item => {
-    // console.log(item)
-    addCar(item)
+
+    let index = car.features.findIndex(element => element.name === item.name)
+    index === -1 && dispatch({ type: 'ADD_ITEM', payload: item })
+
   };
 
   return (
@@ -35,14 +43,4 @@ const App = ({ additionalPrice, car, store, addCar, remove}) => {
   );
 };
 
-const mapStateToProps = ({ additionalPrice, car, store}) => {
-  console.log(additionalPrice)
-
-  return {
-    additionalPrice: additionalPrice,
-    car: car,
-    store: store
-  }
-}
-
-export default connect(mapStateToProps, { addCar, remove })(App)
+export default App
