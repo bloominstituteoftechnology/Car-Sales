@@ -4,22 +4,25 @@ import { connect } from "react-redux";
 import { addFeature } from '../actions/carActions';
 
 const AdditionalFeature = props => {
+  console.log('featureSprops', props);
+  // console.log('name', props.carFeatureName, 'price', props.carFeaturePrice);
 
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
       <button onClick={() => addFeature(props.carFeatures)} className="button">Add</button>
-      {props.carFeatureName} (+{props.carFeaturePrice});
+      {props.feature.name} (+{props.feature.price});
     </li>
   );
 };
 
 const mapStateToProps = state => {
   // console.log('featureSState', state);
+  // console.log('name', state.store.name, 'price', state.store.price);
   return {
-    carFeatures: state.car.features,
-    carFeatureName: state.car.features.name,
-    carFeaturePrice: state.car.features.price
+    carFeatures: state.store,
+    carFeatureName: state.store.name,
+    carFeaturePrice: state.store.price
   }
 }
 
