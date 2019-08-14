@@ -23,7 +23,7 @@ const initialState = {
       case 'ADD_FEATURES':
         return {
           ...state,
-          features: action.payload
+          additionalPrice: state.additionalPrice + action.payload
         }
           default:
             return state;

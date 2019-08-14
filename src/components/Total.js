@@ -12,6 +12,7 @@ const Total = props => {
   );
 };
 
+
 const mapStateToProps = state => {
   console.log('state from mapState in header', state);
   return {
