@@ -1,9 +1,16 @@
 
 //actions
 
-export const buyCarPart = part => {
+export const buyCarPart = item => {
     return{
         type: "BUY_PART",
-        payload: part
+        payload: item,
     };
+};
+
+export const removeCarPart = item => {
+    return{
+        type: 'REMOVE_PART',
+        payload: item,
+    };   
 };

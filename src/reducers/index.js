@@ -16,10 +16,34 @@ const initialState = {
         ]
       };
 
-      export const salesReducer = (state = initialState, action) => {
+     export const salesReducer = (state = initialState, action) => {
           switch (action.type) {
               case "BUY_PART":
+                  return {
+                      ...state,
+                      additionalPrice: state.additionalPrice + action.payload.price,
+                      car: {
+                          ...state.car,
+                          features: [...state.car.features, action.payload]
+                      },
+                      store: state.store.filter(feature => feature.id !== action.payload.id),
+                  };
+
+              case 'DELETE_PART':
+                  return {
+                      ...state,
+                      additionalPrice: state.additionalPrice - action.payload.price,
+                      care: {
+                          ...state.car,
+                          features: state.car.features.filter(
+                              feature => feature.id !== action.payload.id,
+                          ),
+                      },
+                      store: [...state.store, action.payload],
+                  };
               default: 
               return state;
           }
-      }
+      };
+
+      
