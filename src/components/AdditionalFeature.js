@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { addFeature } from '../actions/carActions';
 
 const AdditionalFeature = props => {
-  console.log('featureSprops', props);
+  // console.log('featureSprops', props);
   // console.log('name', props.carFeatureName, 'price', props.carFeaturePrice);
 
   return (

@@ -4,11 +4,12 @@ import { connect } from "react-redux";
 import { removeFeature } from '../actions/carActions';
 
 const AddedFeature = props => {
+  console.log('addedfeatureprops', props);
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button onClick={() => removeFeature(props.carFeature)} className="button">X</button>
-      {props.carFeatureName}
+      <button onClick={() => removeFeature(props.feature)} className="button">X</button>
+      {props.feature.name}
     </li>
   );
 };
