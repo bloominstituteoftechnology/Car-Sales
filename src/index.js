@@ -13,7 +13,7 @@ export const store = createStore(carReducer);
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <App />
     </Provider>
 , rootElement);
