@@ -16,6 +16,7 @@ const initialState = {
   };
   
   export const mainReducer = (state = initialState, action) => {
+
     console.log('log of state from reducers', state);
     console.log('log of iniState', initialState);
     switch (action.type) {
