@@ -4,7 +4,7 @@ import AdditionalFeature from './AdditionalFeature';
 
 
 const AdditionalFeatures = props => {
-  console.log('additionalfeaturesprops', props);
+  // console.log('additionalfeaturesprops', props);
   return (
     <div className="content">
       <h4>Additional Features</h4>
@@ -22,7 +22,7 @@ const AdditionalFeatures = props => {
 };
 
 const mapStateToProps = state => {
-  console.log('additionalfeaturesstate', state);
+  // console.log('additionalfeaturesstate', state);
   return {
     storeLength: state.store.length,
     store: state.store,

@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Header = props => {
-
-  console.log('headerprops', props);
+  // console.log('headerprops', props);
 
   return (
     <>
@@ -17,7 +16,7 @@ const Header = props => {
 };
 
 const mapStateToProps = state => {
-  console.log('headerstate', state);
+  // console.log('headerstate', state);
   return {
     carPrice: state.car.price,
     carName: state.car.name,

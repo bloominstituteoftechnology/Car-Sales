@@ -6,20 +6,18 @@ import { removeFeature } from '../actions/carActions';
 const AddedFeature = props => {
   return (
     <li>
-      {/* Add an onClick to run a function to remove a feature
-      <button className="button">X</button>
-      {props.feature.name} */}
+      {/* Add an onClick to run a function to remove a feature */}
+      <button onClick={() => removeFeature(props.carFeature)} className="button">X</button>
+      {props.carFeatureName}
     </li>
   );
 };
 
-export default AddedFeature;
-
 const mapStateToProps = state => {
-  console.log('featurestate', state);
+  // console.log('featurestate', state);
   return {
-    carPrice: state.car.price
-    // additionalPrice: 
+    carFeature: state.car.features,
+    carFeatureName: state.car.features.name
   }
 }
 
