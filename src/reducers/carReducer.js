@@ -22,18 +22,21 @@ export const carReducer = (state = initialState, action) => {
       return {
         ...state,
         store: filtered
+        //add to features to add
       }
     };
     case 'ADD_FEATURE': {
       return {
         ...state,
         features: [...state.features, action.payload]
+        //add to features to remove
       }
     };
     case 'BUY_ITEM': {
       return {
         ...state,
-        additionalPrice: + action.filter
+        additionalPrice: state.additionalPrice + action.payload
+        //fix this
       }
     };
     default: {
