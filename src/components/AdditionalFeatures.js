@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import AdditionalFeature from './AdditionalFeature';
 import { buyCarPart } from '../actions'
+import xibit from '../img/xibit.jpg'
 
 const AdditionalFeatures = props => {
   const buyPart = item => {
@@ -17,7 +18,9 @@ const AdditionalFeatures = props => {
           ))}
         </ol>
       ) : (
-        <p>Sweet Ride!!</p>
+        <p>Sweet Ride!!
+        <img src={xibit} alt="Xibit" />
+        </p>
       )}
     </div>
   );

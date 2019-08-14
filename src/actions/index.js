@@ -8,9 +8,9 @@ export const buyCarPart = item => {
     };
 };
 
-export const removeCarPart = item => {
+export const removeCarPart = feature => {
     return{
         type: 'REMOVE_PART',
-        payload: item,
+        payload: feature,
     };   
 };
