@@ -3,22 +3,31 @@ import { connect } from "react-redux";
 
 import { removeFeature } from '../actions/carActions';
 
+console.log('removefeature', removeFeature);
+
 const AddedFeature = props => {
-  // console.log('addedfeatureprops', props);
+  console.log('props.feature', props.feature);
+
+  console.log('addedfeatureprops', props);
+  const filtered = props.carStore.filter(item => item.id !== props.feature.id);
+  console.log('filtered', filtered);
+
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button onClick={() => removeFeature(props.feature)} className="button">X</button>
+      <button onClick={() => removeFeature(filtered)} className="button">X</button>
       {props.feature.name}
     </li>
   );
 };
 
 const mapStateToProps = state => {
+  console.log('state', state);
   // console.log('featurestate', state);
   return {
     carFeature: state.car.features,
-    carFeatureName: state.car.features.name
+    carFeatureName: state.car.features.name,
+    carStore: state.store
   }
 }
 
