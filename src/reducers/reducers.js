@@ -20,9 +20,10 @@ const initialState = {
     console.log('log of state from reducers', state);
     console.log('log of iniState', initialState);
     switch (action.type) {
-      case 'BUTTON_CLICK':
+      case 'ADD_FEATURES':
         return {
-          ...state
+          ...state,
+          features: action.payload
         }
           default:
             return state;
