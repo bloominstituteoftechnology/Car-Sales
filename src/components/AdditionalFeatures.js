@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from "react-redux";
 import AdditionalFeature from './AdditionalFeature';
 
+
 const AdditionalFeatures = props => {
+  console.log('additionalfeaturesprops', props);
   return (
     <div className="content">
-      <h4>Additional Features</h4>
+      {/* <h4>Additional Features</h4>
       {props.store.length ? (
         <ol type="1">
           {props.store.map(item => (
@@ -13,7 +16,7 @@ const AdditionalFeatures = props => {
         </ol>
       ) : (
         <p>Nice looking car!</p>
-      )}
+      )} */}
     </div>
   );
 };

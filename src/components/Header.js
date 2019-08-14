@@ -1,15 +1,30 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+// import { carReducer } from '../reducers/carReducer';
 
 const Header = props => {
+
+  console.log('headerprops', props);
+
   return (
     <>
       <figure className="image is-128x128">
-        <img src={props.car.image} alt={props.car.name} />
+        <img src={props.carImage} alt={props.carName} />
       </figure>
-      <h2>{props.car.name}</h2>
-      <p>Amount: ${props.car.price}</p>
+      <h2>{props.carName}</h2>
+      <p>Amount: ${props.carPrice}</p>
     </>
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  console.log('headerstate', state);
+  return {
+    carPrice: state.car.price,
+    carName: state.car.name,
+    carImage: state.car.image,
+  };
+};
+
+export default connect(mapStateToProps,{})(Header);
