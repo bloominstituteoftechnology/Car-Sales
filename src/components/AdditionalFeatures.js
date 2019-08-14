@@ -7,8 +7,8 @@ const AdditionalFeatures = props => {
   console.log('additionalfeaturesprops', props);
   return (
     <div className="content">
-      {/* <h4>Additional Features</h4>
-      {props.store.length ? (
+      <h4>Additional Features</h4>
+      {props.storeLength ? (
         <ol type="1">
           {props.store.map(item => (
             <AdditionalFeature key={item.id} feature={item} />
@@ -16,9 +16,17 @@ const AdditionalFeatures = props => {
         </ol>
       ) : (
         <p>Nice looking car!</p>
-      )} */}
+      )}
     </div>
   );
 };
 
-export default AdditionalFeatures;
+const mapStateToProps = state => {
+  console.log('additionalfeaturesstate', state);
+  return {
+    storeLength: state.store.length,
+    store: state.store,
+  };
+};
+
+export default connect(mapStateToProps,{})(AdditionalFeatures);

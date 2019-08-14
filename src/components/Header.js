@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// import { carReducer } from '../reducers/carReducer';
-
 const Header = props => {
 
   console.log('headerprops', props);

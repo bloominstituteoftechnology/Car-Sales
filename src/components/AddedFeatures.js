@@ -7,31 +7,27 @@ const AddedFeatures = props => {
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {/* {props.car.features.length ? (
+      {props.carFeatures.length ? (
         <ol type="1">
-          {props.car.features.map(item => (
+          {props.carFeatures.map(item => (
             <AddedFeature key={item.id} feature={item} />
           ))}
         </ol>
       ) : (
         <p>You can purchase items from the store.</p>
-      )} */}
+      )}
     </div>
   );
 };
 
-export default AddedFeatures;
+const mapStateToProps = state => {
+  console.log('AddedFeaturesState', state);
+  return {
+    carFeatures: state.store,
+  };
+};
 
-// const mapStateToProps = state => {
-//   console.log('AddedFeaturesState', state);
-//   // return {
-//   //   carPrice: state.car.price,
-//   //   carName: state.car.name,
-//   //   carImage: state.car.image,
-//   // };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   {}
-// )(AddedFeatures);
+export default connect(
+  mapStateToProps,
+  {}
+)(AddedFeatures);
