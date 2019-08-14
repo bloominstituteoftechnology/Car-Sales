@@ -2,7 +2,12 @@ html, body, #root {
   height: 100%;
 }
 body {
-  background: #333;
+  background-image: url(./img/shopmustang.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #333;
   margin: 0;
   display: grid;
   padding: 3em;
@@ -13,11 +18,13 @@ body {
   grid-gap: 2em;
   grid-template-columns: repeat(2, minmax(350px, 1fr));
   grid-template-rows: auto;
+  opacity: 0.95;
 }
 .box {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  font-size: 1.3rem;
   h1 {
     font-size: 20px;
     margin: 0 0 1rem 0;
@@ -45,5 +52,19 @@ body {
     background: white;
     border: 1px solid hotpink;
     color: #333;
+  }
+}
+
+.app{
+  h1{
+    @import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+    color: hotpink;
+    background: black;
+    opacity: .90;
+    text-align: center;
+    font-size: 3.5rem;
+    font-family: 'Monoton', cursive;
+    font-style: oblique;
+    padding: 4%;
   }
 }

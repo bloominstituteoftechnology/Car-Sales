@@ -32,6 +32,8 @@ const App = () => {
   };
 
   return (
+  <div className="app">
+    <h1>REDUX &middot; CUSTOM &middot; MOTORS</h1>
     <div className="boxes">
       <div className="box">
         <Header car={state.car} />
@@ -42,6 +44,7 @@ const App = () => {
         <Total car={state.car} additionalPrice={state.additionalPrice} />
       </div>
     </div>
+   </div>  
   );
 };
 
