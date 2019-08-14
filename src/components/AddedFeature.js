@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 
+import { removeFeature } from '../actions/carActions';
+
 const AddedFeature = props => {
   return (
     <li>
@@ -12,3 +14,13 @@ const AddedFeature = props => {
 };
 
 export default AddedFeature;
+
+const mapStateToProps = state => {
+  console.log('featurestate', state);
+  return {
+    carPrice: state.car.price
+    // additionalPrice: 
+  }
+}
+
+export default connect(mapStateToProps, { removeFeature })(AddedFeature);

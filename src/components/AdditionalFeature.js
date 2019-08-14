@@ -1,21 +1,26 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-const AdditionalFeature = props => {
+import { addFeature } from '../actions/carActions';
 
-  const addItem = () => {
-    return {
-      
-    }
-  }
+const AdditionalFeature = props => {
 
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button">Add</button>
-      {props.feature.name} (+{props.feature.price})
+      <button onClick={() => addFeature(props.carFeatures)} className="button">Add</button>
+      {props.carFeatureName} (+{props.carFeaturePrice});
     </li>
   );
 };
 
-export default AdditionalFeature;
+const mapStateToProps = state => {
+  console.log('featureSState', state);
+  return {
+    carFeatures: state.car.features,
+    carFeatureName: state.car.features.name,
+    carFeaturePrice: state.car.features.price
+  }
+}
+
+export default connect(mapStateToProps, { addFeature })(AdditionalFeature);
