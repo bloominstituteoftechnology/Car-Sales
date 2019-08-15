@@ -3,12 +3,10 @@ import {connect} from 'react-redux'
 import AdditionalFeature from './AdditionalFeature';
 import {addingFeatures} from '../actions'
 
+
 const AdditionalFeatures = props => {
 
-  const buyItem = item => {
-    props.addingFeatures(item)
-    // dipsatch an action here to add an item
-  };
+ 
 
   return (
     <div className="content">
@@ -16,7 +14,7 @@ const AdditionalFeatures = props => {
       {props.store.length ? (
         <ol type="1">
           {props.store.map(item => (
-            <AdditionalFeature key={item.id} feature={item} addButton={buyItem}/>
+            <AdditionalFeature key={item.id} feature={item} addButton={props.addingFeatures} addPrice={props.addPrice}/>
           ))}
         </ol>
       ) : (
