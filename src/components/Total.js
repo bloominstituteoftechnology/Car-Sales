@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from "react-redux";
 
 const Total = props => {
-  console.log('totalprops', props);
-  console.log('price', props.carPrice, 'additionalprice', props.additionalPrice)
+  // console.log('totalprops', props);
+  // console.log('price', props.carPrice, 'additionalprice', props.additionalPrice)
 
   return (
     <div className="content">

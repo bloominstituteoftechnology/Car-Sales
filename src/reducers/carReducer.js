@@ -22,12 +22,15 @@ export const carReducer = (state = initialState, action) => {
         ...state,
         store: action.payload,
         additionalPrice: action.payload.reduce((acc, val) => acc + val.price, 0)
+        //add to additional features using features
       };
     case 'ADD_FEATURE': 
       return {
         ...state,
         car: {...state.car, features: [...state.car.features, action.payload]},
-        additionalPrice: state.additionalPrice + action.payload.price
+        additionalPrice: state.additionalPrice + action.payload.price,
+        //remove from additional features using store
+        //store: 
       };
     default: 
       return state;

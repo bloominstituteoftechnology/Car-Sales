@@ -7,7 +7,7 @@ import { removeFeature } from '../actions/carActions';
 
 const AddedFeature = props => {
   // console.log('props.feature', props.feature);
-
+  console.log('featureprops', props);
   // console.log('addedfeatureprops', props);
   const filtered = props.carStore.filter(item => item.id !== props.feature.id);
   // console.log('filtered', filtered);
@@ -15,7 +15,7 @@ const AddedFeature = props => {
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button onClick={() => removeFeature(filtered)} className="button">X</button>
+      <button onClick={() => props.removeFeature(filtered)} className="button">X</button>
       {props.feature.name}
     </li>
   );
