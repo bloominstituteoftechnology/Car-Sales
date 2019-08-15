@@ -1,4 +1,5 @@
 export const removeFeature = item => {
+    console.log('removeInvoked', item);
     return {
         type: 'REMOVE_FEATURE',
         payload: item
@@ -6,15 +7,12 @@ export const removeFeature = item => {
 };
 
 export const addFeature = item => {
+    console.log('addInvoked', item);
     return {
         type: 'ADD_FEATURE',
         payload: item
     }
 };
 
-export const buyItem = item => {
-    return {
-        type: 'BUY_ITEM',
-        payload: item
-    }
-};
+console.log(removeFeature);
+console.log(addFeature);

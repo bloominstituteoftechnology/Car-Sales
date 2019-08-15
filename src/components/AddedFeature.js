@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 
 import { removeFeature } from '../actions/carActions';
 
-console.log('removefeature', removeFeature);
+// console.log('removefeature', removeFeature);
 
 const AddedFeature = props => {
-  console.log('props.feature', props.feature);
+  // console.log('props.feature', props.feature);
 
-  console.log('addedfeatureprops', props);
+  // console.log('addedfeatureprops', props);
   const filtered = props.carStore.filter(item => item.id !== props.feature.id);
-  console.log('filtered', filtered);
+  // console.log('filtered', filtered);
 
   return (
     <li>
@@ -22,7 +22,6 @@ const AddedFeature = props => {
 };
 
 const mapStateToProps = state => {
-  console.log('state', state);
   // console.log('featurestate', state);
   return {
     carFeature: state.car.features,
