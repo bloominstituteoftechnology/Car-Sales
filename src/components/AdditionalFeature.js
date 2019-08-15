@@ -3,11 +3,8 @@ import { connect } from "react-redux";
 
 import { addFeature } from '../actions/carActions';
 
-// console.log('addfeature', addFeature);
 
 const AdditionalFeature = props => {
-  // console.log('featureSprops', props);
-  // console.log('name', props.carFeatureName, 'price', props.carFeaturePrice);
 
   return (
     <li>
@@ -19,8 +16,6 @@ const AdditionalFeature = props => {
 };
 
 const mapStateToProps = state => {
-  // console.log('featureState', state);
-  // console.log('name', state.store.name, 'price', state.store.price);
   return {
     carFeatures: state.store,
     carFeatureName: state.store.name,
