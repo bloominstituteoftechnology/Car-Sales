@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {useState, useReducer} from 'react';
+import {initialState, todoReducer} from '../reducers/todoReducer'
+import { connect } from 'react-redux'
+import {buyFeature} from '../actions'
 import AdditionalFeature from './AdditionalFeature';
 
 const AdditionalFeatures = props => {
@@ -18,4 +21,14 @@ const AdditionalFeatures = props => {
   );
 };
 
-export default AdditionalFeatures;
+
+const mapStateToProps = state => {
+  console.log('header state',state)
+  return {
+    store: state.store,
+  }
+}
+export default connect(
+mapStateToProps,
+{buyFeature}
+)(AdditionalFeatures);
