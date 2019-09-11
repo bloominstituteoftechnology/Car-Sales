@@ -5,10 +5,16 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "add": "^2.0.6",
     "bulma": "0.7.5",
+    "node-sass": "^4.12.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-scripts": "3.0.1"
+    "react-redux": "^7.1.0",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.4",
+    "redux-starter-kit": "^0.6.3",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
     "typescript": "3.3.3"
