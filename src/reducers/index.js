@@ -25,7 +25,7 @@ export const carReducer = (state = initialState, action) => {
             };
         case "REMOVE_FEATURE":
             console.log("remove done");
-            return
+            return {
                 ...state,
                 additionalPrice: state.additionalPrice - action.payload.price,
                 car: {
