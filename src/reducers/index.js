@@ -25,5 +25,7 @@ export const carSalesReducer = (state = initialState, action) => {
                     features: [action.payload]
                 }
             }
+            default:
+                return state;
     }
 }

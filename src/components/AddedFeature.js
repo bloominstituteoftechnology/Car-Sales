@@ -1,4 +1,10 @@
 import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { buyNewItem } from '../actions';
+
+  console.log(props)
+  const [featureState, setFeatureState] = useState([])
 
 const AddedFeature = props => {
   return (
@@ -9,5 +15,10 @@ const AddedFeature = props => {
     </li>
   );
 };
+const mapStateToProps = state => {
+  return {
+    features: state.car.features
+  }
+}
 
-export default AddedFeature;
+export default connect(mapStateToProps, {})(AddedFeature);
