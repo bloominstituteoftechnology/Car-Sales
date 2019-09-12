@@ -2,7 +2,7 @@ import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
 
 const AdditionalFeatures = props => {
-  console.log(props)
+  console.log('props in AdditionalFeatures: ', props)
 
   return (
     <div className="content">
@@ -10,8 +10,8 @@ const AdditionalFeatures = props => {
       {props.store.length ? (
         <ol type="1">
           {props.store.map(item => (
-                 <AdditionalFeature key={item.id} buyItem={props.buyItem} feature={item} />
-          ))}
+            <AdditionalFeature key={item.id} buyItem={props.buyItem} car={props.car} feature={item} />
+            ))}
         </ol>
       ) : (
         <p>Nice looking car!</p>

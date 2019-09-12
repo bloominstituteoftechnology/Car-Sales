@@ -1,11 +1,10 @@
 import React from 'react';
-import React, { useState } from 'react';
 
 
 import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
-  console.log(props)
+  console.log('props in AddedFeatures: ', props)
 
 
   return (
@@ -14,8 +13,8 @@ const AddedFeatures = props => {
       {props.car.features.length ? (
         <ol type="1">
           {props.car.features.map(item => (
-            <AddedFeature key={item.id} feature={item} />
-          ))}
+            <AddedFeature key={item.id} car={props.car} removeItem={props.removeItem} feature={item} />
+            ))}
         </ol>
       ) : (
         <p>You can purchase items from the store.</p>
