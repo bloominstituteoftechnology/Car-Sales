@@ -21,7 +21,7 @@ export const carSalesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 car: {
-                    ...car,
+                    ...state.car,
                     features: [action.payload]
                 }
             }
