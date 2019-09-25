@@ -24,25 +24,36 @@ export const featuresReducer = (state = initialState, action) => {
     case ADD_FEATURE:
       return {
         ...state,
-        features: [...state.features, action.payload]
+        car: {
+          ...car,
+          features: [...state.car.features, action.payload]
+        }
       };
     case REMOVE_FEATURE:
       return {
         ...state,
-        features: state.features.filter(
-          feature => feature.id !== action.payload
-        )
+        car: {
+          ...car,
+          features: state.features.filter(
+            feature => feature.id !== action.payload
+          )
+        }
       };
     default:
       return state;
   }
 };
 
-export const priceReducer = () => {
-  return {
-    ...state,
-    additionalPrice: state.features.reduce( (feature, acc) => {
-      return feature.price + acc; 
-    }, 0);
-  };
+export const priceReducer = (state=initialState, action) => {
+  switch( action.type ) {
+    case UPDATE_ADDITIONAL_PRICE:
+      return {
+        ...state,
+        additionalPrice: state.car.features.reduce( (feature, acc) => {
+          return feature.price + acc; 
+        }, 0);
+      };
+    default:
+      return state;
+  }
 };
