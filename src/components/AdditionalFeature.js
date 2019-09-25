@@ -2,13 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { addFeature } from "../actions";
-import { updateAdditionalPrice } from "../actions";
+import { addFeaturePrice } from "../actions";
 
 const AdditionalFeature = props => {
   const addFeature = e => {
     e.preventDefault();
     props.addFeature(props.feature);
-    props.updateAdditionalPrice();
+    props.addFeaturePrice(props.feature.price);
   };
 
   return (
@@ -24,5 +24,5 @@ const AdditionalFeature = props => {
 
 export default connect(
   null,
-  { addFeature, updateAdditionalPrice }
+  { addFeature, addFeaturePrice }
 )(AdditionalFeature);

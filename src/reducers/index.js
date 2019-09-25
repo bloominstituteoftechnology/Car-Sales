@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
 import { ADD_FEATURE } from "../actions";
 import { REMOVE_FEATURE } from "../actions";
-import { UPDATE_ADDITIONAL_PRICE } from "../actions";
+import { ADD_FEATURE_PRICE } from "../actions";
+import { REMOVE_FEATURE_PRICE } from "../actions";
 
 const initialState = {
   additionalPrice: 0,
@@ -47,12 +48,15 @@ export const featuresReducer = (state = initialState, action) => {
 
 export const priceReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_ADDITIONAL_PRICE:
+    case ADD_FEATURE_PRICE:
       return {
         ...state,
-        additionalPrice: state.car.features.reduce((feature, acc) => {
-          return feature.price + acc;
-        }, 0)
+        additionPrice: state.additionalPrice + action.payload
+      };
+    case REMOVE_FEATURE_PRICE:
+      return {
+        ...state,
+        additionPrice: state.additionalPrice - action.payload
       };
     default:
       return state;
