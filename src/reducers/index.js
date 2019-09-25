@@ -1,3 +1,4 @@
+import { combineReducers } from "redux";
 import { ADD_FEATURE } from "../actions";
 import { REMOVE_FEATURE } from "../actions";
 import { UPDATE_ADDITIONAL_PRICE } from "../actions";
@@ -25,7 +26,7 @@ export const featuresReducer = (state = initialState, action) => {
       return {
         ...state,
         car: {
-          ...car,
+          ...state.car,
           features: [...state.car.features, action.payload]
         }
       };
@@ -33,7 +34,7 @@ export const featuresReducer = (state = initialState, action) => {
       return {
         ...state,
         car: {
-          ...car,
+          ...state.car,
           features: state.features.filter(
             feature => feature.id !== action.payload
           )
@@ -44,16 +45,21 @@ export const featuresReducer = (state = initialState, action) => {
   }
 };
 
-export const priceReducer = (state=initialState, action) => {
-  switch( action.type ) {
+export const priceReducer = (state = initialState, action) => {
+  switch (action.type) {
     case UPDATE_ADDITIONAL_PRICE:
       return {
         ...state,
-        additionalPrice: state.car.features.reduce( (feature, acc) => {
-          return feature.price + acc; 
-        }, 0);
+        additionalPrice: state.car.features.reduce((feature, acc) => {
+          return feature.price + acc;
+        }, 0)
       };
     default:
       return state;
   }
 };
+
+export default combineReducers({
+  featuresReducer,
+  priceReducer
+});
