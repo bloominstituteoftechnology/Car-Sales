@@ -15,7 +15,7 @@ const Header = props => {
 
 const mapStateToProps = state => {
   return {
-    carFromProps: state.featuresReducer.car
+    car: state.featuresReducer.car
   };
 };
 
