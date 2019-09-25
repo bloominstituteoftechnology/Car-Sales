@@ -51,12 +51,12 @@ export const priceReducer = (state = initialState, action) => {
     case ADD_FEATURE_PRICE:
       return {
         ...state,
-        additionPrice: state.additionalPrice + action.payload
+        additionalPrice: state.additionalPrice + action.payload
       };
     case REMOVE_FEATURE_PRICE:
       return {
         ...state,
-        additionPrice: state.additionalPrice - action.payload
+        additionalPrice: state.additionalPrice - action.payload
       };
     default:
       return state;
