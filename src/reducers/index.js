@@ -1,25 +1,48 @@
-import { ADD_FEATURE } from '../actions';
-import { REMOVE_FEATURE } from '../actions';
-import { UPDATE_ADDITIONAL_PRICE } from '../actions';
+import { ADD_FEATURE } from "../actions";
+import { REMOVE_FEATURE } from "../actions";
+import { UPDATE_ADDITIONAL_PRICE } from "../actions";
 
 const initialState = {
   additionalPrice: 0,
   car: {
     price: 26395,
-    name: '2019 Ford Mustang',
+    name: "2019 Ford Mustang",
     image:
-      'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
+      "https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg",
     features: []
   },
   store: [
-    { id: 1, name: 'V-6 engine', price: 1500 },
-    { id: 2, name: 'Racing detail package', price: 1500 },
-    { id: 3, name: 'Premium sound system', price: 500 },
-    { id: 4, name: 'Rear spoiler', price: 250 }
+    { id: 1, name: "V-6 engine", price: 1500 },
+    { id: 2, name: "Racing detail package", price: 1500 },
+    { id: 3, name: "Premium sound system", price: 500 },
+    { id: 4, name: "Rear spoiler", price: 250 }
   ]
 };
- 
 
-const featuresReducer;
+export const featuresReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_FEATURE:
+      return {
+        ...state,
+        features: [...state.features, action.payload]
+      };
+    case REMOVE_FEATURE:
+      return {
+        ...state,
+        features: state.features.filter(
+          feature => feature.id !== action.payload
+        )
+      };
+    default:
+      return state;
+  }
+};
 
-const priceReducer;
+export const priceReducer = () => {
+  return {
+    ...state,
+    additionalPrice: state.features.reduce( (feature, acc) => {
+      return feature.price + acc; 
+    }, 0);
+  };
+};
