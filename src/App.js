@@ -38,7 +38,7 @@ const App = () => {
         <AddedFeatures />
       </div>
       <div className="box">
-        <AdditionalFeatures store={state.store} />
+        <AdditionalFeatures />
         <Total />
       </div>
     </div>
