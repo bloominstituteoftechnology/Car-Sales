@@ -14,3 +14,7 @@ export const removeFeature = featureId => {
 export const addFeaturePrice = price => {
   return { type: ADD_FEATURE_PRICE, payload: price };
 };
+
+export const removeFeaturePrice = price => {
+  return { type: REMOVE_FEATURE_PRICE, payload: price };
+};
