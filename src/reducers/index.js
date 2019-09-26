@@ -1,4 +1,4 @@
-import { REMOVE_FEATURE } from '../actions';
+import { REMOVE_FEATURE, BUY_ITEM } from '../actions';
 
 const initialState = {
   additionalPrice: 0,
@@ -22,11 +22,28 @@ export default initialState;
 export const carReducer = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
+    case BUY_ITEM:
+      return {
+        ...state,
+        additionalPrice: (state.additionalPrice += action.payload.price),
+        car: {
+          ...state.car,
+          features: [...state.car.features, action.payload]
+        }
+      };
     case REMOVE_FEATURE:
       return {
         ...state,
-        store: action.payload
-      };
+        additionalPrice: (state.additionalPrice -= action.payload.price),
+        car: {
+          ...state.car,
+          features: state.car.features.filter(cv => {
+            if (cv.id !== action.payload.id) {
+              return cv;
+            }
+          })
+        }
+      }
     default:
       return state;
   }
