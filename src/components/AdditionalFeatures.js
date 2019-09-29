@@ -1,5 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux'
 import AdditionalFeature from './AdditionalFeature';
+import { addFeatureAction } from '../actions/actionsIndex';
 
 const AdditionalFeatures = props => {
   return (
@@ -8,7 +10,7 @@ const AdditionalFeatures = props => {
       {props.store.length ? (
         <ol type="1">
           {props.store.map(item => (
-            <AdditionalFeature key={item.id} feature={item} />
+            <AdditionalFeature key={item.id} feature={item} buyItem={props.buyItem} />
           ))}
         </ol>
       ) : (
