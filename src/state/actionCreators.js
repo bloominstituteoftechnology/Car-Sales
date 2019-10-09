@@ -9,11 +9,11 @@ export function buyItem(item) {
   };
 }
 
-export function removeFeature(featureId) {
+export function removeFeature(item) {
     return {
       type: types.REMOVE_FEATURE,
       payload: {
-        featureId: featureId,
+        item: item,
       },
     };
   }
