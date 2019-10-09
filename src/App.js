@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -8,7 +8,8 @@ import Total from './components/Total';
 
 import * as actions from './state/actionCreators';
 
-const App = ({ vehicle }) => {
+const App = () => {
+  const vehicle = useSelector(state => state.vehicle);
   return (
     <div className="boxes">
       <div className="box">
@@ -23,7 +24,4 @@ const App = ({ vehicle }) => {
   );
 };
 
-export default connect(
-  state => state,
-  actions,
-)(App);
+export default App;
