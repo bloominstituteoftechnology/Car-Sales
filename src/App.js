@@ -8,7 +8,7 @@ import Total from './components/Total';
 
 import * as actions from './state/actionCreators';
 
-const App = ({ buyItem, removeFeature, vehicle }) => {
+const App = ({ vehicle }) => {
   return (
     <div className="boxes">
       <div className="box">
