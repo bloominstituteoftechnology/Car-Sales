@@ -1,11 +1,5 @@
 import * as types from './actionTypes';
-// rename the reducer, give it a unique name
-// export the reducer
-// make sure the reducer is a "pure" function
-// NO RANDOMNESS no uuid() no moment.js no Math.random()
-// which takes state (slice) and an action
-// and returns FRESH NEW STATE (slice)
-// we need a default parameter to supply the initial value for the slice
+
 const initialState = {
     additionalPrice: 0,
     car: {
