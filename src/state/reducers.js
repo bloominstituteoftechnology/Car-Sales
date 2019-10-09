@@ -25,19 +25,21 @@ const initialState = {
 
 export function vehicleReducer(state = initialState, action) {
   switch (action.type) {
+    case types.BUY_ITEM:
+      debugger
+      return {
+          ...state,
+          car: {
+              ...state.car,
+              features: state.car.features.concat(action.payload.item)
+          },
+      };
     case types.REMOVE_FEATURE:
       return {
           ...state,
           car: {
               features: state.car.features.filter(feature => feature.id !== action.payload.id)
           }
-      };
-    case types.BUY_ITEM:
-      return {
-          ...state,
-          car: {
-              features: state.car.features.push(action.payload)
-          },
       };
     default:
       return state;
