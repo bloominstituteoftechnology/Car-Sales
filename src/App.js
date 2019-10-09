@@ -1,12 +1,10 @@
 import React from 'react';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-
-import * as actions from './state/actionCreators';
 
 const App = () => {
   const vehicle = useSelector(state => state.vehicle);
