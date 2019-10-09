@@ -14,7 +14,7 @@ Commit your code regularly and meaningfully. This helps both you and your team l
 
 ## Description
 
-In this project you will build out a application to show the nasa photo of the day.
+In this project you will implement Redux to manage the state for this React application.
 
 ## Project Set Up
 
