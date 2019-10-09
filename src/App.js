@@ -1,5 +1,6 @@
 import React from 'react';
 import { combineReducers, createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -36,6 +37,11 @@ const App = () => {
   const rootReducer = combineReducers({
     vehicle: reducers.vehicleReducer,
   });
+
+  const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  );
 
   return (
     <div className="boxes">
