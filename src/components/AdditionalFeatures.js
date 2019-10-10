@@ -5,7 +5,7 @@ import AdditionalFeature from './AdditionalFeature';
 const AdditionalFeatures = ({ state }) => {
   return (
     <div className="content">
-      <h4>Additional Features</h4>
+      <h4>Additional Features :</h4>
       {state.store.length ? (
         <ol type="1">
           {state.store.map(item => (
