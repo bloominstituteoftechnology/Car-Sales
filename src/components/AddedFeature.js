@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../state/actionCreator';
 
-const AddedFeature = ({feature, deleteFeature}) => {
+export const AddedFeature = ({feature, deleteFeature}) => {
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
