@@ -22,7 +22,7 @@ const initialState = {
 
 // reducer here
 
-function carReducer( state = initialState, action) {
+export function carReducer( state = initialState, action) {
     switch (action.type) {
         case types.ADD_FEATURE:
             return {
