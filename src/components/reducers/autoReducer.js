@@ -1,4 +1,4 @@
-import {ADD_FEATURE, REMOVE} from '../actions/index'
+import {add_feature, REMOVE} from '../actions/index'
 
 const initialState = {
     additionalPrice: 0,
@@ -18,35 +18,36 @@ const initialState = {
   };
 //state = initialState, initialstate is default, will not need to export state anymore
     export const autoReducer = (state = initialState, action) => {
+      console.log(`reducer`, action)
         switch(action.type){
-          case 'ADD_FEATURE':
-            return{
-            ...state,
-            features: [...state.car.features, state.store.id]
-            }
-            
-          case 'ADD_FEATURE':
-            return{
-              ...state,
-              features: [...state.car.features, state.store.id]
-            }
-        //   case 'REMOVE_FEATURE':
-        //     //add to an array
-        //     const newT = {
-        //       task: action.payload,
-        //       completed: false,
-        //       id:Math.random()*10
-        //     }
-        //     return{
-        //     ...state,
-        //     todo: [...state.todo, newT]
-        //       }
-        //   case 'REMOVE_FEATURE':
-        //       return{
-        //         ...state,
-        //         todo: state.todo.filter(item =>
-        //         !item.completed)
-        //       }
+          case add_feature:
+            //action.payload is store.{} that was selected
+            //destructure action.payload, pull out price
+              const { price } = action.payload;
+              if (!state.car.features.includes(action.payload)) {
+                return {
+                  ...state,
+                  additionalPrice: (state.additionalPrice += price),
+                  car: {
+                    ...state.car,
+                    features: [...state.car.features, action.payload]
+                  }
+                };
+              } else {
+                return state;
+              }
+              case REMOVE:
+              
+              // const { price, id } = action.payload;
+              // return {
+              //   ...state,
+              //   additionalPrice: (state.additionalPrice -= price),
+              //   car: {
+              //     ...state.car,
+              //     features: state.car.features.filter(feature => feature.id !== id)
+              //   }
+              // };
+       
           default:
             return state;
         }

@@ -10,12 +10,13 @@
 // event has occured and how it should update the state
 
 export const ADD_FEATURE = 'ADD_FEATURE'
-export const add_feature = id => {
-    return { type: ADD_FEATURE, payload: id }
+export const add_feature = (item) => {
+    console.log(`add feature`, item)
+    return { type: ADD_FEATURE, payload: item }
 };
 
 
 export const REMOVE = 'REMOVE'
-export const remove_feature = id => {
-    return { type: REMOVE, payload: id }
+export const remove_feature = item => {
+    return { type: REMOVE, payload: item }
 };

@@ -1,13 +1,15 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
+import { connect } from 'react-redux';
 
 const AdditionalFeatures = props => {
+  console.log(`additional features`, props)
   return (
     <div className="content">
       <h4>Additional Features</h4>
-      {props.store.length ? (
+      {props.features.length ? (
         <ol type="1">
-          {props.store.map(item => (
+          {props.features.map(item => (
             <AdditionalFeature key={item.id} feature={item} />
           ))}
         </ol>
@@ -18,4 +20,15 @@ const AdditionalFeatures = props => {
   );
 };
 
-export default AdditionalFeatures;
+const mapStateToProps = state => {
+  //what props I want available in the component
+  //will need to pass in props above to get access
+  return{
+    features: state.store
+  }
+}
+
+
+export default connect(
+  mapStateToProps,
+)(AdditionalFeatures);

@@ -1,16 +1,25 @@
 import React from 'react';
 
 import { connect } from 'react-redux'; //access to redux store
-import { ADD_FEATURE } from '../components/actions/index';
+import { add_feature } from '../components/actions/index';
 
 const AdditionalFeature = props => {
-  console.log(props)
+  console.log(`additional feature props`,props)
+
+  // onClick={e => {
+  //   e.preventDefault();
+  //   props.dispatch({ type: "COMPLETED" });
+  // }}
+  
+  
   return (
+    <>
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button" onClick={() => props.ADD_FEATURE(props.id)}>Add</button>
-      {props.name} (+{props.price})
+      <button className="button" onClick={()=> {props.add_feature(props.feature)}}>Add</button>
+      {props.feature.name} (+{props.feature.price})
     </li>
+    </>
   );
 };
 
@@ -18,14 +27,13 @@ const mapStateToProps = state => {
   //what props I want available in the component
   //will need to pass in props above to get access
   return{
-    name: state.car.name,
-    price: state.car.price,
-    id: state.car.id
+    //store: state.store.map(e => e.name)
+    add: state.reducer
   }
 }
 
 //connection
 export default connect(
   mapStateToProps,
-  { ADD_FEATURE  }
-)(AdditionalFeature);;
+  { add_feature  }
+)(AdditionalFeature);
