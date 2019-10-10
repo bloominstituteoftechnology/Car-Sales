@@ -1,4 +1,4 @@
-import { ADD_FEATURE, DELETE_FEATURE } from "./actionType";
+import * as types from "./actionType";
 
 // added initialState to initial value for our slice! 
 
@@ -24,11 +24,31 @@ const initialState = {
 
 function carReducer( state = initialState, action) {
     switch (action.type) {
-        case ADD_FEATURE:
-            return ;
-        case DELETE_FEATURE:
-            return ;
+        case types.ADD_FEATURE:
+            return {
+                ...state,
+                additionalPrice: action.payload.price,
+                car: {
+                ...state.car,
+                  price: state.car.price + state.additionalPrice,
+                  features: [ ...state.car.features, {
+                    id: action.payload.id,
+                    name: action.payload.name,
+                    price: action.payload.price
+                  }]
+                }
+              };
+        case types.DELETE_FEATURE:
+                return {
+                    ...state,
+                    additionalPrice: - action.payload.price,
+                    car: {
+                      ...state.car,
+                      price: state.car.price + state.additionalPrice,
+                      features: state.car.features.filter(item => item.id !== action.payload.id)
+                    }
+                };
         default:
-            return ;
+            return state;
     }
 }
