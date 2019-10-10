@@ -9,13 +9,16 @@ import ReactDOM from 'react-dom';
 import {createStore} from 'redux'
 import{Provider} from 'react-redux'
 
+//import reducers
+import {autoReducer} from './components/reducers/autoReducer'
 function reducer(){
   return{
       title: 'Hello'
   }
 }
 
-const store = createStore(reducer)
+const store = createStore(autoReducer)
+console.log(store.getState())
 
 const App = () => {
   const state = {
