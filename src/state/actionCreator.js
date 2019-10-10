@@ -1,6 +1,6 @@
 import { ADD_FEATURE, DELETE_FEATURE } from "./actionType";
 
-// Step 7 - Action creators: We activate our reducers
+// Step 7 - Action creators: Power up our reducers
 
 export function addFeature (item) {
     return { 
