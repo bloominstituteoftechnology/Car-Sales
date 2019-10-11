@@ -1,4 +1,4 @@
-import {add_feature, REMOVE} from '../actions/index'
+import {ADD_FEATURE, REMOVE} from '../actions/index'
 
 const initialState = {
     additionalPrice: 0,
@@ -20,36 +20,58 @@ const initialState = {
     export const autoReducer = (state = initialState, action) => {
       console.log(`reducer`, action)
         switch(action.type){
-          case add_feature:
+          case ADD_FEATURE:
             //action.payload is store.{} that was selected
             //destructure action.payload, pull out price
-              const { price } = action.payload;
               if (!state.car.features.includes(action.payload)) {
+                const { price } = action.payload;
                 return {
                   ...state,
                   additionalPrice: (state.additionalPrice += price),
                   car: {
                     ...state.car,
                     features: [...state.car.features, action.payload]
-                  }
+                  },
+                  store: state.store.filter(e => {
+                    if(e.id === action.payload.id){
+                      return false
+                    } else {
+                      return true
+                    }
+                  })
                 };
               } else {
                 return state;
               }
               case REMOVE:
-              
-              // const { price, id } = action.payload;
-              // return {
-              //   ...state,
-              //   additionalPrice: (state.additionalPrice -= price),
-              //   car: {
-              //     ...state.car,
-              //     features: state.car.features.filter(feature => feature.id !== id)
-              //   }
-              // };
+              //if (!state.car.features.includes(action.payload)) {
+                console.log(`payload`, action.payload)
+                const { price, id } = action.payload;
+              return {
+                ...state,
+                additionalPrice: (state.additionalPrice -= price),
+                car: {
+                  ...state.car,
+                  features: state.car.features.filter(e => {
+                    return (e.id !== action.payload.id)
+                    })
+                  },
+                store: [
+                ...state.store, action.payload]
+              }
+                // store: 
+                // state.store.map
+                //   state.store.push(e =>{
+                //     if(e.id === action.payload.id){
+                //       return false
+                //     } else {
+                //       return true
+                //     }
+                //   }
        
           default:
             return state;
         }
       }
+  
       

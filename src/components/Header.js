@@ -13,6 +13,7 @@ const Header = props => {
   );
 };
 const mapStateToProps = state => {
+  console.log(state)
   //what props I want available in the component
   //will need to pass in props above to get access
   return{

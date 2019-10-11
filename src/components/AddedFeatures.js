@@ -4,15 +4,16 @@ import { connect } from 'react-redux';
 import AddedFeature from './AddedFeature';
 
 
-const AddedFeatures = props => {
-  console.log(`Added Features`, props.features.length)
-  console.log(`Added Features`, props.features)
+const AddedFeatures = ({features})=> {
+  console.log(`Added Features`, features.length)
+  console.log(`Added Features`, features)
+
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {props.features.length ? (
+      {features.length ? (
         <ol type="1">
-          {props.features.map(item => (
+          {features.map(item => (
             <AddedFeature key={item.id} feature={item} />
           ))}
         </ol>

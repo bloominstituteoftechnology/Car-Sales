@@ -3,11 +3,11 @@
 // we can now import from the directory instead of the file 😃
 import { combineReducers } from 'redux';
 
-import {autoReducer as Auto } from './autoReducer';
+import {autoReducer} from './autoReducer';
 
 // export const reducer = combineReducers({})
 
 export default combineReducers({
-  Auto
+  autoReducer
   // otherReducers
 });

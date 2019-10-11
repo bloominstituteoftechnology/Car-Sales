@@ -1,22 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-import 'bulma/css/bulma.css';
-import './styles.scss';
-import{Provider} from 'react-redux'
-import {createStore} from 'redux'
+import "bulma/css/bulma.css";
+import "./styles.scss";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 
-import {autoReducer} from './components/reducers/autoReducer'
-function reducer(){
-  return{
-      title: 'Hello'
-  }
-}
+import {autoReducer} from "./reducers/autoReducer";
 
-const store = createStore(autoReducer)
+const store = createStore(autoReducer);
+console.log(store)
 
-const rootElement = document.getElementById('root');
-ReactDOM.render(<Provider store={store}>
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  <Provider store={store}>
     <App />
-    </Provider>, rootElement);
+  </Provider>,
+  rootElement
+);

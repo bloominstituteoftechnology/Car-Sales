@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux'; //access to redux store
-import { add_feature } from '../components/actions/index';
+import { add_feature } from '../actions/index';
 
 const AdditionalFeature = props => {
   console.log(`additional feature props`,props)
@@ -23,17 +23,18 @@ const AdditionalFeature = props => {
   );
 };
 
-const mapStateToProps = state => {
-  //what props I want available in the component
-  //will need to pass in props above to get access
-  return{
-    //store: state.store.map(e => e.name)
-    add: state.reducer
-  }
-}
+// const mapStateToProps = state => {
+//   console.log(state)
+//   //what props I want available in the component
+//   //will need to pass in props above to get access
+//   return{
+//     store: state.store.map(e => e.name)
+//     //add: state.reducer
+//   }
+// }
 
 //connection
 export default connect(
-  mapStateToProps,
+  null,
   { add_feature  }
 )(AdditionalFeature);
