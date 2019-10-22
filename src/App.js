@@ -4,7 +4,7 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import { addItem, removeFeature } from './components/actions/remove'
+import { addItem, removeFeature } from './actions/remove'
 
 const App = (props) => {
   const state = {
@@ -47,10 +47,21 @@ const App = (props) => {
 };
 
 
-function mapStateToProps () {
+function mapStateToProps (state) {
   return {
-
+    add: state.add.add,
+    remove: state.add.remove
   }
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+  return {
+    addItem,
+    removeFeature
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+  )(App);
