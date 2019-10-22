@@ -47,18 +47,17 @@ const App = (props) => {
 };
 
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     add: state.add.add,
     remove: state.add.remove
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
+// when key:value are the same, can just call the key.
+const mapDispatchToProps = {
     addItem,
     removeFeature
-  }
 }
 
 export default connect(

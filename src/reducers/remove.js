@@ -1,14 +1,15 @@
 import { ADD_ITEM, REMOVE_FEATURE } from '../actions/remove';
 
 const initialState = {
-    removeFeatures:
+    removeFeatures: false
 }
 
 export function reducer(state = initialState, action) {
     switch (action.type) {
         case ADD_ITEM:
             return {
-                ...state
+                ...state,
+                removeFeatures: !state.removeFeatures
             }
             case REMOVE_FEATURE:
                 return {

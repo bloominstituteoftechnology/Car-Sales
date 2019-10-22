@@ -11,3 +11,20 @@ const AddedFeature = props => {
 };
 
 export default AddedFeature;
+
+
+// import { connect } from 'react-redux';
+
+// function mapStateToProps(state) {
+//   return {
+//     enabled: state.add.remove
+//   }
+// }
+
+// const mapDispatchToProps = {
+//   remove: removeFeatures
+// }
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )()

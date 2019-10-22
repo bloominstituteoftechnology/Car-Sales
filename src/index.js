@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, } from 'redux';
-import { Provider } from 'react-redux'
-import { reducer } from './reducers'
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import { reducer as addReducer } from './reducers/add';
+import { reducer as removeReducer } from './reducers/remove';
 
 import App from './App';
 
 import 'bulma/css/bulma.css';
 import './styles.scss';
 
-const store = createStore(reducer);
+const rootReducer = combineReducers({
+    add: addReducer,
+    remove: removeReducer
+})
+
+const store = createStore(rootReducer);
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

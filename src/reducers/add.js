@@ -1,7 +1,7 @@
 import { ADD_ITEM } from '../actions/add'
 
 const initialState = {
-    addItems: 
+    addItems: false
 }
 
 export function reducer(state = initialState, action) {
