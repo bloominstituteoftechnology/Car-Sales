@@ -51,7 +51,7 @@ Follow these steps for completing your project.
 **Step 1 - Planning 📝**
 
 - Take a good amount of time to familiarize yourself with the project structure. Figure out what data you have and where it's being used (Pen and paper or a whiteboard will be your best friend here!)
-- Plan out your state management structure as mentioned above. The only requirment is that you _must_ use Redux
+- Plan out your state management structure as mentioned above. The only requirement is that you _must_ use Redux
 - Write out the steps you think you'll need to complete this project. It seems silly, but doing this with every project will help you grow into a better developer a lot faster.
 - Take note of the few comments throughout the app. They are there as little guides to nudge you in the right direction. You're welcome 😉
 
@@ -78,7 +78,7 @@ write the reducer logic for the actions 👉 Rinse and repeat
 
 Do not attempt stretch problems until MVP has been reached and a final commit has been made.
 
-- Use Redux hooks instead of HOCs
+- Use Redux hooks instead of HOCs (higher order components)
 - Implement React-Router and add a starter page where the user can choose a car. Each car should have different features that have different pricing. Have fun with this! It could end up being really cool.
 - Look into the docs for Bulma and change up the styling.
 - Implement an API from one of these sites [here](https://www.google.com/search?q=car+sales+api&rlz=1C5CHFA_enUS809US809&oq=car+sales+api&aqs=chrome..69i57j0l5.3580j0j1&sourceid=chrome&ie=UTF-8). I don't know if there are any good open APIs for this, so explore around. Check out what data these APIs return, and what you think would be fun to work with. The sky is the limit here!
