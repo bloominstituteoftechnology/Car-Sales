@@ -54,7 +54,7 @@ Follow these steps for completing your project.
 - Plan out your state management structure as mentioned above. The only requirment is that you _must_ use Redux
 - Write out the steps you think you'll need to complete this project. It seems silly, but doing this with every project will help you grow into a better developer a lot faster.
 - Take note of the few comments throughout the app. They are there as little guides to nudge you in the right direction. You're welcome 😉
-
+make a reducer, make state, do redux stuff, do some actions, make a store
 **Step 2 - And... Action! 🎬**
 
 - Time to get your hands on your keyboard. Look at the first step you wrote down and start implementing!
