@@ -4,45 +4,65 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import {connect} from "react-redux"
+import { addItem, removeItem } from "./actions/actions"
 
-const App = () => {
-  const state = {
-    additionalPrice: 0,
-    car: {
-      price: 26395,
-      name: '2019 Ford Mustang',
-      image:
-        'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
-      features: []
-    },
-    additionalFeatures: [
-      { id: 1, name: 'V-6 engine', price: 1500 },
-      { id: 2, name: 'Racing detail package', price: 1500 },
-      { id: 3, name: 'Premium sound system', price: 500 },
-      { id: 4, name: 'Rear spoiler', price: 250 }
-    ]
-  };
+const App = (props) => {
+
+  // const state = {
+  //   additionalPrice: 0,
+  //   car: {
+  //     price: 26395,
+  //     name: '2019 Ford Mustang',
+  //     image:
+  //       'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
+  //     features: []
+  //   },
+  //   additionalFeatures: [
+  //     { id: 1, name: 'V-6 engine', price: 1500 },
+  //     { id: 2, name: 'Racing detail package', price: 1500 },
+  //     { id: 3, name: 'Premium sound system', price: 500 },
+  //     { id: 4, name: 'Rear spoiler', price: 250 }
+  //   ]
+  // };
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
+    removeItem(item);
   };
 
   const buyItem = item => {
     // dipsatch an action here to add an item
+    addItem(item);
   };
 
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+        <Header car={props.car} />
+        <AddedFeatures car={props.car} removeItem={props.removeItem} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} addItem = {props.addItem} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
   );
 };
 
-export default App;
+function mapStateToProps(state) {
+  return {
+
+    car: state.car,
+    additionalFeatures: state.additionalFeatures,
+    additionalPrice: state.additionalPrice
+
+  }
+}
+
+const mapDispatchToProps = {
+  addItem,
+  removeItem
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
