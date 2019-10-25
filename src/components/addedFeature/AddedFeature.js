@@ -10,4 +10,4 @@ const AddedFeature = props => {
   );
 };
 
-export default AddedFeature;
+export default (AddedFeature);
