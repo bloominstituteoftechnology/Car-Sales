@@ -1,8 +1,16 @@
-import React from 'react';
-import {connect} from "react-redux"
-import AddedFeature from './AddedFeature';
+import React from "react";
+// hook react up with redux
+import { connect } from "react-redux";
+import AddedFeature from "./AddedFeature";
 
-const AddedFeatures = ({car}) => {
+// action creator
+import { removeItem } from "../../actions/action";
+
+const AddedFeatures = ({ car ,  removeItem }) => {
+  const removeFeature = item => {
+    // dispatch an action here to remove an item
+    removeItem(item);
+  };
 
   return (
     <div className="content">
@@ -10,7 +18,11 @@ const AddedFeatures = ({car}) => {
       {car.features.length ? (
         <ol type="1">
           {car.features.map(item => (
-            <AddedFeature key={item.id} feature={item} />
+            <AddedFeature
+              key={item.id}
+              feature={item}
+              removeFeature={removeFeature}
+            />
           ))}
         </ol>
       ) : (
@@ -22,7 +34,14 @@ const AddedFeatures = ({car}) => {
 
 const mapStateToProps = store => {
   return {
-    car:store.car
-  }
-}
-export default connect(mapStateToProps)(AddedFeatures);
+    car: store.car
+  };
+};
+
+const mapDispatchToProps = {
+  removeItem
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddedFeatures);
