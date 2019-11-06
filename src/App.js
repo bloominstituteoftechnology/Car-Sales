@@ -30,7 +30,7 @@ const App = () => {
   const buyItem = item => {
     // dipsatch an action here to add an item
   };
-
+  
   return (
     <div className="boxes">
       <div className="box">
