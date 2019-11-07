@@ -1,7 +1,7 @@
-// import { ADD_FEATURE, DELETE_FEATURE } from "./actions";
+import { ADD_FEATURE, REMOVE_FEATURE } from "../actions/actions"
 
-export const initialState = { 
-// this is what was in App.js as the initial state. So therefor you have to change all of the state.whatever to props.whatever in App.js because you are passing it as props to App.js
+const initialState = {
+  // this is what was in App.js as the initial state. So therefor you have to change all of the state.whatever to props.whatever in App.js because you are passing it as props to App.js
   additionalPrice: 0,
   car: {
     price: 26395,
@@ -20,7 +20,7 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_FEATURE":
+    case ADD_FEATURE:
       console.log("It's working, it's working!", action.payload);
       return {
         ...state,
@@ -33,7 +33,7 @@ export const reducer = (state = initialState, action) => {
           return feature.id !== action.payload.id;
         })
       };
-    case "REMOVE_FEATURE":
+    case REMOVE_FEATURE:
       console.log(`REMOVE FEATURE: `, action.payload);
       return {
         ...state,
