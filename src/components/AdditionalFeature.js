@@ -1,19 +1,26 @@
 import React from 'react';
 import {connect} from "react-redux"
-import {add1500} from "../actions/actions"
+import {add} from "../actions/actions"
+
 
 const AdditionalFeature = props => {
+
+  const addFeat = (e) => {
+    add(e.target.value);
+  };
+  console.log(addFeat)
+
   return (
     <li>
-      {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button" >Add</button>
+      <button className="button" onClick={addFeat} type='button'>Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
 };
 
 const mapDispatchToProps = {
-add1500
+  add
+
 }
 
 export default connect( state => state, mapDispatchToProps)(AdditionalFeature)

@@ -1,30 +1,34 @@
-export const reducer = (state, action) => {
+import {add} from '../actions/actions'
+
+
+ const initialState = {
+  additionalPrice: 0,
+  car: {
+    price: 26395,
+    name: '2019 Ford Mustang',
+    image:
+      'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
+    features: []
+  },
+  additionalFeatures: [
+    { id: 1, name: 'V-6 engine', price: 1500 },
+    { id: 2, name: 'Racing detail package', price: 1500 },
+    { id: 3, name: 'Premium sound system', price: 500 },
+    { id: 4, name: 'Rear spoiler', price: 250 }
+  ]
+};
+
+
+export const reducer = (state = initialState, action) => {
+  console.log()
     switch (action.type) {
-        case "ADD_1500":
-            return {...state, price: state.price + 1500};
-        case "ADD_500":
-            return {...state, price: state.price + 500};
-        case "ADD_250":
-            return {...state, price: state.price + 250};
+        case add:
+             return {...state, 
+              features: state.car.features.includes(action.payload) ? [...state.car.features]:[...state.car.features,action.payload] };
         default:
             return state;        
     }
 };
 
-export const initialState = {
-    additionalPrice: 0,
-    car: {
-      price: 26395,
-      name: '2019 Ford Mustang',
-      image:
-        'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
-      features: []
-    },
-    additionalFeatures: [
-      { id: 1, name: 'V-6 engine', price: 1500 },
-      { id: 2, name: 'Racing detail package', price: 1500 },
-      { id: 3, name: 'Premium sound system', price: 500 },
-      { id: 4, name: 'Rear spoiler', price: 250 }
-    ]
-  };
+
 
