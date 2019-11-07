@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { addFeature } from "../actions/actions";
+// *** STEP FOUR - add events and event handlers ***
 
 const AdditionalFeature = props => {
   return (

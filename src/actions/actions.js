@@ -1,6 +1,7 @@
 export const ADD_FEATURE = "ADD_FEATURE";
 export const REMOVE_FEATURE = "REMOVE_FEATURE"; 
 export const UPDATE_TOTAL = "UPDATE_TOTAL";
+// *** STEP FIVE - build action creators and write logic ***
 // making these variable that way it helps with spelling errors
 
 export const addFeature = item => {

@@ -43,6 +43,7 @@ const mapStateToProps = state => {
   };
 };
 
+// *** STEP THREE - connect components ***
 export default connect(
   mapStateToProps,
   {}

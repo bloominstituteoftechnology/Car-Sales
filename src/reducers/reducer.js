@@ -1,7 +1,9 @@
-import { ADD_FEATURE, REMOVE_FEATURE } from "../actions/actions"
+import { ADD_FEATURE, REMOVE_FEATURE } from "../actions/actions";
 
 const initialState = {
-  // this is what was in App.js as the initial state. So therefor you have to change all of the state.whatever to props.whatever in App.js because you are passing it as props to App.js
+  // *** STEP ONE - set up reducer and initial state ***
+  // this is what was in App.js as the initial state
+  // therefor you have to change all of the state.whatever to props.whatever in App.js because you are passing it as props to App.js
   additionalPrice: 0,
   car: {
     price: 26395,

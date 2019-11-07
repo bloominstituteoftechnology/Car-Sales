@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
+// *** STEP TWO - set up store and provider ***
 import App from "./App";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
