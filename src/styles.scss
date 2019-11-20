@@ -7,6 +7,7 @@ body {
   display: grid;
   padding: 3em;
   place-items: center;
+  box-sizing: border-box;
 }
 .boxes {
   display: grid;
@@ -17,7 +18,7 @@ body {
 .box {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  // min-height: 100%;
   h1 {
     font-size: 20px;
     margin: 0 0 1rem 0;
