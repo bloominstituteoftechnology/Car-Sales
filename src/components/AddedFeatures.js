@@ -4,12 +4,15 @@ import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
   return (
-    <div className="content">
-      <h6>Added features:</h6>
+    
+    <div className="container">
+      <h6 className ="title is-size-5">Added features:</h6>
       {props.car.features.length ? (
-        <ol type="1">
+        <ol type="1">{
+          
+        }
           {props.car.features.map(item => (
-            <AddedFeature key={item.id} feature={item} />
+            <AddedFeature key={item.id} feature={item}removeFeatures={props.removeFeatures} />
           ))}
         </ol>
       ) : (
