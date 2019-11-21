@@ -1,4 +1,4 @@
-import {ADD, REMOVE, UPDATE_TOTAL} from '../actions/index';
+import { ADD, REMOVE, UPDATE_TOTAL } from "../actions/index";
 
 const initialState = {
   additionalPrice: 0,
@@ -35,7 +35,7 @@ export const featuresReducer = (state = initialState, action) => {
         car: {
           ...state.car,
           features: state.car.features.filter(
-            car => car.id !== action.payload.id
+            car => car.id != action.payload.id
           )
         }
       };
