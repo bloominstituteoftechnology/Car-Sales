@@ -1,8 +1,11 @@
-html, body, #root {
-  height: 100%;
-}
+@charset "utf-8";
+@import "../node_modules/bulma/bulma.sass";
+
+// html, body, #root {
+//   height: 100%;
+// }
 body {
-  background: #333;
+  background:cyan;
   margin: 0;
   display: grid;
   padding: 3em;

@@ -13,9 +13,44 @@ const App = ({ car, additionalFeatures, additionalPrice,addFeatures, removeFeatu
   
 
   return (
+    <>
+    <section className="section">
+    <div className="container ">
+      
+      <h1 class="center">
+        My Car Sales Redux with Bulma
+      </h1>
+      
+    </div>
+    
+  </section>
+
+  <section className="section">
+      <div className="container">
+        <div className="columns">
+          <div className="column">
+            <div className="notification is-link ">
+        <Header car={car} />
+        <AddedFeatures car={car} removeFeatures={removeFeatures} />
+        </div>
+        </div>
+        <div className="column">
+        <div className="notification is-primary ">
+        <AdditionalFeatures
+          additionalFeatures={additionalFeatures} addFeatures={addFeatures} />
+        </div>
+        </div>
+        </div>
+        </div>
+        </section>
+          <div className=" notification is-warning">
+        <Total car={car} additionalPrice={additionalPrice} />
+          </div>
+      
+      
     
 
-    <div className="boxes">
+    {/* <div className="boxes">
       <div className="box">
         <Header car={car} />
         <AddedFeatures car={car} removeFeatures={removeFeatures} />
@@ -27,7 +62,8 @@ const App = ({ car, additionalFeatures, additionalPrice,addFeatures, removeFeatu
         />
         <Total car={car} additionalPrice={additionalPrice} />
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
   
