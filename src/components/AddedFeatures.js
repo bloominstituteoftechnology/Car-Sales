@@ -5,7 +5,7 @@ import AddedFeature from './AddedFeature';
 const AddedFeatures = props => {
   return (
     
-    <div class="container">
+    <div className="container">
       <h6 className ="title is-size-5">Added features:</h6>
       {props.car.features.length ? (
         <ol type="1">{

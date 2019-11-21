@@ -17,7 +17,7 @@ const App = ({ car, additionalFeatures, additionalPrice,addFeatures, removeFeatu
     <section className="section">
     <div className="container ">
       
-      <h1 class="center">
+      <h1 className="center">
         My Car Sales Redux with Bulma
       </h1>
       
