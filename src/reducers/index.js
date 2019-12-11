@@ -47,7 +47,7 @@ const initialState = {
               const feat = [...state.additionalFeatures]
               const add = state.car.features.filter(item => {
                   if (item.id === action.payload) {
-                      feat.push(item)
+                      state.additionalFeatures.push(item)
                   }
               })
               const removed = state.car.features.filter(item => {
