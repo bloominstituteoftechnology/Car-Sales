@@ -16,8 +16,21 @@ const initialState = {
 }
 
 export const reducer = (state = initialState, action) => {
-    console.log(state, action);
+    // console.log(state, action);
     switch (action.type) {
+        case 'BUY_ITEM':
+                console.log(action.payload);
+                // console.log(state.features);
+            return {
+                ...state,
+                car: {
+                    ...state.car,
+                    features: [...state.car.features, action.payload]
+                }
+                // additionalFeatures: state.additionalFeatures.find(item => {
+                //     return item.id === action.payload.id;
+                // })
+            }
         default:
             return state;
     }
