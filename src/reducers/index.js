@@ -19,17 +19,20 @@ export const reducer = (state = initialState, action) => {
     // console.log(state, action);
     switch (action.type) {
         case 'BUY_ITEM':
-                console.log(action.payload);
+                console.log(action.payload.price);
                 // console.log(state.features);
             return {
                 ...state,
                 car: {
                     ...state.car,
-                    features: [...state.car.features, action.payload]
-                }
+                    features: [...state.car.features, action.payload.feature],
+                    price: state.car.price + action.payload.feature.price
+                },
                 // additionalFeatures: state.additionalFeatures.find(item => {
                 //     return item.id === action.payload.id;
                 // })
+                // additionalPrice: state.additionalPrice + state.car.features.find(item => item.id === action.payload).price
+                // additionalPrice: action.payload.price
             }
         case 'REMOVE_FEATURE':
                 // console.log(action.payload);
@@ -38,7 +41,7 @@ export const reducer = (state = initialState, action) => {
                 car: {
                     ...state.car,
                     features: state.car.features.filter(item => 
-                        item.id !== action.payload)
+                        item.id !== action.payload.feature.id)
                     // features: [...state.car.features, !action.payload]
                 }
             }
