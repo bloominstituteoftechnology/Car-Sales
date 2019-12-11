@@ -21,17 +21,17 @@ const initialState = {
 
   export const carReducer = (state = initialState, action) => {
       switch(action.type) {
-          case BUY_ITEM: {
-            return {
-                ...state
-            }
-          }
-          case REMOVE_ITEM : {
-              return {
-                  ...state
-              }
+        //   case BUY_ITEM: {
+        //     return {
+        //         ...state
+        //     }
+        //   }
+        //   case REMOVE_ITEM : {
+        //       return {
+        //           ...state
+        //       }
 
-          }
+        //   }
           default:
               return state;
       }
