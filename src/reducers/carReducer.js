@@ -20,7 +20,6 @@ const initialState = {
 export const carReducer = (state = initialState, action) => {
     switch (action.type){
         case ADD_FEATURE:
-            console.log('add feature called in reducer');
             return{
                 ...state,
                 additionalPrice: state.additionalPrice + action.payload.price,
