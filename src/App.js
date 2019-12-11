@@ -18,8 +18,8 @@ const App = (props) => {
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const mapStateToProps = state => {
   return {

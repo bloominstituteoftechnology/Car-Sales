@@ -11,13 +11,11 @@ const AdditionalFeature = props => {
       <button className="button" onClick={() => props.buyItem(props)}>Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
-  );
-};
+  )
+}
 
 const mapStateToProps = state => {
-  return {
-    additionalFeatures: state.additionalFeatures
-  }
+  return null
 }
 
 export default connect(mapStateToProps, { buyItem }) (AdditionalFeature);

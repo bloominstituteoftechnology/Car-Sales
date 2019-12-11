@@ -15,7 +15,7 @@ const AdditionalFeatures = props => {
         <p>Nice looking car!</p>
       )}
     </div>
-  );
-};
+  )
+}
 
 export default AdditionalFeatures;
