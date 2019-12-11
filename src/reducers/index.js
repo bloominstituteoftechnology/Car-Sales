@@ -15,7 +15,7 @@ const initialState = {
     ]
 }
 
-export const featureReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     console.log(state, action);
     switch (action.type) {
         default:
