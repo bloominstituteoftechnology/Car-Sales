@@ -1,4 +1,5 @@
 //actiontypes
+import {ADD_FEATURES, REMOVE_FEATURES} from "../actions"
 
 
 const initialState = {
@@ -21,12 +22,28 @@ const initialState = {
 
   export const carReducer = (state = initialState, action) => {
       switch(action.type) {
-        //   case BUY_ITEM: {
-        //     return {
-        //         ...state
-        //     }
-        //   }
-        //   case REMOVE_ITEM : {
+          case ADD_FEATURES: {
+            const allFeature = [...state.car.features]
+            const feature = state.additionalFeatures.map(item => {
+                if (item.id === action.payload) {
+                    allFeature.push(item)
+                }
+            })
+            const remaining = state.additionalFeatures.filter(item => {
+                if (item.id !== action.payload) {
+                    return item
+                }
+            })
+            return {
+                ...state,
+                car: {
+                    ...state.car,
+                    features: allFeature
+                },
+                additionalFeatures: remaining
+            }
+          }
+        //   case REMOVE_FEATURES: {
         //       return {
         //           ...state
         //       }

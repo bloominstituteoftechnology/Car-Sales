@@ -2,7 +2,7 @@
 
 export const ADD_FEATURES = "ADD_FEATURES"
 
-export const addFeatures = id = dispatch => {
+export const addFeatures = (id) => dispatch => {
     dispatch({type: ADD_FEATURES, payload: id})
 }
 
@@ -10,6 +10,6 @@ export const addFeatures = id = dispatch => {
 
 export const REMOVE_FEATURES = "REMOVE_FEATURES"
 
-export const removeFeatures = id = dispatch => {
+export const removeFeatures = (id) => dispatch => {
     dispatch({type: REMOVE_FEATURES, payload: id})
 }
