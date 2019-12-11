@@ -43,12 +43,29 @@ const initialState = {
                 additionalFeatures: remaining
             }
           }
-        //   case REMOVE_FEATURES: {
-        //       return {
-        //           ...state
-        //       }
+          case REMOVE_FEATURES: {
+              const feat = [...state.additionalFeatures]
+              const add = state.car.features.filter(item => {
+                  if (item.id === action.payload) {
+                      feat.push(item)
+                  }
+              })
+              const removed = state.car.features.filter(item => {
+                  if (item.id !== action.payload) {
+                      return item
+                  } 
+              })
+              return {
+                  ...state,
+                  car: {
+                      ...state.car,
+                      features: removed
+                  },
+                 additionalFeatures: feat
 
-        //   }
+              }
+
+          }
           default:
               return state;
       }
