@@ -1,9 +1,9 @@
 import { combineReducers } from 'reux';
 
-//import reducers
+import useReducer from './car-features/carFeaturesReducer';
 
 export default combineReducers({
 
-    // reducers
+    car: useReducer
 
 })

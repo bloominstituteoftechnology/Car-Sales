@@ -17,12 +17,29 @@ const INITIAL_STATE = {
   
   const useReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-      case 'PURCHASE_ITEM':
+      case 'REMOVE_ITEM':
         return {
           ...state,
-          car: action.paylod
+          car: {
+            ...state.car,
+            price: state.car.price - action.payload.price,
+            features: state.car.features.filter(feature => {
+              return feature.id !== action.payload.id
+            })
+          },
+          // additionalFeatures: [...state.additionalFeatures, action.payload]
+        };
+      case 'PURCHASE_ITEM':
+        return {
+          car: {
+            ...state,
+            price: state.car.price + action.payload.price,
+            features: [...state.car.features, action.payload]
+          }
         }
       default:
         return state;
     }
   }
+
+export default useReducer;
