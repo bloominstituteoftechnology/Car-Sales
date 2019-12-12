@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {addFeature} from './actions'
+import {addFeature, removeFeature} from './actions'
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -23,7 +23,7 @@ const App = (props) => {
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <AddedFeatures car={props.car} removeFeature={props.removeFeature}/>
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={props.additionalFeatures} buyItem={props.addFeature} />
@@ -42,5 +42,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(
-  mapStateToProps, {addFeature}
+  mapStateToProps, {addFeature, removeFeature}
 )(App);
