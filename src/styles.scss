@@ -35,7 +35,7 @@ body {
   }
 }
 .button {
-  background: hotpink;
+  background: green;
   border: 1px solid transparent;
   color: white;
   margin-right: 1em;
@@ -43,7 +43,7 @@ body {
   transition: all .25s ease-in;
   &:hover {
     background: white;
-    border: 1px solid hotpink;
+    border: 1px solid red;
     color: #333;
   }
 }
