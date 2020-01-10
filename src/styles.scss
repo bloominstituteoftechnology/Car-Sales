@@ -2,7 +2,7 @@ html, body, #root {
   height: 100%;
 }
 body {
-  background: #333;
+  background:#2e5652 ;
   margin: 0;
   display: grid;
   padding: 3em;
@@ -35,15 +35,15 @@ body {
   }
 }
 .button {
-  background: hotpink;
-  border: 1px solid transparent;
+  background: #0a67bf;
+  border: 2px solid black;
   color: white;
   margin-right: 1em;
   padding: .25em .75em;
   transition: all .25s ease-in;
   &:hover {
     background: white;
-    border: 1px solid hotpink;
-    color: #333;
+    border: 1px solid red;
+    color: #0e5605 ;
   }
 }

@@ -9,8 +9,13 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-	<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-	<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+	<!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json"> -->
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.5/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="styles/debug.css"> -->
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
 	<!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -22,6 +27,31 @@
     -->
 	<title>React App</title>
 </head>
+
+<style>
+  .center  {
+   display: flex;
+   justify-content: center;
+     align-items: center;
+     font-size:2.4rem;
+     color:darkblue;
+     background-color: paleturquoise;
+ 
+ }
+ ol {
+   list-style:none;
+ }
+ .button {
+     margin: 2px 1%;
+     border: 1px solid transparent;
+   color: white;
+   margin-right: 0.5rem;
+   padding: .25em .75em;
+   transition: all .25s ease-in;
+ 
+ }
+ 
+ </style>
 
 <body>
 	<noscript>
