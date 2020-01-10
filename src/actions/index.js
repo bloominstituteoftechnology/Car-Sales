@@ -21,4 +21,4 @@ export const updateTotal = (total) => {
         type: UPDATE_TOTAL,
         payload: total
     }
-} 
+}
