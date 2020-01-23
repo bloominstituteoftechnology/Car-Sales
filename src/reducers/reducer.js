@@ -17,6 +17,23 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
 	switch (action.type) {
+		case 'ADD_FEAT':
+			const filterfeat = state.additionalFeatures.filter(
+				f => action.payload === f.name
+			);
+			console.log('yo');
+
+			return {
+				...state,
+				car: {
+					...state.car,
+					features: [...state.car.features, action.payload]
+				},
+				additionalFeatures:
+					//returns new array of products with != id
+					state.additionalFeatures.filter(f => f.id !== action.payload.id)
+			};
+
 		default:
 			return state;
 	}

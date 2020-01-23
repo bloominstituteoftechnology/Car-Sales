@@ -2,6 +2,12 @@ import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
 import { connect } from 'react-redux'; // HOC
 
+const mapStateToProps = state => {
+	return {
+		additionalFeatures: state.additionalFeatures
+	};
+};
+
 const AdditionalFeatures = props => {
 	return (
 		<div className='content'>
@@ -17,12 +23,6 @@ const AdditionalFeatures = props => {
 			)}
 		</div>
 	);
-};
-
-const mapStateToProps = state => {
-	return {
-		additionalFeatures: state.additionalFeatures
-	};
 };
 
 export default connect(mapStateToProps, {})(AdditionalFeatures); // function currying

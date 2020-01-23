@@ -12,7 +12,6 @@ import './styles.scss';
 // Step 1 - create a store and connect it to our app
 // use createStore function
 const store = createStore(reducer);
-console.log(store.getState());
 
 // STEP Ia - Provide the store to your app
 // use the <Provider /> component and pass in your store as a prop
