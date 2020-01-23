@@ -26,6 +26,7 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				car: {
 					...state.car,
+					price: state.car.price + action.payload.price,
 					features: [...state.car.features, action.payload]
 				},
 				additionalFeatures:
@@ -41,6 +42,7 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				car: {
 					...state.car,
+					price: state.car.price - action.payload.price,
 					features: filteradded
 				},
 				additionalFeatures: [...state.additionalFeatures, action.payload]
