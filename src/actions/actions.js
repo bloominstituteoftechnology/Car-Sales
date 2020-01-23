@@ -14,3 +14,7 @@ export const addFeat = feature => {
 
 // STEP IIIa - import the action creator into your component
 // STEP IIIb - pass the AC into the object in the connect function call
+export const removeFeat = feature => {
+	console.log('in action');
+	return { type: 'REMOVE_FEAT', payload: feature };
+};

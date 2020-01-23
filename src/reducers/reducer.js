@@ -18,10 +18,9 @@ export const initialState = {
 export const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'ADD_FEAT':
-			const filterfeat = state.additionalFeatures.filter(
-				f => action.payload === f.name
+			const filteraditional = state.additionalFeatures.filter(
+				f => action.payload.id !== f.id
 			);
-			console.log('yo');
 
 			return {
 				...state,
@@ -31,7 +30,20 @@ export const reducer = (state = initialState, action) => {
 				},
 				additionalFeatures:
 					//returns new array of products with != id
-					state.additionalFeatures.filter(f => f.id !== action.payload.id)
+					filteraditional
+			};
+		case 'REMOVE_FEAT':
+			const filteradded = state.car.features.filter(
+				f => action.payload.id !== f.id
+			);
+			console.log('its working');
+			return {
+				...state,
+				car: {
+					...state.car,
+					features: filteradded
+				},
+				additionalFeatures: [...state.additionalFeatures, action.payload]
 			};
 
 		default:
