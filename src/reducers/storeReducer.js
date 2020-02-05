@@ -1,4 +1,4 @@
-import { ADD_FEATURE, REMOVE_FEATURE_PRICE } from '../actions';
+import { ADD_FEATURE, REMOVE_FEATURE } from '../actions';
 
 const initialState = [
     { id: 1, name: 'V-6 engine', price: 1500 },
