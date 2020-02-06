@@ -1,4 +1,6 @@
 import React from 'react';
+import { Provider, connect } from "react-redux";
+import { buyItem, removeItem } from "../actions/index";
 
 const Header = props => {
   return (
@@ -12,4 +14,12 @@ const Header = props => {
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    additionalPrice: state.additionalPrice,
+    car: state.car,
+    additionalFeatures: state.additionalFeatures
+  };
+};
+
+export default connect(mapStateToProps, { buyItem, removeItem })(Header);
