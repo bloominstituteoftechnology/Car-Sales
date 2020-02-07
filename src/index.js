@@ -8,7 +8,7 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 import { featuresReducer as reducer } from './reducers';
 
-const store = createStore(reducer); 
+export const store = createStore(reducer); 
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

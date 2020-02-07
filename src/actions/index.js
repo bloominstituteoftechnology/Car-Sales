@@ -1,8 +1,9 @@
 export const ADD_FEATURES = 'ADD_FEATURES';
 
 export const addFeatures = newFeature => {
+  console.log('here', ADD_FEATURES)
   return {
-    features: ADD_FEATURES,
+    type: 'ADD_FEATURES',
     payload: newFeature
   }
 }
