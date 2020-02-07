@@ -49,5 +49,7 @@ export {
     ADD_FEATURE_PRICE,
     addFeaturePrice,
     REMOVE_FEATURE_PRICE,
-    removeFeaturePrice
+    removeFeaturePrice,
+    UPDATE_TOTAL,
+    updateTotal
 };
