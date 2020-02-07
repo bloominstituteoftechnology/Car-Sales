@@ -7,7 +7,7 @@ const initialState = {
     features: []
 }
 
-export default carReducer = (state = initialState, action) => {
+const carReducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_FEATURE:
             return{
@@ -26,3 +26,5 @@ export default carReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export default carReducer;

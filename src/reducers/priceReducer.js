@@ -4,7 +4,7 @@ const initialState = {
     additionalPrice: 0
 };
 
-export default priceReducer = (state = initialState, action) => {
+const priceReducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_FEATURE_PRICE:
             return{
@@ -22,3 +22,5 @@ export default priceReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export default priceReducer;

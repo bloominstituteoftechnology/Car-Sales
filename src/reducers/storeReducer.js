@@ -7,7 +7,7 @@ const initialState = [
     { id: 4, name: 'Rear spoiler', price: 250 },
 ];
 
-export default storeReducer = (state = initialState, action) => {
+const storeReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_FEATURE:
             return state.filter(feature => feature.id !== action.payload.id);
@@ -19,3 +19,5 @@ export default storeReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export default storeReducer;
