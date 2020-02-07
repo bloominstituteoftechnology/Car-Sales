@@ -17,6 +17,7 @@ export const initialState = {
          ]
        };
 
+
 export const carReducer = (state = initialState, action) => {
   console.log(state, action);
   switch (action.type) {
@@ -24,6 +25,8 @@ export const carReducer = (state = initialState, action) => {
         console.log("From inside remove item", action.payload.item, state.car.features[0].id)
         let newFeatures = state.car.features.filter(feature => feature.id !== action.payload.item.id)
         console.log("newFeatures: ", newFeatures)
+
+        
         return {
             ...state,
             car: {

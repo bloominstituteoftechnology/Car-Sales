@@ -27,6 +27,22 @@ const App = (props) => {
     props.buyItem(item);
   };
 
+  let featurePrices = 0;
+  let featurePricesTotal = 0;
+  const sumPrices = (totalPrice, price) => {
+    return totalPrice + price;
+  }
+
+  if (props.car.features.length) {
+    featurePrices = props.car.features.map(feature => feature.price);
+    console.log(featurePrices);
+    featurePricesTotal = featurePrices.reduce(sumPrices, 0);
+  }
+  else {
+    featurePrices = 0
+  }
+  
+
   return (
     <div className="boxes">
       <div className="box">
@@ -38,7 +54,7 @@ const App = (props) => {
           handleBuyItem={handleBuyItem}
           additionalFeatures={props.additionalFeatures}
         />
-        <Total car={props.car} additionalPrice={props.additionalPrice} />
+        <Total car={props.car} additionalPrice={featurePricesTotal} />
       </div>
     </div>
   );
