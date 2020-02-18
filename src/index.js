@@ -4,12 +4,12 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-// do we need to add a rootReducer??
+import { rootReducer } from './reducers';
 
 import 'bulma/css/bulma.css';
 import './styles.scss';
 
-const store = createStore(); //add a rootReducer?
+const store = createStore(rootReducer); 
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(<Provider store={store}><App /></Provider>, rootElement);
