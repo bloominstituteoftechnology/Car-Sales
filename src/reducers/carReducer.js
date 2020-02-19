@@ -27,4 +27,4 @@ const carReducer = (staet = initialState, action) => {
     }
 }
 
-export carReducer;
+export default carReducer;
