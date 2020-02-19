@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Total = props => {
-  console.log('this', props);
+  // console.log('this', props);
 
   return (
     <div className="content">

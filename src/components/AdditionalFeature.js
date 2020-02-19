@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
-import AddFeature from './AddedFeature';
-
 
 const AdditionalFeature = props => {
   // console.log('!', props);

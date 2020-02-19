@@ -18,36 +18,33 @@ export const initialState = {
 export const carReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_FEATURE":
-          if (state.car.features.find(item => item.id === action.payload.id)) {
-              return state;
-    }
+      console.log("carReducer", state, action);
+      if (state.car.features.find(item => item.id === action.payload.id)) {
+        return state;
+      }
       return {
         ...state,
-          car: {
-              ...state.car,
-              price: state.car.price + action.payload.price,
-             features: [...state.car.features,
-                  action.payload]
-                },
-          
-          };
-      
-      case 'REMOVE_FEATURE':
-          return {
-              ...state,
-              additionalPrice: state.additionalPrice + action.payload.price,
-              car: {
-                  ...state.car,
-                  features: [...state.car.features, action.payload]
-                  //   if (state.car.features.filter(item => item.id))
-              }
-              
-          };
-      
-      
+        car: {
+          ...state.car,
+          price: state.car.price + action.payload.price,
+          features: [...state.car.features, action.payload]
+        }
+      };
+
+    case "REMOVE_FEATURE":
+      return {
+        ...state,
+        additionalPrice: state.additionalPrice - action.payload.price,
+        car: {
+          ...state.car,
+          features: []
+          //   if (state.car.features.filter(item => item.id))
+        }
+      };
+
     default:
       return state;
   }
 };
 
-// 
+//
