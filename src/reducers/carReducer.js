@@ -1,16 +1,18 @@
 import { ADD_FEATURE, REMOVE_FEATURE } from '../actions/actions';
-import { statement } from '@babel/template';
+
 
 const initialState = {
-    price: 50000,
-    name: "2020 Tesla Model S",
-    image: 'https://www.teslarati.com/wp-content/uploads/2019/07/tesla-model-s-raven-2.jpg',
-    features:[]
-};
+    
+      price: 26395,
+      name: '2019 Ford Mustang',
+      image:
+        'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
+      features: []
+    };
 
 
 
-const carReducer = (staet = initialState, action) => {
+const carReducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_FEATURE:
             return {
