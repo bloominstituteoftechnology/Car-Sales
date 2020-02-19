@@ -34,4 +34,4 @@ const mapStateToProps = state => {
     car: state.carReducer
   }
 }
-export default AddedFeatures;
+export default connect (mapStateToProps, { removeFeature, removeFeaturePrice})(AddedFeatures);
