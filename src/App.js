@@ -9,8 +9,8 @@ import Total from "./components/Total";
 import { connect } from "react-redux";
 
 const App = props => {
-  const { state, addFeature} = props;
-  console.log("App", state);
+  const { state, addFeature, removeFeature} = props;
+  // console.log("App", state);
 
   return (
     <div className="boxes">

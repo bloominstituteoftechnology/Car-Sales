@@ -6,7 +6,7 @@ export function addFeature(newFeature) {
 }
 
 export function removeFeature(removeFeature) {
-    console.log('this guy', removeFeature)
+    // console.log('this guy', removeFeature)
     return {
         type: 'REMOVE_FEATURE',
         payload: removeFeature
