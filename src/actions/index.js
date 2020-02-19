@@ -4,3 +4,11 @@ export function addFeature(newFeature) {
         payload: newFeature
     };
 }
+
+export function removeFeature(removeFeature) {
+    return {
+        type: 'REMOVE_FEATURE',
+        payload: removeFeature
+    };
+};
+

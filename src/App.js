@@ -19,7 +19,7 @@ const App = props => {
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={state.carReducer.additionalFeatures} addFeature={addFeature} />
-        <Total car={state.carReducer.car} additionalPrice={state.additionalPrice} />
+        <Total car={state.carReducer.car} additionalPrice={state.carReducer.additionalPrice} />
       </div>
     </div>
   );

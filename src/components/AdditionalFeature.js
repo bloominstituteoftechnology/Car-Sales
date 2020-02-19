@@ -2,11 +2,9 @@ import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import AddFeature from './AddedFeature';
 
-// import { addFeature } from '../actions';
 
 const AdditionalFeature = props => {
   // console.log('!', props);
-  // const [newAddedFeature, setNewAddedFeature] = useState();
 
   return (
     <li>
@@ -23,15 +21,4 @@ const AdditionalFeature = props => {
 
 export default AdditionalFeature;
 
-
-
-// const mapStatetoProps = state => {
-//   // console.log(state.carReducer.car);
-//   return {
-//     features: state.carReducer.car.features,
-    
-//   }
-
-// }
-// export default connect(mapStatetoProps, { addFeature })(AdditionalFeature);
 
