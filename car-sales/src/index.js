@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { createStore } from 'redux';    //import createStore to create our store that gets provided to <App />
+import { Provider } from 'react-redux'; //import provider to provide our store to <App />
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import 'bulma/css/bulma.css';
+import './styles.scss';
+
+import { reducer } from './reducers/index' //import our created reducer to pass into createStore
+
+const store = createStore(reducer) //create our store
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(                   //provide our store to App
+  <Provider store={store}> 
+    <App />
+  </Provider>,
+  rootElement
+);

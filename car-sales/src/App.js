@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from "react-redux";
 
-function App() {
+import Header from './components/Header';
+import AddedFeatures from './components/AddedFeatures';
+import AdditionalFeatures from './components/AdditionalFeatures';
+import Total from './components/Total';
+
+import { addFeature } from './actions/addFeature'
+import { removeFeature } from './actions/removeFeature';
+
+
+
+const App = props => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="boxes">
+      <div className="box">
+        <Header car={props.car} />
+        <AddedFeatures car={props.car} removeFeature={props.removeFeature} />
+      </div>
+      <div className="box">
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} addFeature={props.addFeature} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
+      </div>
     </div>
   );
+};
+
+const mapStateToProps = state => {
+  return {
+    additionalPrice: state.additionalPrice,
+    car: state.car,
+    additionalFeatures: state.additionalFeatures
+  }
 }
 
-export default App;
+export default connect( //everything now becomes props.banana (whatever state we need to access)
+  mapStateToProps, 
+  { addFeature, removeFeature }
+  )(App);
