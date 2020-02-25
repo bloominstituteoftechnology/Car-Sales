@@ -6,7 +6,7 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-import { addFeature } from './actions/addFeature'
+import { addFeature } from './actions/addFeatures'
 import { removeFeature } from './actions/removeFeature';
 
 
