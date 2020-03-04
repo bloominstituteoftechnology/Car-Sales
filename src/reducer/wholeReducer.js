@@ -11,14 +11,18 @@ export const initialState = {
     ]
 };
 
-export const removeFeature = (state, initialState, action) => {
-    console.log("removeFeature", state, action);
+export const wholeReducer = (state, initialState, action) => {
+    console.log("wholeReducer", state, action);
 
     switch(action.type) {
         case 'REMOVE_FEATURE': 
 
         return {
             ...state,
+        }
+        case "BUY_ITEM":
+            return {
+                ...state,
         }
         default: 
         return state;

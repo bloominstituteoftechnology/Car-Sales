@@ -24,21 +24,25 @@ const App = () => {
   };
 
   const removeFeature = item => {
-    // dispatch an action here to remove an item
+    return { type:"REMOVE_FEATURE", payload: item};
   };
 
   const buyItem = item => {
-    // dipsatch an action here to add an item
+    return { type: "BUY_ITEM", payload: item};
   };
 
   return (
     <div className="boxes">
       <div className="box">
         <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+        <AddedFeatures 
+        car={state.car} 
+        removeFeature={removeFeature}/>
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
+        <AdditionalFeatures 
+        additionalFeatures={state.additionalFeatures} 
+        buyItem={buyItem}/>
         <Total car={state.car} additionalPrice={state.additionalPrice} />
       </div>
     </div>
