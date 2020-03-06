@@ -7,18 +7,11 @@ import Total from './components/Total';
 
 import { connect } from "react-redux";
 import { buyItem } from "./actions";
+import { removeFeature } from "./actions";
 
 const App = (props) => {
    
-  const { buyItem, state } = props; 
-
-  const removeFeature = item => {
-    return { type:"REMOVE_FEATURE", payload: item};
-  };
-
-  // const buyItem = item => {
-  //   return { type: "BUY_ITEM", payload: item};
-  // };
+  const { buyItem, removeFeature, state } = props; 
 
   return (
     <div className="boxes">
@@ -42,5 +35,4 @@ const mapStateToProps = state => {
   return {state};
 }
 
-export default connect(mapStateToProps,{ buyItem })(App);
-
+export default connect(mapStateToProps,{ buyItem, removeFeature })(App);

@@ -14,15 +14,22 @@ const initialState = {
         { id: 4, name: 'Rear spoiler', price: 250 }
     ]
 };
-
+// additionalFeatures.filter(item => {})
 const wholeReducer = (state = initialState, action) => {
     console.log("wholeReducer", state, action);
 
     switch (action.type) {
         case 'REMOVE_FEATURE':
-
             return {
                 ...state,
+
+                car: {
+                    ...state.car,
+                    price: state.car.price - action.payload.price,
+                    features: state.car.features.filter(item => item.id !== action.payload.id)
+                },
+
+                additionalFeatures: [...state.additionalFeatures, action.payload]
             }
             case "BUY_ITEM":
                 // If the feature ID equals the feature ID that was clicked, it will not be added.
@@ -37,7 +44,9 @@ const wholeReducer = (state = initialState, action) => {
                             ...state.car,
                             price: state.car.price + action.payload.price,
                             features: [...state.car.features, action.payload]
-                        }
+                        },
+
+                        additionalFeatures: state.additionalFeatures.filter(item => item.id !== action.payload.id)
                     };
                 }
         default:
