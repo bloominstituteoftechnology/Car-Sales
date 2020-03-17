@@ -1,5 +1,7 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
+import { connect } from 'react-redux';
+//will need state.additionalFeatures
 
 const AdditionalFeatures = props => {
   return (

@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux'; 
+
+//need state.car.price & state.additionalPrice
 
 const Total = props => {
   return (

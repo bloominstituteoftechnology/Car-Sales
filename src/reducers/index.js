@@ -17,7 +17,8 @@ const initialState = {
     ]
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state=initialState, action) => {
+    console.log('ACTION', action)
     switch(action.type){
         case REMOVE_FEATURE:
         case BUY_ITEM:

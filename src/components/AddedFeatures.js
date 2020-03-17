@@ -1,7 +1,7 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import AddedFeature from './AddedFeature';
-
+//will need state.car.features 
 const AddedFeatures = props => {
   return (
     <div className="content">

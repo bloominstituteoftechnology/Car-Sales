@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
+//will need state.car.image & state.car.name & state.car.price 
 const Header = props => {
   return (
     <>
