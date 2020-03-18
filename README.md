@@ -1,43 +1,8 @@
 # Module Project: Redux - Car Sales
-
 In this project you are given the skeleton/structure/styling of a React app. There is even some state built in for you. Your job will be to implement React-Redux as the state management system for this application.
 
-## Instructions
-
----
-
-Read these instructions carefully. Understand exactly what is expected before starting this project.
-
-## Commits
-
-Commit your code regularly and meaningfully. This helps both you and your team lead in case you ever need to return to old code for any number of reasons.
-
 ## Description
-
 In this project you will implement Redux to manage the state for this React application.
-
-## Project Set Up
-
----
-
-This project was put together using create-react-app (CRA). You will not need to install CRA in order to make this project work. Follow the steps below to setup the project with the proper dependencies.
-
-- [ ] Create a forked copy of this project.
-- [ ] Add your team lead as collaborator on Github.
-- [ ] Clone your OWN version of the repository in your terminal.
-- [ ] Download project dependencies by running `npm install`.
-- [ ] Add the dependencies you will need to implement Redux, using **npm**.
-- [ ] Start up the app using `npm start`.
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-      Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
-
-Follow these steps for completing your project.
-
-- [ ] Submit a Pull-Request to merge Branch into master (student's Repository).
-- [ ] Add your team lead as a reviewer on the pull-request
-- [ ] Your team lead will count the project as complete by merging the branch back into master.
-- [ ] Do your magic!
 
 # _Project - Car Sales_
 
