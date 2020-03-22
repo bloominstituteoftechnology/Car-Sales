@@ -1,5 +1,5 @@
 import React from 'react';
-import { BUY_ITEM } from '../actions/actions';
+import { BUY_ITEM, REMOVE_ITEM, UPDATE_TOTAL } from '../actions/actions';
 
 
 const data = {
@@ -20,17 +20,34 @@ const data = {
   };
 
   export function reducer(state = data, action) {
+    console.log(action)
       switch(action.type){
           case BUY_ITEM:
               return {
                   ...state,
-                  additionalPrice: state.additionalPrice += action.price
+                  car: {...state.car,
+                  features: [...state.car.features, action.payload]
+                  }
               }
 
-        //   case REMOVE_ITEM:
-        //       return {
+          case REMOVE_ITEM:
 
-        //       }
+            console.log(state.car.features.filter(item => item.id ===action.payload))
+              return {
+                ...state,
+                car: {...state.car,
+                      features: state.car.features.filter(
+                          item => item.id !== action.payload
+                      )
+                }
+              }
+
+          case UPDATE_TOTAL:
+            return {
+              ...state,
+              additionalPrice: state.additionalPrice += action.payload
+            }
+
         default: return state;
       }
   }

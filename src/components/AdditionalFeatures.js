@@ -21,5 +21,3 @@ const AdditionalFeatures = props => {
 };
 
 export default connect(null, {buyItem})(AdditionalFeatures)
-
-// AdditionalFeatures;
