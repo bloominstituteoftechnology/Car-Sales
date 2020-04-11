@@ -1,54 +1,75 @@
-import React from 'react';
-import { connect } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { Route, useHistory } from "react-router-dom";
+import ModCar from "./pages/ModCar";
+import SelectCar from "./pages/SelectCar";
+import axios from "axios";
 
-import Header from './components/Header';
-import AddedFeatures from './components/AddedFeatures';
-import AdditionalFeatures from './components/AdditionalFeatures';
-import AddedFeature from "./components/AddedFeature";
-import Total from './components/Total';
-import { removeFeature, buyItem } from "./actions";
+const App = function() {
+  let history = useHistory();
+  const [cars, setCars] = useState([]);
+  const [models, setModels] = useState([]);
+  const [trims, setTrims] = useState([]);
 
-const App = props => {
-
-  const removeFeature = item => {
-    // dispatch an action here to remove an item
-    props.removeFeature(item)
+  const getCars = () => {
+    axios
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://www.carqueryapi.com/api/0.3/?callback=&cmd=getMakes&sold_in_us=1"
+      )
+      .then(res => {
+        const resData = JSON.parse(res.data.slice(1, res.data.length - 2));
+        setCars(resData);
+      })
+      .catch(err => console.log(err));
   };
 
-  const buyItem = item => {
-    // dipsatch an action here to add an item
-    const featureExists = props.car.features.find(feature => feature.id === item.id)
-    if (!featureExists) {
-      props.buyItem(item)
-    }
+  useEffect(getCars, []);
+
+  const getModels = make => {
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://www.carqueryapi.com/api/0.3/?callback=&cmd=getModels&make=${make}&sold_in_us=1`
+      )
+      .then(res => {
+        const resData = JSON.parse(res.data.slice(1, res.data.length - 2));
+        console.log(resData)
+        setModels(resData);
+        history.push(`/selectCar/model`);
+      })
+      .catch(err => console.log(err));
   };
+
+  const getTrims = (make, model) => {
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://www.carqueryapi.com/api/0.3/?callback=&cmd=getTrims&make=${make}&model=${model}&sold_in_us=1`
+      )
+      .then(res => {
+        const resData = JSON.parse(res.data.slice(1, res.data.length - 2));
+        console.log(resData);
+        setTrims(resData);
+        history.push(`/selectCar/trim`);
+      })
+      .catch(err => console.log(err));
+  };
+
   return (
-    <div className="boxes">
-      <div className="box">
-        <Header car={props.car} />
-        <AddedFeatures removeFeature={removeFeature} car={props.car} />
-      </div>
-      <div className="box">
-        <AdditionalFeatures buyItem={buyItem}  additionalFeatures={props.additionalFeatures} />
-        <Total car={props.car} additionalPrice={props.additionalPrice} />
-      </div>
+    <div>
+      <Route
+        path="/selectCar"
+        component={props => (
+          <SelectCar
+            {...props}
+            cars={cars}
+            models={models}
+            trims={trims}
+            getModels={getModels}
+            getTrims={getTrims}
+          />
+        )}
+      />
+      <Route path="/modCar/:carId" component={ModCar} />
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  const { additionalFeatures, additionalPrice, car } = state
-  return {
-    additionalFeatures,
-    additionalPrice,
-    car
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  {
-    removeFeature,
-    buyItem
-  }
-)(App);
+export default App;
