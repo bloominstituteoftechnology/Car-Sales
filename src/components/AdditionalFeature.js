@@ -9,12 +9,12 @@ const AdditionalFeature = props => {
     props.addFeature(e);
   
   }
-  console.log("EVEN DEEPER ADDITIONAL FEATURE PROPS", props)
+  
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
       <button className="button"
-      onClick = {props.addFeature(props.feature.id)}>Add</button>
+      onClick = {()=>handleClick(props.feature.id)}>Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );

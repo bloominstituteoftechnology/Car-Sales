@@ -1,5 +1,5 @@
 import {ADD_FEATURE} from "../Actions/AddtionalFeature"
-
+import {REMOVE_FEATURE} from "../Actions/AddedFeature"
 
 
 
@@ -23,17 +23,75 @@ export const startState = {
 
 
 
+
 const initialState = startState
 
 export const additionalFeatureReducer = (state = initialState, action)=>{
+    let carValue = {
+      id:0,
+      name:"",
+      price:0
+    }
+  
     switch(action.type){
         case ADD_FEATURE:{
-          console.log("adding to features PROPS",state )
-          console.log("I've been clicked", action.payload)
-            return {
+          // console.log("adding to features PROPS",state )
+          state.additionalFeatures.map(function(value,index){
+          
+            if(value.id === action.payload){
+              
+              carValue.id = value.id;
+              carValue.name = value.name;
+              carValue.price = value.price;
+              console.log("CARVALUE", carValue)
               
             }
-        };
+            
+          })
+            return {
+             ...state,
+                  additionalPrice: 
+                      carValue.price + state.additionalPrice,
+                   car:{
+                    ...state.car,
+                            
+                          features:[
+                            ...state.car.features,
+                            {
+                              id:carValue.id,
+                              name:carValue.name, 
+                              price:carValue.price
+                            }
+                          ]
+                  }
+              
+              
+            }
+          }
+         case REMOVE_FEATURE:{
+          console.log("removing feature from PROPS",state.car.features )
+          function idCompare(id){
+            return id.id !== action.payload
+          }
+          state.car.features.map(function(value,index){
+            if(value.id === action.payload){
+              carValue.price = value.price
+            }
+          })
+          return{
+            ...state,
+                  additionalPrice: state.additionalPrice-carValue.price ,
+               
+                car:{
+                  ...state.car,
+                      features:[
+                        ...state.car.features.filter(idCompare)
+                        
+                      ]
+                }
+          }
+        }    
+        ;
         default:
             return state;
     }
