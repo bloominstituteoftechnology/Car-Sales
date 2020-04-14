@@ -7,6 +7,12 @@ import Total from "./components/Total";
 import { useSelector, useDispatch } from "react-redux";
 import { types } from "./reducers/carReducer";
 
+
+
+
+
+
+
 const App = () => {
   const { car, additionalFeatures, additionalPrice } = useSelector(
     (state) => state
