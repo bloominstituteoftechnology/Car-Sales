@@ -23,10 +23,15 @@ const App = (props) => {
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures car={props.car}  />
+        <AddedFeatures 
+        car={props.car}  
+          
+        />
       </div>
       <div className="box">
-        <AdditionalFeatures car={props.car} add_features={()=>buyItem(props.id)} additionalFeatures={props.additionalFeatures} />
+        <AdditionalFeatures 
+        add_features={buyItem} 
+        additionalFeatures={props.additionalFeatures} />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div> 
     </div>
@@ -37,7 +42,8 @@ const mapStateToProps = state => {
   return {
     additionalPrice: state.additionalPrice,
     car: state.car,
-    additionalFeatures: state.additionalFeatures
+    additionalFeatures: state.additionalFeatures,
+    // id: state.additionalFeatures.id
   };
 };
 
