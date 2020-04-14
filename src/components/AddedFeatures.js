@@ -13,7 +13,7 @@ const AddedFeatures = props => {
             console.log("heawghawehae",item) 
             return(   
               <AddedFeature key={item.id} feature={item} />)
-            })}
+            })} 
         </ol>
       ) : (
         <p>You can purchase items from the store.</p>

@@ -31,4 +31,4 @@ export const reducer = (state = inistialState, action) => {
     default:
         return state
     }
-}
+} 

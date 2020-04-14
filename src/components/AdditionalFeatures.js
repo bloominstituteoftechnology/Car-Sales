@@ -10,7 +10,7 @@ const AdditionalFeatures = props => {
           {props.additionalFeatures.map(item => (
             <AdditionalFeature car={props.car} add_features={props.add_features} key={item.id} feature={item} />
           ))}
-        </ol>
+        </ol> 
       ) : (
         <p>Nice looking car!</p>
       )}

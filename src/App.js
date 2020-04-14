@@ -19,7 +19,7 @@ const App = (props) => {
     props.Add_Features(item)
   };
   // console.log(props)
-  return (
+  return ( 
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
@@ -28,7 +28,7 @@ const App = (props) => {
       <div className="box">
         <AdditionalFeatures car={props.car} add_features={()=>buyItem(props.id)} additionalFeatures={props.additionalFeatures} />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
-      </div>
+      </div> 
     </div>
   );
 };
