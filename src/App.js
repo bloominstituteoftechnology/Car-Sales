@@ -6,7 +6,6 @@ import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 import {connect} from 'react-redux'
 import {removeItem,addItem} from './actions'
-import { useDispatch } from 'react-redux'
 
 
 const App = (props) => {
@@ -27,15 +26,14 @@ const App = (props) => {
   //   ]
   // };
 
-  const dispatch=useDispatch();
-  const removeFeatures = item => {
+  // const dispatch=useDispatch();
+  const removeFeatures = (item) => {
     // dispatch an action here to remove an item
-    dispatch(removeItem(item))
+    props.dispatch({type:"REMOVE_ITEM" , payload:(item)})
   };
 
   const buyItems = item => {
     // dipsatch an action here to add an item
-    dispatch(addItem(item))
   };
 
   return (
@@ -45,11 +43,14 @@ const App = (props) => {
         <AddedFeatures removeItem={removeFeatures}/>
       </div>
       <div className="box">
-         <AdditionalFeatures addItem={buyItems}  />
+         <AdditionalFeatures   />
         <Total />
       </div>
     </div>
   );
 };
 
-export default App
+// export default App
+export default connect(null, null)(App)
+
+
