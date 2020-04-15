@@ -5,9 +5,13 @@ import AddedFeature from "./AddedFeature";
 
 const AddedFeatures = props => {
 
+
+
   const removeItem = item => {
     props.remove(item)
   };
+
+
 
 
 
@@ -30,7 +34,7 @@ const AddedFeatures = props => {
 const mapStateToProps = state => {
   return {
     car: state.car
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, {remove})(AddedFeatures);
+export default connect(  mapStateToProps, {remove})(AddedFeatures);
