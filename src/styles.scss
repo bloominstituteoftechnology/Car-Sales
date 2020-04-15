@@ -1,8 +1,9 @@
 html, body, #root {
   height: 100%;
+  background: #333;
 }
 body {
-  background: #333;
+
   margin: 0;
   display: grid;
   padding: 3em;
@@ -45,5 +46,20 @@ body {
     background: white;
     border: 1px solid hotpink;
     color: #333;
+  }
+}
+
+.selectCar-container {
+  display: flex;
+  width: 800px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  button {
+    margin: 10px;
+  }
+  h1 {
+    color: white;
+    text-align: center;
   }
 }

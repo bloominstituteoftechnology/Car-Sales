@@ -1,46 +1,79 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { Route, useHistory } from "react-router-dom";
+import ModCar from "./pages/ModCar";
+import SelectCar from "./pages/SelectCar";
+import axios from "axios";
 
-import Header from './components/Header';
-import AddedFeatures from './components/AddedFeatures';
-import AdditionalFeatures from './components/AdditionalFeatures';
-import Total from './components/Total';
+const App = function() {
+  let history = useHistory();
+  const [cars, setCars] = useState([]);
+  const [models, setModels] = useState([]);
+  const [trims, setTrims] = useState([]);
 
-const App = () => {
-  const state = {
-    additionalPrice: 0,
-    car: {
-      price: 26395,
-      name: '2019 Ford Mustang',
-      image:
-        'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
-      features: []
-    },
-    additionalFeatures: [
-      { id: 1, name: 'V-6 engine', price: 1500 },
-      { id: 2, name: 'Racing detail package', price: 1500 },
-      { id: 3, name: 'Premium sound system', price: 500 },
-      { id: 4, name: 'Rear spoiler', price: 250 }
-    ]
+  const getCars = () => {
+    axios
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://www.carqueryapi.com/api/0.3/?callback=&cmd=getMakes&sold_in_us=1"
+      )
+      .then(res => {
+        const resData = JSON.parse(res.data.slice(1, res.data.length - 2));
+        setCars(resData);
+      })
+      .catch(err => console.log(err));
   };
 
-  const removeFeature = item => {
-    // dispatch an action here to remove an item
+  useEffect(getCars, []);
+
+  const marketShareAPI = () => {
+    axios.get("http://api.marketcheck.com/v2/stats/car?api_key=5QDQwp7v393tuHQ4UmHh3pXPXizNstUB&ymm=2015|ford|f-150", { headers: { "Content-Type": "application/json"}})
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+  
+  const getModels = make => {
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://www.carqueryapi.com/api/0.3/?callback=&cmd=getModels&make=${make}&sold_in_us=1`
+      )
+      .then(res => {
+        const resData = JSON.parse(res.data.slice(1, res.data.length - 2));
+        console.log(resData)
+        setModels(resData);
+        history.push(`/selectCar/model`);
+      })
+      .catch(err => console.log(err));
   };
 
-  const buyItem = item => {
-    // dipsatch an action here to add an item
+  const getTrims = (make, model) => {
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://www.carqueryapi.com/api/0.3/?callback=&cmd=getTrims&make=${make}&model=${model}&sold_in_us=1`
+      )
+      .then(res => {
+        const resData = JSON.parse(res.data.slice(1, res.data.length - 2));
+        console.log(resData);
+        setTrims(resData);
+        history.push(`/selectCar/trim`);
+      })
+      .catch(err => console.log(err));
   };
 
   return (
-    <div className="boxes">
-      <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures car={state.car} />
-      </div>
-      <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
-      </div>
+    <div>
+      <Route
+        path="/selectCar"
+        component={props => (
+          <SelectCar
+            {...props}
+            cars={cars}
+            models={models}
+            trims={trims}
+            getModels={getModels}
+            getTrims={getTrims}
+          />
+        )}
+      />
+      <Route path="/modCar/:carId" component={ModCar} />
     </div>
   );
 };
