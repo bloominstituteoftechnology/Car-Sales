@@ -19,14 +19,27 @@ export const inistialState ={
 export const reducer = (state = inistialState, action) => {
     switch(action.type){
         case "ADD_FEATURES":
-            console.log("action.payload",action.payload)
+            console.log("action.payload from ADD_FEATURES",action.payload)
             return{
                 ...state,
                 car: {...state.car, 
+                    price:state.car.price + action.payload.price,
                     features: [...state.car.features, 
                     action.payload
                     ]
-                }    
+                },
+                additionalFeatures: state.additionalFeatures.filter(item => item.id !== action.payload.id)
+            }
+        case "REMOVE_FEATURES":
+            // console.log("action.payload from REMOVE_FEATURES",action.payload)
+            return{
+                ...state,
+                car:{...state.car,
+                    price:state.car.price - action.payload.price,
+                    features: [
+                        ...state.car.features.filter(item=> item.id !== action.payload.id)]
+                    },
+                additionalFeatures: [...state.additionalFeatures, action.payload]
             }
     default:
         return state

@@ -12,7 +12,7 @@ const AddedFeatures = props => {
           {props.car.features.map(item => {
             console.log("props.car.features",item) 
             return(   
-              <AddedFeature car={props.car} key={item.id} feature={item}  />)
+              <AddedFeature remove_features={() =>props.remove_features(item)}car={props.car} key={item.id} feature={item}  />)
             })} 
         </ol>
       ) : (

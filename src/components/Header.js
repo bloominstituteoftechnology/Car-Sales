@@ -12,4 +12,6 @@ const Header = props => {
   );
 };
 
+// mapStateToProp
+
 export default Header;
