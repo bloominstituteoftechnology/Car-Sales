@@ -1,8 +1,10 @@
 import React from 'react';
 
 import AddedFeature from './AddedFeature';
+import { connect } from 'react-redux'; 
+import * as actionCreators from '../state/actionCreators'; 
 
-const AddedFeatures = props => {
+export const AddedFeatures = props => {
   return (
     <div className="content">
       <h6>Added features:</h6>
@@ -19,4 +21,4 @@ const AddedFeatures = props => {
   );
 };
 
-export default AddedFeatures;
+export default connect(state => state, actionCreators)(AddedFeatures);
