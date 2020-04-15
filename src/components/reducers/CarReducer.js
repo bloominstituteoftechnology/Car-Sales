@@ -1,4 +1,6 @@
 import React from 'react';
+import { BUY_ITEM } from '../actions/actions'
+import { REMOVE_FEATURE } from '../actions/actions'
 
 const initialState = {
     additionalPrice: 0,
@@ -18,19 +20,24 @@ const initialState = {
   };
 
 const CarReducer = (state = initialState, action) => {
+  // console.log(action)
     switch(action.type){
-        case "BUY_ITEM":
+        case BUY_ITEM:
           console.log("fired")
+          console.log(action)
+          console.log(state.additionalPrice)
             const item = state.additionalFeatures.find(i => i.id === action.payload)
+            const newAdditionalPrice = state.additionalPrice += item.price
             return {
-                ...state, car: {...state, additionalPrice: state.additionalPrice + item.price, features: [...state,item] }
+                ...state, car: {...state.car, additionalPrice: newAdditionalPrice , features: [...state.car.features,item] }
             };
-        case "REMOVE FEATURE":
+        case REMOVE_FEATURE:
             const item2 = state.additionalFeatures.find(i => i.id === action.payload)
+            const newAdditionalPrice2 = state.additionalPrice -= item2.price 
             const newFeatures = state.car.features.filter(i => {
                 return i.id !== action.payload
             })
-            return {...state, car: {...state, additionalPrice: state.additionalPrice - item2.price , features: newFeatures }}
+            return {...state, car: {...state.car, additionalPrice: newAdditionalPrice2, features: newFeatures }}
         default:
             return state;
     }

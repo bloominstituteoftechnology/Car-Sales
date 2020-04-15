@@ -6,14 +6,14 @@ const AddedFeature = props => {
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button onClick={() => {removeFeature(props.feature)}} className="button">X</button>
+      <button onClick={() => {props.removeFeature(props.feature)}} className="button">X</button>
       {props.feature.name}
     </li>
   );
 };
-const mapStateToProps = state => {
-  return {
-    // feature: state.car.features.find(i => i.id === )
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     // feature: state.car.features.find(i => i.id === )
+//   }
+// }
 export default connect(()=>{},{removeFeature})(AddedFeature);
