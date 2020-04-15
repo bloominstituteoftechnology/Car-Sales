@@ -24,6 +24,12 @@ const App = function() {
 
   useEffect(getCars, []);
 
+  const marketShareAPI = () => {
+    axios.get("http://api.marketcheck.com/v2/stats/car?api_key=5QDQwp7v393tuHQ4UmHh3pXPXizNstUB&ymm=2015|ford|f-150", { headers: { "Content-Type": "application/json"}})
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+  
   const getModels = make => {
     axios
       .get(

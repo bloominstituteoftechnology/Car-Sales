@@ -3,7 +3,7 @@ import React from "react";
 const SelectTrim = function({ trims }) {
   return (
     <div className="selectCar-container">
-      <h1 className="title">Select Model</h1>
+      <h1 className="title">Select {trims.Trims && trims.Trims[0].model_make_id + ' ' + trims.Trims[0].model_name} Trim</h1>
       <div>
         {trims.Trims &&
           trims.Trims.map((trim, i) => {
