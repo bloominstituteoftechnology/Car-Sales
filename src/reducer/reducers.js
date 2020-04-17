@@ -19,7 +19,7 @@ export const inistialState ={
 export const reducer = (state = inistialState, action) => {
     switch(action.type){
         case "ADD_FEATURES":
-            console.log("action.payload from ADD_FEATURES",action.payload)
+            // console.log("action.payload from ADD_FEATURES",action.payload)
             return{
                 ...state,
                 car: {...state.car, 
@@ -28,7 +28,7 @@ export const reducer = (state = inistialState, action) => {
                     action.payload
                     ]
                 },
-                additionalFeatures: state.additionalFeatures.filter(item => item.id !== action.payload.id)
+                additionalFeatures: [...state.additionalFeatures.filter(item => item.id !== action.payload.id)]
             }
         case "REMOVE_FEATURES":
             // console.log("action.payload from REMOVE_FEATURES",action.payload)
