@@ -15,7 +15,7 @@ export const inititalState = {
   ],
 };
 
-export const reducer = (state, action) => {
+export const reducer = (state = inititalState, action) => {
     switch(action.type){
         case "ADD_FEATURE" :
             return {
