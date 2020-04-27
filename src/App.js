@@ -31,6 +31,7 @@ const App = () => {
     // dipsatch an action here to add an item
   };
 
+  console.log(state)
   return (
     <div className="boxes">
       <div className="box">
