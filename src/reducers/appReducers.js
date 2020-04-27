@@ -19,7 +19,14 @@ export const reducer = (state = inititalState, action) => {
     switch(action.type){
         case "ADD_FEATURE" :
             return {
-                ...state
+                ...state,
+                features: {id: 1, name: "V-6 engine", price: 1500}
+            }
+        case "DELETE_FEATURE" :
+            return {
+                ...state,
+                features:[...state.car.features, action.payload],
+                price: state.car.price + action.payload.price
             }
         default :
         return state

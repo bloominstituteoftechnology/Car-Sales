@@ -15,10 +15,14 @@ const App = (props) => {
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
+    // onClick gets as props
+
   };
 
   const buyItem = item => {
     // dipsatch an action here to add an item
+    // onClick gets as props
+    props.addFeature(item)
   };
   return (
     <div className="boxes">
@@ -28,7 +32,7 @@ const App = (props) => {
         <AddedFeatures car={props.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} buyItem={buyItem} />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
