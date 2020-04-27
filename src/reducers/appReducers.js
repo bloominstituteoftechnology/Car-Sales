@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils";
+
 export const inititalState = {
   additionalPrice: 0,
   car: {
@@ -15,18 +17,25 @@ export const inititalState = {
   ],
 };
 
+
+// nested objects pay attention
 export const reducer = (state = inititalState, action) => {
     switch(action.type){
         case "ADD_FEATURE" :
             return {
                 ...state,
-                features: {id: 1, name: "V-6 engine", price: 1500}
+                car: {
+                    // Sample Data, hard coded data is being passed.
+                    // ...state.car,
+                    // features: [{id: 1, name: "V-6 engine", price: 1500}]
+                    features: [...state.car.features, action.payload],
+                    price: state.car.price + action.payload.price
+                }
             }
         case "DELETE_FEATURE" :
             return {
                 ...state,
-                features:[...state.car.features, action.payload],
-                price: state.car.price + action.payload.price
+                features:[]
             }
         default :
         return state
