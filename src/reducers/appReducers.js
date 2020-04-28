@@ -17,32 +17,32 @@ export const inititalState = {
   ],
 };
 
-
 // nested objects pay attention
 export const reducer = (state = inititalState, action) => {
-    switch(action.type){
-        case "ADD_FEATURE" :
-            return {
-                ...state,
-                car: {
-                    // Sample Data, hard coded data is being passed.
-                    // ...state.car,
-                    // features: [{id: 1, name: "V-6 engine", price: 1500}]
-                    features: [...state.car.features, action.payload],
-                    price: state.car.price + action.payload.price
-                }
-            }
-        case "DELETE_FEATURE" :
-            return {
-                ...state,
-                car: {
-                    ...state.car.features.filter((item) => {
-                        return item.id !== action.payload.id
-                        
-                    })
-                }
-            }
-        default :
-        return state
-    }
-}
+  switch (action.type) {
+    case "ADD_FEATURE":
+      return {
+        ...state,
+        car: {
+          // Sample Data, hard coded data is being passed.
+          // ...state.car,
+          // features: [{id: 1, name: "V-6 engine", price: 1500}]
+          features: [...state.car.features, action.payload],
+          price: state.car.price + action.payload.price,
+        },
+      };
+    case "DELETE_FEATURE":
+      return {
+        ...state,
+        car: {
+            ...state.car,
+          features: state.car.features.filter((item) => {
+            return item.id !== action.payload.id;
+          }),
+          price: state.car.price + action.payload.price,
+        },
+      };
+    default:
+      return state;
+  }
+};
