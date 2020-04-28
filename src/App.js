@@ -16,7 +16,7 @@ const App = (props) => {
   const removeFeature = item => {
     // dispatch an action here to remove an item
     // onClick gets as props
-
+    props.deleteFeature(item)
   };
 
   const buyItem = item => {
@@ -27,9 +27,8 @@ const App = (props) => {
   return (
     <div className="boxes">
       <div className="box">
-        test
         <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <AddedFeatures car={props.car} removeFeature={removeFeature}/>
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={props.additionalFeatures} buyItem={buyItem} />
