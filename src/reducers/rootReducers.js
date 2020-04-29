@@ -20,21 +20,30 @@ const initialState = {
 
 export const rootReducers = (state = initialState, action) => {
   // console.log('rootReducer state:', action)
+  if (state.car.features.includes(action.payload) && action.type === ADD_FEATURE) {
+    console.log('If statement')
+    action.type = ''
+  }
   switch (action.type) {
     case ADD_FEATURE:
-      console.log('Add feature case', action)
+      console.log('Add case: ', state.additionalPrice, action.payload.price)
       return {
         ...state,
+        additionalPrice: state.additionalPrice + action.payload.price,
         car: {
           ...state.car,
           features: [...state.car.features, action.payload]
-        },
-        additionalPrice: state.additionalPrice + state.car.features.price
+        }
       }
     case DELETE_FEATURE:
-      console.log('Delete feature case')
+      // console.log('Delete case: ', action)
       return {
-        ...state
+        ...state,
+        additionalPrice: state.additionalPrice - action.payload.price,
+        car: {
+          ...state.car,
+          features: [...state.car.features.splice(0, action.payload), ...state.car.features.splice(1)]
+        }
       }
     default:
       console.log('Default case')
