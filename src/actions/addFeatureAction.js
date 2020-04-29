@@ -1,6 +1,6 @@
-export const addFeatureAction = addFeature => {
-    return { type: "ADD_FEATURE", payload: addFeature };
-  };
-  
-  //payload should be the ID of the feature
-  
+export const ADD_FEATURE = 'ADD_FEATURE'
+
+export function addFeatureAction(addFeature) {
+  console.log('Add action', addFeature)
+  return { type: ADD_FEATURE, payload: addFeature };
+}
