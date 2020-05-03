@@ -4,6 +4,9 @@ import {connect} from "react-redux";
 const Header = props => {
   return (
     <div>
+    <strong>
+    {props.car.name} 
+    </strong>
       <figure className="image is-128x128">
         <img src={props.car.image} alt={props.car.name} />
       </figure>
