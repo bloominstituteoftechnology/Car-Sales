@@ -4,9 +4,8 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import { connect } from 'react-redux'
 
-const App = (props) => {
+const App = () => {
   // const state = {
   //   additionalPrice: 0,
   //   car: {
@@ -27,27 +26,15 @@ const App = (props) => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <Header />
+        <AddedFeatures />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
-        <Total car={props.car} additionalPrice={props.additionalPrice} />
+        <AdditionalFeatures  />
+        <Total />
       </div>
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  console.log({ state })
-  return {
-    additionalPrice: state.additionalPrice,
-    car: state.car,
-    additionalFeatures: state.additionalFeatures,
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  {} //actions
-)(App)
+export default App

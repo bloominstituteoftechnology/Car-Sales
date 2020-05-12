@@ -1,6 +1,7 @@
 //import actions
 import {
      ADD_FEATURE,
+     REMOVE_FEATURE
 } from '../actions/actions'
 
 
@@ -26,6 +27,22 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
      switch(action.type) {
+       case ADD_FEATURE:
+          return {
+            ...state,
+            car: {
+              ...state.car,
+              features: [...state.car.features, action.payload] 
+            }
+          }
+        case REMOVE_FEATURE:
+          return {
+            ...state,
+            car: {
+              ...state.car,
+              features: state.car.features.filter(feature => action.payload !== feature.id)
+            }
+          }
           default:
                return state
      }
