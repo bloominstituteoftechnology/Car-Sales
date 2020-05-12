@@ -14,6 +14,6 @@ export const addFeature = (feature) => {
 
 export const REMOVE_FEATURE = 'REMOVE_FEATURE'
 
-export const removeFeature = (e) => {
-  return {type: REMOVE_FEATURE, payload: e.id}
+export const removeFeature = (feature) => {
+  return {type: REMOVE_FEATURE, payload: feature }
 }
