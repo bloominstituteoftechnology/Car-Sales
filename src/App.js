@@ -5,14 +5,14 @@ import AddedFeatures from "./components/AddedFeatures";
 import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 import { connect } from "react-redux";
-import { addFeature } from "./actions/actions";
+import { addFeature, removeFeature } from "./actions/actions";
 
 const App = (props) => {
   return (
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <AddedFeatures car={props.car} removeFeature={props.removeFeature} />
       </div>
       <div className="box">
         <AdditionalFeatures
@@ -33,4 +33,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addFeature })(App);
+export default connect(mapStateToProps, { addFeature, removeFeature })(App);
