@@ -13,6 +13,7 @@ const AddedFeatures = (props) => {
               key={item.id}
               feature={item}
               removeFeature={props.removeFeature}
+              updatePrice={props.updatePrice}
             />
           ))}
         </ol>

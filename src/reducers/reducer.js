@@ -1,4 +1,7 @@
-import { ADD_FEATURE, REMOVE_FEATURE } from "../actions/actions";
+import { ADD_FEATURE, REMOVE_FEATURE, UPDATE_PRICE } from "../actions/actions";
+
+const reduceFunction = (accumulator, currentValue) =>
+  accumulator + currentValue.price;
 
 const initialState = {
   additionalPrice: 0,
@@ -36,6 +39,14 @@ export const reducer = (state = initialState, action) => {
             return f.id !== action.payload;
           }),
         },
+      };
+    case UPDATE_PRICE:
+      return {
+        ...state,
+        additionalPrice:
+          action.version === "subtract"
+            ? state.additionalPrice - action.payload
+            : state.additionalPrice + action.payload,
       };
     default:
       return state;

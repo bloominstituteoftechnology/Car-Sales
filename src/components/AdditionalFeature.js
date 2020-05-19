@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
 
 const AdditionalFeature = (props) => {
+  const [disabled, setDisabled] = useState(false);
+
   const addNewFeature = () => {
-    let feature = {
-      id: props.feature.id,
-      name: props.feature.name,
-      price: props.feature.price,
-    };
-    props.addFeature(feature);
+    let exist = props.car.features.find((f) => {
+      return f.id === props.feature.id;
+    });
+
+    if (exist !== undefined) {
+      return;
+    } else {
+      let feature = {
+        id: props.feature.id,
+        name: props.feature.name,
+        price: props.feature.price,
+      };
+      props.addFeature(feature);
+      props.updatePrice("add", props.feature.price);
+    }
   };
 
   return (
@@ -21,4 +33,10 @@ const AdditionalFeature = (props) => {
   );
 };
 
-export default AdditionalFeature;
+const mapStateToProps = (state) => {
+  return {
+    car: state.car,
+  };
+};
+
+export default connect(mapStateToProps, {})(AdditionalFeature);

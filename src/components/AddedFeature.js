@@ -4,6 +4,7 @@ const AddedFeature = (props) => {
   const removeCurFeature = () => {
     let id = props.feature.id;
     props.removeFeature(id);
+    props.updatePrice("subtract", props.feature.price);
   };
 
   return (
