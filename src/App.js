@@ -4,7 +4,9 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import { Provider } from "react-redux"
 
+const store = createStore(reducer)
 const App = () => {
   const state = {
     additionalPrice: 0,
