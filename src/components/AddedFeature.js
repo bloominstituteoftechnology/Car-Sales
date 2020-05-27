@@ -1,23 +1,32 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {removeFeature} from '../actions';
-import {useState} from 'react';
+import {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
 
-
-const [removeFeat, setRemoveFeat] = useState();
 
 const AddedFeature = props => {
+
+  const dispatch = useDispatch();
+
+  const removeFeature = useCallback(
+    () => dispatch({
+      type: "REMOVE_FEATURE",
+      payload: {
+        index: props.index,
+        feature: props.feature
+      }
+    }),
+    [dispatch, props.feature, props.index],
+  )
+
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button className="button">X</button>
+      <button onClick={removeFeature} className="button">X</button>
       {props.feature.name}
     </li>
   );
 };
 
-const mapStateToProps = state => {
 
-}
 
-export default  connect(mapStateToProps, {removeFeature})(AddedFeature);
+export default  AddedFeature;
