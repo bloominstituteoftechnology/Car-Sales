@@ -1,15 +1,15 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const App = () => {
 
   const cars = useSelector(state => state);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // const state = {
   //   additionalPrice: 0,
@@ -28,31 +28,31 @@ const App = () => {
   //   ]
   // };
 
-  React.useEffect(() => {
-    axios.get("https://marketcheck-prod.apigee.net/v2/search/car/active?api_key=zbEFHw60c4Xa6NvJ7XPYyYhrKor4j8EF&rows=10&start=0&facet_sort=count&country=US&state=Fl&city=Orlando&photo_links=true")
-      .then(response => {
-        //console.log(response.data);
-        response.data.listings.forEach(listing => {
-          dispatch({
-            type: "ADD_CARS_DATA",
-            payload: {
-              additionalPrice: 0,
-              car: {
-                price: listing.price ? listing.price : "Price Available Upon Request",
-                name: listing.heading,
-                image: listing.media.photo_links[0],
-                miles: listing.miles ? listing.miles : "Unavailable",
-                type: listing.build.body_type,
-                features: []
-              },
-              additionalFeatures: []
-            }
-          });
-        });
+  // React.useEffect(() => {
+  //   axios.get("https://marketcheck-prod.apigee.net/v2/search/car/active?api_key=zbEFHw60c4Xa6NvJ7XPYyYhrKor4j8EF&rows=10&start=0&facet_sort=count&country=US&state=Fl&city=Orlando&photo_links=true")
+  //     .then(response => {
+  //       //console.log(response.data);
+  //       response.data.listings.forEach(listing => {
+  //         dispatch({
+  //           type: "ADD_CARS_DATA",
+  //           payload: {
+  //             additionalPrice: 0,
+  //             car: {
+  //               price: listing.price ? listing.price : "Price Available Upon Request",
+  //               name: listing.heading,
+  //               image: listing.media.photo_links[0],
+  //               miles: listing.miles ? listing.miles : "Unavailable",
+  //               type: listing.build.body_type,
+  //               features: []
+  //             },
+  //             additionalFeatures: []
+  //           }
+  //         });
+  //       });
         
-      })
-      .catch(err => console.log(err.message))
-  }, [dispatch]);
+  //     })
+  //     .catch(err => console.log(err.message))
+  // }, [dispatch]);
 
   return (
     <div className="boxes">

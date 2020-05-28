@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 
 const AdditionalFeatures = props => {
 
-  const additionalFeatures = useSelector(state => state[props.carIndex].additionalFeatures)
+  const additionalFeatures = useSelector(state => state.additionalFeatures)
 
   return (
     <div className="content">
@@ -14,7 +14,7 @@ const AdditionalFeatures = props => {
       {additionalFeatures.length ? (
         <ol type="1">
           {additionalFeatures.map((item, index) => (
-            <AdditionalFeature key={item.id} feature={item} index={props.carIndex} addFeature={props.addFeature} />
+            <AdditionalFeature key={item.id} feature={item} index={index} addFeature={props.addFeature} />
           ))}
         </ol>
       ) : (

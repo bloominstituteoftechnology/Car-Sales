@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 
 const Header = props => {
-  const car = useSelector(state => state[props.carIndex].car);
+  const car = useSelector(state => state.car);
 
   return (
     <>

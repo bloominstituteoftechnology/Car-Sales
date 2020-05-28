@@ -2,18 +2,21 @@ import React, {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 
 const AdditionalFeature = props => {
-
+console.log("addFeature", props.index)
   const dispatch = useDispatch();
 
   const addFeature = useCallback(
-    () => dispatch({
+    () => 
+    
+    dispatch({
       type: "ADD_FEATURE",
       payload: {
-        index: props.index,
-        feature: props.feature
+        id: props.feature.id,
+        name: props.feature.name,
+        price: props.feature.price
       }
     }),
-    [dispatch, props.index, props.feature]
+    [dispatch, props.feature]
   )
 
 

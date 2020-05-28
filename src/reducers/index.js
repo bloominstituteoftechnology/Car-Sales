@@ -1,6 +1,6 @@
 import {ADD_FEATURE, REMOVE_FEATURE} from '../actions';
 
-export let initialState = [{
+export let initialState = {
 
     "additionalPrice": 0, 
         "car": { 
@@ -34,46 +34,39 @@ export let initialState = [{
 
 
 }]
-}]
+}
 
  function carReducer(state = initialState, action) {
 
     switch (action.type){
 
         case ADD_FEATURE:
-        return state.map((carState) => {
-            if(carState === state[action.payload.index]) {
-                return {
-                    ...carState,
+             return {
+                    ...state,
                     car: {
-                        ...carState.car,
-                        features: [...carState.car.features, action.payload.feature]
+                        ...state.car,
+                        features: [...state.car.features, action.payload]
                     },
-                    additionalPrice: carState.additionalPrice + action.payload.feature.price,
-                    additionalFeatures: carState.additionalFeatures.filter(feature => feature !== action.payload.feature)
-                }
-            }
-            return carState;  
-            });
+                    // additionalPrice: state.additionalPrice + action.payload.feature.price,
+             }
+            
+        
 
         
         case REMOVE_FEATURE:
-            return state.map((carState) => {
-                if (carState === state[action.payload.index]) {
+             
                     return {
-                        ...carState,
+                        ...state,
                         car: {
-                            ...carState.car,
-                            features: carState.car.features.filter(feature => feature !== action.payload.feature)
+                            ...state.car,
+                            features: state.car.features.filter(feature => feature !== action.payload.id)
                         },
-                        additionalPrice: carState.additionalPrice - action.payload.feature.price,
-                        additionalFeatures: [...carState.additionalFeatures, action.payload.feature]
+                        additionalPrice: state.additionalPrice - action.payload.feature.price,
+                        additionalFeatures: [...state.additionalFeatures, action.payload.feature]
                     }
-                }
-                return carState;
-            });
+               
+            
             case "ADD_CARS_DATA":
-            initialState = [...initialState, action.payload];
             return [...state, action.payload];
 
         default:

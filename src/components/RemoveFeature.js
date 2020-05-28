@@ -3,8 +3,8 @@ import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 
 
-const AddedFeature = props => {
-
+const RemoveFeature = props => {
+console.log(props)
   const dispatch = useDispatch();
 
   const removeFeature = useCallback(
@@ -29,4 +29,4 @@ const AddedFeature = props => {
 
 
 
-export default  AddedFeature;
+export default  RemoveFeature;
