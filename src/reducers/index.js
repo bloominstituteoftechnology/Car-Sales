@@ -13,22 +13,22 @@ export let initialState = {
         }, 
         "additionalFeatures": [
             { 
-                "id": 1, 
+                "id": Date.now(), 
                 "name": "V-6 engine", 
                 "price": 1500 
             }, 
             { 
-                "id": 2, 
+                "id": Date.now(), 
                 "name": "Racing detail package", 
                 "price": 1500 
             }, 
             { 
-                "id": 3, 
+                "id": Date.now(), 
                 "name": "Premium sound system", 
                 "price": 500 
             }, 
             { 
-                "id": 4, 
+                "id": Date.now(), 
                 "name": "Rear spoiler", 
                 "price": 250 
 
@@ -41,6 +41,7 @@ export let initialState = {
     switch (action.type){
 
         case ADD_FEATURE:
+            console.log(state.car.features, action.payload)
              return {
                     ...state,
                     car: {

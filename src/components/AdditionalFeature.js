@@ -5,19 +5,32 @@ const AdditionalFeature = props => {
 console.log("addFeature", props.index)
   const dispatch = useDispatch();
 
-  const addFeature = useCallback(
-    () => 
+  // const addFeature = useCallback(
+  //   () => 
     
+  //   dispatch({
+  //     type: "ADD_FEATURE",
+  //     payload: {
+  //       id: props.feature.id,
+  //       name: props.feature.name,
+  //       price: props.feature.price
+  //     }
+  //   }),
+  //   [dispatch, props.feature]
+  // )
+
+  const addFeature = () => {
+console.log("Feature from add feature", props.feature)
     dispatch({
       type: "ADD_FEATURE",
-      payload: {
-        id: props.feature.id,
-        name: props.feature.name,
-        price: props.feature.price
-      }
-    }),
-    [dispatch, props.feature]
-  )
+        payload: {
+          id: props.feature.id,
+          name: props.feature.name,
+          price: props.feature.price
+        }
+    })
+
+  }
 
 
   return (
