@@ -9,15 +9,13 @@ body {
   place-items: center;
 }
 .boxes {
-  display: grid;
-  grid-gap: 2em;
-  grid-template-columns: repeat(2, minmax(350px, 1fr));
-  grid-template-rows: auto;
+    display: flex;
 }
 .box {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  width: 350px;
   h1 {
     font-size: 20px;
     margin: 0 0 1rem 0;
@@ -32,6 +30,12 @@ body {
       display: flex;
       justify-content: flex-start;
     }
+  }
+  &:first-child{
+      margin-right: 5%;
+  }
+  &:last-child{
+      margin-left: 5%;
   }
 }
 .button {
