@@ -4,6 +4,9 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import {createStore} from 'redux' 
+
+let store = createStore()
 
 const App = () => {
   const state = {
