@@ -38,10 +38,10 @@ const initialState = {
             case "REMOVE_FEATURE" :
                 return {
                     ...state,
-                    additionalFeatures: [state.additionalFeatures, action.payload],
+                    additionalFeatures: [...state.additionalFeatures, action.payload],
                     car: {
                         ...state.car,
-                        price: state.car.price = action.payload.price,
+                        price: state.car.price - action.payload.price,
                         features: state.car.features.filter(feature => {
                             if (feature !== action.payload) {
                                 return feature
