@@ -13,7 +13,7 @@ const AdditionalFeature = props => {
   );
 };
 
-const mapStateToProps = state => {
+//const mapStateToProps = state => {
   //   console.log(state.additionalFeatures);
   //   return {
   //     feature: state.additionalFeatures.feature, 

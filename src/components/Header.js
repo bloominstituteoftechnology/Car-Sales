@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 const Header = props => {
   return (
@@ -13,7 +13,7 @@ const Header = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   // console.log();
   return {
     image: state.car.image, 
