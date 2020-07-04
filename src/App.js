@@ -41,10 +41,11 @@ const App = (props) => {
       <div className="box">
         <Header  />
         <AddedFeatures removeItem={removeFeatures}/>
+        <Total />
       </div>
       <div className="box">
          <AdditionalFeatures   />
-        <Total />
+        
       </div>
     </div>
   );
