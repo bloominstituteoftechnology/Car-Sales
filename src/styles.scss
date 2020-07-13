@@ -54,7 +54,7 @@ width: 4em;
 padding-right: .2em
 }
 .button {
-  background: hotpink;
+  background: #ff6969;
   border: 1px solid transparent;
   color: white;
   margin-right: 1em;
@@ -68,6 +68,9 @@ padding-right: .2em
 }
 #carsDisp{
 display:flex;
+border-bottom: solid;
+border-top: solid;
+
   
 }
 

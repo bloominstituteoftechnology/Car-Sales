@@ -69,6 +69,23 @@ const  cars =
     { id: 5, name: "Chrome Rims  ", price: 12200 },
     { id: 6, name: "Low Jack", price: 4000 },
   ]
+},{
+  additionalPrice: 0,
+  car: {
+    price: 60000,
+    name: "2020 Porsche 911",
+    image:
+	      "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USD10PRC011A021001.jpg",
+    features: []
+  },
+  additionalFeatures: [
+    { id: 1, name: "Turbo I-6 engine", price: 22000 },
+    { id: 2, name: "Racing Stripes", price: 150 },
+    { id: 3, name: "Bose sound system", price: 500 },
+    { id: 4, name: "Heated seats", price: 2200 },
+    { id: 5, name: "Sport Tires  ", price: 2300 },
+    { id: 6, name: "Low Jack", price: 4000 },
+  ]
 }]
 
 export default cars 

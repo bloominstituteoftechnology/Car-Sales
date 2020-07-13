@@ -18,13 +18,15 @@ const Header = props => {
     <strong>
     {props.car.name} 
     </strong>      
-      
+        
       <figure className="image is-128x128">
         <img src={props.car.image} alt={props.car.name} />
       </figure>
       </center>
-      <h2>{props.car.name}</h2>
+      <center>
       <p>MSRP: ${props.car.price}</p>
+            </center>
+
     </div>
   );
 };
