@@ -14,7 +14,7 @@ const AddedFeatures = props => {
           ))}
         </ol>
       ) : (
-        <p>Select features on right</p>
+        <p>Select features from the menu </p>
       )}
     </div>
   );
