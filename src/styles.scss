@@ -38,6 +38,21 @@ body {
     }
   }
 }
+
+
+#carNames {
+  opacity:0.5;
+  transition: opacity 1.5s;
+
+}
+#carNames:hover {
+  opacity:1;
+
+}
+#carNames img{
+width: 4em;
+padding-right: .2em
+}
 .button {
   background: hotpink;
   border: 1px solid transparent;
@@ -50,6 +65,10 @@ body {
     border: 1px solid hotpink;
     color: #333;
   }
+}
+#carsDisp{
+display:flex;
+  
 }
 
   @media screen and (max-width: $mobile-up){
