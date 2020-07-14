@@ -1,5 +1,4 @@
 import { ADD_FEATURE, REMOVE_FEATURE } from '../actions/carActions';
-import { act } from 'react-dom/test-utils';
 
 export const initialState = {
   additionalPrice: 0,
@@ -25,11 +24,12 @@ export const carReducer = (state = initialState, action) => {
         ...state,
         car: {
           ...state.car,
-          features: [
-            ...state.car.features,
-            state.additionalFeatures[action.payload - 1],
-          ],
+          features: [...state.car.features, action.payload],
+          price: state.car.price + action.payload.price,
         },
+        additionalFeatures: state.additionalFeatures.filter(
+          (feature) => feature.id !== action.payload.id
+        ),
       };
 
     case REMOVE_FEATURE:
@@ -37,13 +37,12 @@ export const carReducer = (state = initialState, action) => {
         ...state,
         car: {
           ...state.car,
-          features: [
-            ...state.car.features.filter(
-              (feature) =>
-                feature !== state.additionalFeatures[action.payload - 1]
-            ),
-          ],
+          features: state.car.features.filter(
+            (feature) => feature.id !== action.payload.id
+          ),
+          price: state.car.price - action.payload.price,
         },
+        additionalFeatures: [...state.additionalFeatures, action.payload],
       };
     default:
       return state;
