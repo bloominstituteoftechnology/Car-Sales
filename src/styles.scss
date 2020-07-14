@@ -1,4 +1,6 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 body {
@@ -17,7 +19,6 @@ body {
 .box {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
   h1 {
     font-size: 20px;
     margin: 0 0 1rem 0;
@@ -39,8 +40,8 @@ body {
   border: 1px solid transparent;
   color: white;
   margin-right: 1em;
-  padding: .25em .75em;
-  transition: all .25s ease-in;
+  padding: 0.25em 0.75em;
+  transition: all 0.25s ease-in;
   &:hover {
     background: white;
     border: 1px solid hotpink;
