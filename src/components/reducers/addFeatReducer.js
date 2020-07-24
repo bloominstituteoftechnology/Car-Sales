@@ -1,5 +1,5 @@
 export const initialState = {
-    features: [
+    AdditionalFeatures: [
         { id: 1, name: 'V-6 engine', price: 1500 },
         { id: 2, name: 'Racing detail package', price: 1500 },
         { id: 3, name: 'Premium sound system', price: 500 },
@@ -7,7 +7,7 @@ export const initialState = {
     ]
 };
 
-export const addFeatReducer = (state, action) => {
+export const addFeatReducer = (state = initialState, action) => {
 
     return state;
 }

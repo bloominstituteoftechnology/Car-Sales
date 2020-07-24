@@ -1,9 +1,13 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+// import { addFeatReducer } from './components/reducers/addFeatReducer';
+
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+
 
 const App = () => {
   const state = {
@@ -37,4 +41,18 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    additionalFeatures: [
+      { id: 1, name: 'V-6 engine', price: 1500 },
+      { id: 2, name: 'Racing detail package', price: 1500 },
+      { id: 3, name: 'Premium sound system', price: 500 },
+      { id: 4, name: 'Rear spoiler', price: 250 }
+    ]
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(App);
