@@ -12,7 +12,7 @@ import App from './App';
 import 'bulma/css/bulma.css';
 import './styles.scss';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     addFeatReducer,
     headTotalReducer
 })
