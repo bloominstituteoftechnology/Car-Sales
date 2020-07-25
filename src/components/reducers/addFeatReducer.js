@@ -1,5 +1,4 @@
 import React from 'react';
-import AddedFeature from '../AddedFeature';
 
 export const initialState = {
     AdditionalFeatures: [
@@ -15,10 +14,7 @@ export const addFeatReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'ADD_FEATURE':
-            return {
-                AdditionalFeatures: state.AdditionalFeatures.map((item) =>
-                    item.id === action.payload) ? <AddedFeature key={state.item.id} feature={state.item.name} /> && state.item.price + state.item.additionalPrice : <p>You can purchase items from the store.</p>
-            }
+            return
 
         case 'REMOVE_FEATURE':
             return {
