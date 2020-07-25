@@ -9,5 +9,18 @@ export const initialState = {
 
 export const addFeatReducer = (state = initialState, action) => {
 
-    return state;
+    switch (action.type) {
+        case 'ADD_Feature':
+            return {
+                ...state,
+                AdditionalFeatures: [{
+                    ...state.AdditionalFeatures,
+                    name: action.payload
+                }]
+            };
+        default:
+            return state;
+    }
+
+
 }
