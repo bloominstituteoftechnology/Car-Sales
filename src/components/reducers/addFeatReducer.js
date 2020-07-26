@@ -35,9 +35,15 @@ export const addFeatReducer = (state = initialState, action) => {
 
         case 'ADD_PRICE':
             return {
-                additionalPrice(e => { [e.target.name]: e.target.value }
+
             }
+
+        case 'REMOVE_PRICE':
+            return {
+
+            }
+
         default:
-return state;
+            return state;
     }
 }

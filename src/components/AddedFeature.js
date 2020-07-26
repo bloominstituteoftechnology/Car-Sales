@@ -1,10 +1,17 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { removeFeature } from './actions/featureActions';
+import { removeFeature, removePrice } from './actions/featureActions';
 
 const AddedFeature = props => {
   console.log('from AddedFeature', props);
+
+  const handleChanges = (e => {
+    e.preventDefault();
+    removeFeature();
+    removePrice();
+  })
+
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
@@ -16,14 +23,12 @@ const AddedFeature = props => {
 };
 const mapStateToProps = state => {
   return {
-    AdditionalFeatures: [
-      { id: 1, name: 'V-6 engine', price: 1500, removed: false },
-      { id: 2, name: 'Racing detail package', price: 1500, removed: false },
-      { id: 3, name: 'Premium sound system', price: 500, removed: false },
-      { id: 4, name: 'Rear spoiler', price: 250, removed: false }
-    ]
+    AdditionalFeatures: state.AdditionalFeatures
   }
 };
 
 export default connect(mapStateToProps,
-  { removeFeature })(AddedFeature);
+  {
+    removeFeature,
+    removePrice
+  })(AddedFeature);

@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { addFeatReducer } from './components/reducers/addFeatReducer';
-import { combineReducers } from 'redux';
 
 import App from './App';
 
