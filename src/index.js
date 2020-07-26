@@ -9,10 +9,10 @@ import App from './App';
 
 import 'bulma/css/bulma.css';
 import './styles.scss';
-import { addFeature } from './components/actions/featureActions';
 
 
 const store = createStore(addFeatReducer);
+// console.log('from Index', store)
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

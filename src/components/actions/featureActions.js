@@ -7,10 +7,10 @@ export const removeFeature = (item) => {
     return { type: 'REMOVE_FEATURE', payload: item }
 };
 
-export const addPrice = item => {
-    return { type: 'ADD_PRICE', payload: item }
+export const addPrice = itemPrice => {
+    return { type: 'ADD_PRICE', payload: itemPrice }
 };
 
-export const removePrice = item => {
-    return { type: 'REMOVE_PRICE', payload: item }
+export const removePrice = itemPrice => {
+    return { type: 'REMOVE_PRICE', payload: itemPrice }
 }

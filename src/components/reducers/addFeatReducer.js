@@ -1,6 +1,3 @@
-import React from 'react';
-import AddedFeature from '../AddedFeature';
-
 export const initialState = {
     additionalPrice: 0,
     car: {
@@ -23,8 +20,10 @@ export const addFeatReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'ADD_FEATURE':
-            return
-            (...state) => <AddedFeature key={state.id} feature={state} />
+            return {
+                ...state.car,
+                features: [...state.car, action.payload]
+            };
 
         case 'REMOVE_FEATURE':
             return {
