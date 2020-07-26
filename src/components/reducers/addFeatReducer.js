@@ -2,6 +2,7 @@ import React from 'react';
 import AddedFeature from '../AddedFeature';
 
 export const initialState = {
+    additionalPrice: 0,
     car: {
         price: 26395,
         name: '2019 Ford Mustang',
@@ -34,9 +35,9 @@ export const addFeatReducer = (state = initialState, action) => {
 
         case 'ADD_PRICE':
             return {
-                ...state, state.car.price + state.additionalFeatures.price
+                additionalPrice(e => { [e.target.name]: e.target.value }
             }
         default:
-            return state;
+return state;
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { addFeature, removeFeature } from './components/actions/featureActions';
+import { addFeature, removeFeature, addPrice } from './components/actions/featureActions';
 // import { addFeatReducer } from './components/reducers/addFeatReducer';
 // import { headTotalReducer } from './components/reducers/head-totalReducer';
 
@@ -53,6 +53,7 @@ export default connect(
   mapStateToProps,
   {
     addFeature,
-    removeFeature
+    removeFeature,
+    addPrice
   }
 )(App);
