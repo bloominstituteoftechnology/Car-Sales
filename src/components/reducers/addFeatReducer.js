@@ -1,6 +1,14 @@
 import React from 'react';
+import AddedFeature from '../AddedFeature';
 
 export const initialState = {
+    car: {
+        price: 26395,
+        name: '2019 Ford Mustang',
+        image:
+            'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
+        features: []
+    },
     AdditionalFeatures: [
         { id: 1, name: 'V-6 engine', price: 1500, removed: false },
         { id: 2, name: 'Racing detail package', price: 1500, removed: false },
@@ -15,6 +23,7 @@ export const addFeatReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_FEATURE':
             return
+            (...state) => <AddedFeature key={state.id} feature={state} />
 
         case 'REMOVE_FEATURE':
             return {
@@ -22,8 +31,12 @@ export const addFeatReducer = (state = initialState, action) => {
                     item.id === action.payload ? { ...item, removed: !item.removed } : item)
 
             }
+
+        case 'ADD_PRICE':
+            return {
+                ...state, state.car.price + state.additionalFeatures.price
+            }
         default:
             return state;
-            console.log('from outgoing AFR', state)
     }
 }
