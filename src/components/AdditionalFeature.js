@@ -1,14 +1,10 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-import { addFeature, addPrice } from './actions/featureActions';
-
 const AdditionalFeature = props => {
   console.log('from AdditionalFeature', props);
   const handleChanges = (e => {
     e.preventDefault();
-    addFeature(props.feature);
-    addPrice()
+    props.addFeature(props.feature);
   })
   return (
     <li>
@@ -20,15 +16,6 @@ const AdditionalFeature = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    AdditionalFeatures: state.AdditionalFeatures
-  }
-}
 
-export default connect(
-  mapStateToProps, {
-  addFeature,
-  addPrice
-}
-)(AdditionalFeature);
+
+export default AdditionalFeature;
