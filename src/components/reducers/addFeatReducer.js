@@ -33,11 +33,15 @@ export const addFeatReducer = (state = initialState, action) => {
             console.log('from AFR:removeFeature', action);
             return {
                 ...state,
+                additionalPrice: state.additionalPrice - action.payload.price,
                 car: {
-                    ...state.car, features: [...state.car.features.filter((item) =>
-                        item.id !== action.payload.id ? '' : item
-                    )]
+                    ...state.car,
+                    features: state.car.features.filter(item => item.id !== action.payload.id)
                 },
+                AdditionalFeatures: [
+                    ...state.AdditionalFeatures,
+                    action.payload
+                ]
 
 
             }
