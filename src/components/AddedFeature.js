@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+import { removeFeature } from './actions/featureActions';
+
 const AddedFeature = props => {
   console.log('from AddedFeature', props);
 
@@ -18,4 +21,7 @@ const AddedFeature = props => {
   );
 };
 
-export default AddedFeature;
+export default connect(
+  null,
+  { removeFeature }
+)(AddedFeature);
