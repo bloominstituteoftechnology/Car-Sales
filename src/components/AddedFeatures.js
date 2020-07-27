@@ -6,7 +6,7 @@ import AddedFeature from './AddedFeature';
 import { removeFeature } from './actions/featureActions';
 
 const AddedFeatures = props => {
-  console.log('from AddedFeatures', props);
+  // console.log('from AddedFeatures', props);
   return (
     <div className="content">
       <h6>Added features:</h6>

@@ -9,7 +9,7 @@ import Total from './components/Total';
 
 
 const App = (props) => {
-  console.log('from App', props)
+  // console.log('from App', props)
   return (
     <div className="boxes">
       <div className="box">

@@ -1,6 +1,6 @@
 
 export const addFeature = item => {
-    console.log('from actions: addFeature', item);
+    // console.log('from actions: addFeature', item);
     return { type: 'ADD_FEATURE', payload: item }
 };
 

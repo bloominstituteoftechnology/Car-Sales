@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AdditionalFeature = props => {
-  console.log('from AdditionalFeature', props);
+  // console.log('from AdditionalFeature', props);
   const handleChanges = (e => {
     e.preventDefault();
     props.addFeature(props.feature);
