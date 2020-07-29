@@ -5,11 +5,15 @@ import { addItem } from "../actions";
 const AdditionalFeature = (props) => {
   //Added useDispatch hook from react-redux
   const dispatch = useDispatch();
-  const handleClick = (e) => {
+
+
+  const handleChanges = (e) => {
     e.preventDefault();
     // props.addItem(props.feature)
     dispatch(addItem(props.feature));
   };
+
+  
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
