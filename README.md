@@ -2,7 +2,7 @@
 
 In this project you are given the skeleton/structure/styling of a React app. There is even some state built in for you. Your job will be to implement React-Redux as the state management system for this application.
 
-## Instructions
+## Introduction
 
 ---
 
@@ -16,9 +16,18 @@ Commit your code regularly and meaningfully. This helps both you and your team l
 
 In this project you will implement Redux to manage the state for this React application.
 
-## Project Set Up
+# _Project - Car Sales_
 
----
+- This is a really fun project, and one to show your family and friends when you've finished.
+- You will be starting with a structured and styled app
+- You have been commissioned to implement Redux as the state management system in this app
+- You have the freedom to manage the state how you would like - ie, connecting multiple components to pass data directly to them, or maybe connecting one component, and then putting the data into a context object.
+
+## Instructions
+
+### Task 1: Project Setup
+
+## Project Set Up
 
 This project was put together using create-react-app (CRA). You will not need to install CRA in order to make this project work. Follow the steps below to setup the project with the proper dependencies.
 
@@ -32,21 +41,7 @@ This project was put together using create-react-app (CRA). You will not need to
       Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
 - [ ] Push commits: git push origin `<firstName-lastName>`.
 
-Follow these steps for completing your project.
-
-- [ ] Submit a Pull-Request to merge Branch into master (student's Repository).
-- [ ] Add your team lead as a reviewer on the pull-request
-- [ ] Your team lead will count the project as complete by merging the branch back into master.
-- [ ] Do your magic!
-
-# _Project - Car Sales_
-
-- This is a really fun project, and one to show your family and friends when you've finished.
-- You will be starting with a structured and styled app
-- You have been commissioned to implement Redux as the state management system in this app
-- You have the freedom to manage the state how you would like - ie, connecting multiple components to pass data directly to them, or maybe connecting one component, and then putting the data into a context object.
-
-## Directions
+### Task 2a:  _MVP Requirements:_
 
 **Step 1 - Planning 📝**
 
@@ -66,7 +61,7 @@ Connect components 👉 Add events and event handlers in UI 👉 Build action cr
 write the reducer logic for the actions 👉 Rinse and repeat
 ```
 
-## _MVP Requirements:_
+#### _MVP Requirements:_
 
 - Move the given state to the reducer as the initial state for the Redux store.
 - Set up the Redux flow
@@ -74,7 +69,14 @@ write the reducer logic for the actions 👉 Rinse and repeat
 - User should be able to remove added features from their car
 - Total should update as user adds and removes features from their car
 
-## Stretch Problems
+### Task 2b: Exit Ticket
+
+Once you begin, you will have 15 minutes to answer the questions [here](https://app.codesignal.com/public-test/aqXHiPPM4uCzqD3T5/mbDWo3KwoFmquD).
+
+The completion of these questions is mandatory for MVP. However, passing the quiz doesn't affect your standing as a Lambda School student whatsoever. This is Lambda School testing itself! Please answer honestly and to the best of your ability without using external references.
+
+
+### Task 3: Stretch Problems
 
 Do not attempt stretch problems until MVP has been reached and a final commit has been made.
 
@@ -82,3 +84,8 @@ Do not attempt stretch problems until MVP has been reached and a final commit ha
 - Implement React-Router and add a starter page where the user can choose a car. Each car should have different features that have different pricing. Have fun with this! It could end up being really cool.
 - Look into the docs for Bulma and change up the styling.
 - Implement an API from one of these sites [here](https://www.google.com/search?q=car+sales+api&rlz=1C5CHFA_enUS809US809&oq=car+sales+api&aqs=chrome..69i57j0l5.3580j0j1&sourceid=chrome&ie=UTF-8). I don't know if there are any good open APIs for this, so explore around. Check out what data these APIs return, and what you think would be fun to work with. The sky is the limit here!
+
+## Submission Format
+* [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+* [ ] Fill out your module retrospective form [here](https://forms.lambdaschool.com/module-retrospective) with a link to your PR
+
