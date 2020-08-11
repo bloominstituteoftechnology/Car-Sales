@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addFeature } from './actions/addFeat'
+import { removeFeature } from './actions/removeFeat'
+
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
@@ -23,14 +26,22 @@ const App = (props) => {
   //   ]
   // };
 
+  const removeFeature = item => {
+    props.remove(item)
+  };
+
+  const buyItem = item => {
+    props.add(item);
+  };
+
   return (
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <AddedFeatures car={props.car} removeItem={removeFeature} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
+        <AdditionalFeatures addItem={buyItem} additionalFeatures={props.additionalFeatures} />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
@@ -39,10 +50,12 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    car: state.car,
-    additionalFeatures: state.additionalFeatures,
-    additionalPrice: state.additionalPrice
+    state
   }
 }
+const mapDispatchToProps = {
+  add: addFeature,
+  remove: removeFeature
+}
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
