@@ -1,4 +1,5 @@
-
+import { ADD_FEATURE } from '../actions/addFeat'
+import { REMOVE_FEATURE } from '../actions/removeFeat'
 
 const initialState = {
     additionalPrice: 0,
