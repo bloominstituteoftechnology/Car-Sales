@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 const Total = props => {
   return (
@@ -8,4 +9,9 @@ const Total = props => {
   );
 };
 
-export default Total;
+function mapStateToProps(state) {
+  return{
+    state: state
+  }
+}
+export default connect(mapStateToProps)(Total);
