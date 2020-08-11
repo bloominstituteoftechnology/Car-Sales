@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+
 
 const initialState = {
     additionalPrice: 0,
@@ -17,11 +17,13 @@ const initialState = {
     ]
 };
 
-const reducer1 = () => {
-
+export const carReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case ADD_FEATURE:
+            return state;
+        case REMOVE_FEATURE:
+            return state
+        default:
+            return state;
+    }
 }
-
-export const rootReducer = combineReducers({
-    reducer1,
-    reducer2
-})
