@@ -13,6 +13,7 @@ body {
   grid-gap: 2em;
   grid-template-columns: repeat(2, minmax(350px, 1fr));
   grid-template-rows: auto;
+  
 }
 .box {
   display: flex;

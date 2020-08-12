@@ -1,4 +1,5 @@
 import React from 'react';
+import { additionalPrice } from '../reducers/featReducers'
 
 const Total = props => {
   return (
