@@ -1,5 +1,5 @@
-import { ADD_FEATURE } from '../actions/rootActions';
-import { SUBTRACT_FEATURE } from '../actions/rootActions';
+import { ADD_FEATURE, SUBTRACT_FEATURE, addFeature} from '../actions/rootActions';
+
 
 const initialState = {
     additionalPrice: 0,
@@ -21,22 +21,39 @@ const initialState = {
   export const rootReducer = ( state = initialState, action ) => {
       switch(action.type){
           case ADD_FEATURE: 
+          
+        const checkIfFeatureExistsArrary = state.car.features.filter(feature => {
+             return feature.id === action.payload 
+        })
+        if(checkIfFeatureExistsArrary.length >0) {
+            return state
+        } else {
+            const featureToAdd = state.additionalFeatures.filter(feature => {
+                return feature.id === action.payload 
+            })[0]}        
+
             return {
                 ...state,
-                additionalFeatures: state.additionalFeatures.filter((feature) => {
-                    if(feature !== action.payload){
-                        return feature
-                    } else {
-                        return null
-                    }
-                }),
                 car: { 
                     ...state.car,
-                    price: state.car.price + action.payload.price,
-                    features: [...state.car.features, action.payload]
+                    features: [...state.car.features, addFeature]
+                    },
+                    additionalPrice: state.additionalPrice + addFeature.price
+                }
+        
+            case SUBTRACT_FEATURE: 
+            return {
+                car: {
+                    ...state.car,
+                    features: state.car.features.filter(feature => {
+                        return feature.id !== action.payload.id
+                    })
                 },
-                additionalPrice: action.payload.price + state.additionalPrice
-                
-            }
-      }
-  }
+                additionalPrice: state.additionalPrice - action.payload.price
+            };
+            default: 
+                return state 
+        }
+    }
+
+               
