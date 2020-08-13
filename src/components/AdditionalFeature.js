@@ -5,12 +5,23 @@ import { connect } from 'react-redux'
 
 const AdditionalFeature = props => {
   return (
-    <li>
-      {/* Add an onClick that will let you add a feature to your car */}
-      <button onCLick={() => {props.addFeature(props.feature.id)}} className="button">Add</button>
-      {props.feature.name} (+{props.feature.price})
-    </li>
-  );
-};
+    <div>
+      <h2> Additional Features </h2>
+      {props.addFeature.length ? (
+        <ol type="1">
+          {props.addFeature.map(feature => (
+            <AddedFeature key={feature.id} feature={feature} />
+          ))}
+        </ol> 
+       ) : (
+          <p>Nice Car!</p>
+       )}
+    </div>
+  )
+}
 
-export default connect(null, { addFeature})(AdditionalFeature);
+function mapStateToProps(state) {
+  AdditionalFeature: state.addFeature
+}
+
+export default connect(null, {addFeature})(AdditionalFeature);

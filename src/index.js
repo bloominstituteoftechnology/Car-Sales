@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 import { rootReducer } from './reducers/rootReducer'
 
 
-// import 'bulma/css/bulma.css';
-// import './styles.scss';
+import 'bulma/css/bulma.css';
+import './styles.scss';
 
 const store = createStore(rootReducer)
 
