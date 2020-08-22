@@ -1,3 +1,5 @@
+import { ADD_F, REMOVE_F } from "../actions";
+
 export const initialState = {
   additionalPrice: 0,
   car: {
@@ -15,8 +17,36 @@ export const initialState = {
   ],
 };
 
-export function reducer(state = initialState, action) {
-  return {
-    msg: "This is from my reducer",
-  };
+export function theReducer(state = initialState, action) {
+  // return {
+  //   msg: "This is from my reducer",
+  // };
+  if (action.type === ADD_F) {
+    // case ADD_F:
+    if (!state.car.features.includes(action.payload)) {
+      return {
+        ...state,
+        additionalPrice: state.additionalPrice + action.payload.price,
+        car: {
+          ...state.car,
+          features: [...state.car.features, action.payload],
+        },
+      };
+    } else {
+      return state;
+    }
+  }
+
+  if (action.type === REMOVE_F) {
+    const { price, id } = action.payload;
+    return {
+      ...state,
+      additionalPrice: (state.additionalPrice -= price),
+      car: {
+        ...state.car,
+        features: state.car.features.filter((feature) => feature.id !== id),
+      },
+    };
+  }
+  return state;
 }

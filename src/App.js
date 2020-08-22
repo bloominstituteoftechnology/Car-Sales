@@ -8,7 +8,7 @@ import Total from "./components/Total";
 //Import connect to connect our store(redux) with react
 //Also Import our action Creators
 import { connect } from "react-redux";
-import { addFeature, removeFeature } from "./actions/";
+import { addFeature, removeFeature } from "./actions";
 
 const App = (props) => {
   const removeFeature = (item) => {
