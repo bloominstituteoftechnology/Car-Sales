@@ -1,29 +1,35 @@
-import React from 'react';
-
-import { connect } from 'react-redux'
-
-import AddedFeature from './AddedFeature';
+import React from "react";
+import { connect } from "react-redux";
+import {remove} from '../actions/index'
+import AddedFeature from "./AddedFeature";
 
 const AddedFeatures = props => {
+
+
+
+  const removeItem = item => {
+    props.remove(item)
+  };
+
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {props.state.car.features.length ? (
+      {props.car.features.length ? (
         <ol type="1">
-          {props.state.car.features.map(feature => (
-            <AddedFeature key={feature.id} feature={feature} />
+          {props.car.features.map(item => (
+            <AddedFeature delete={removeItem} key={item.id} feature={item} />
           ))}
         </ol>
       ) : (
-        <p>You can purchase items from the store.</p>
+        <p>Customize your Features!</p>
       )}
     </div>
   );
 };
 
-function mapStateToProps(state){
+const mapStateToProps = state => {
   return {
-   state: state
+    car: state.car
   }
 }
 

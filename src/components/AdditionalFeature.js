@@ -1,18 +1,13 @@
 import React from 'react';
-import { addFeature } from '../actions/rootActions';
-import { connect } from 'react-redux'
-
 
 const AdditionalFeature = props => {
-  console.log(props)
   return (
-    <div>
-      <p> {props.feature.name} </p>
-      
-    </div>
-  )
-}
-
-
+    <li>
+      {/* Add an onClick that will let you add a feature to your car */}
+      <button onClick={() => props.add(props.feature)} className="button">Add</button>
+      {props.feature.name} (+{props.feature.price})
+    </li>
+  );
+};
 
 export default AdditionalFeature;
