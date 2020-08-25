@@ -4,13 +4,15 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import {carReducer,initialState} from './reducers/index';
+// import {carReducer,initialState} from './reducers/index';
+import { connect} from 'react-redux';
+import { removeFeature, buyItem} from './actions/carActions';
 
-export const ADD_FEATURE= 'ADD_FEATURE';
-export const REMOVE_FEATURE= 'REMOVE_FEATURE';
+// export const ADD_FEATURE= 'ADD_FEATURE';
+// export const REMOVE_FEATURE= 'REMOVE_FEATURE';
 
-const App = () => {
-    const [state,dispatch]=useReducer(carReducer, initialState)
+const App = (props) => {
+    // const [state,dispatch]=useReducer(carReducer, initialState)
   // const state = {
   //   additionalPrice: 0,
   //   car: {
@@ -28,27 +30,36 @@ const App = () => {
   //   ]
   // };
 
-  const removeFeature =feature=>{
-    dispatch({type:REMOVE_FEATURE,payload:feature})
+  // const removeFeature =feature=>{
+  //   dispatch({type:REMOVE_FEATURE,payload:feature})
 
-  }
+  // }
 
-  const buyItem =feature=>{
-    dispatch({type:ADD_FEATURE,payload:feature})  
-  }
+  // const buyItem =feature=>{
+  //   dispatch({type:ADD_FEATURE,payload:feature})  
+  // }
 
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures removeFeature={removeFeature} car={state.car} />
+        <Header car={props.car} />
+        <AddedFeatures removeFeature={props.removeFeature} car={props.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures buyItem={buyItem} additionalFeatures={state.additionalFeatures} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
+        <AdditionalFeatures buyItem={props.buyItem} additionalFeatures={props.additionalFeatures} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
   );
 };
 
-export default App;
+const mapStateToProps= state => {
+  return state
+}
+
+const mapDispatchToProps={
+  removeFeature,
+  buyItem
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);
