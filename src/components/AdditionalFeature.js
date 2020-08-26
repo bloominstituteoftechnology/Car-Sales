@@ -4,9 +4,12 @@ import { addFeature } from '../actions/actions';
 
 const AdditionalFeature = props => {
 
+  const dispatch = useDispatch()
+
+
   return (
     <li>
-      <button onClick={() => useDispatch(addFeature(props.feature))} className="button">Add</button>
+      <button onClick={() => dispatch(addFeature(props.feature))} className="button">Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
