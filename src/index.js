@@ -4,6 +4,10 @@ import App from './App';
 
 import 'bulma/css/bulma.css';
 import './styles.scss';
+import { Provider } from 'react-redux';
+
+
+// const store = createStore(featureReducer);
 
 const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<Provider><App /></Provider>, rootElement);
