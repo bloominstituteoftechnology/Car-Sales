@@ -4,9 +4,9 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import { connect, Provider } from 'react-redux'
+import { connect } from 'react-redux'
 import { addFeature, deleteFeature } from './actions/featureActions'
-import { featureReducer } from './reducers/featureReducer';
+
 
 const App = (props) => {
   const state = {
@@ -25,7 +25,7 @@ const App = (props) => {
       { id: 4, name: 'Rear spoiler', price: 250 }
     ]
   };
-  const store = createStore(featureReducer);
+
   return (
 
     <div className="boxes">
