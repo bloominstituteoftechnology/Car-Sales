@@ -4,6 +4,7 @@ import AdditionalFeature from './AdditionalFeature';
 const AdditionalFeatures = props => {
   return (
     <div className="content">
+      {console.log("props from additionalFeatures", props)}
       <h4>Additional Features</h4>
       {props.additionalFeatures.length ? (
         <ol type="1">
