@@ -34,11 +34,7 @@ export const carsReducer = (state=initialState,action)=>{
             return {
                 ...state,
                 additionalPrice: state.additionalPrice - action.payload.price,
-                car: {...state.car, features: state.car.features.filter(task => 
-                        {if(task.id !== action.payload.id) {
-                            return task
-                        } 
-                    })
+                car: {...state.car, features: state.car.features.filter(task => task.id !== action.payload.id)
                 }
             };
         default:
