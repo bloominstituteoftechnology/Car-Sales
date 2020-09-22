@@ -5,8 +5,10 @@ import AddedFeature from './AddedFeature';
 import { connect } from "react-redux";
 
 
-
 const AddedFeatures = (props) => {
+
+  
+
   return (
     <div className="content">
       <h6>Added features:</h6>
@@ -23,7 +25,7 @@ const AddedFeatures = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return{
     car:state.car
   }

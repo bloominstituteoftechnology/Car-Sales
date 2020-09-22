@@ -22,28 +22,28 @@ export const carSalesReducer = (state = initialState, action) =>{
         case ADD_FEATURE:
             return{
                 ...state,
-            additionalPrice: state.additionalPrice + action.payload, price,// pulls additional price which is 0 and adds the car price which is the 26k
+            additionalPrice: state.additionalPrice + action.payload.price,// pulls additional price which is 0 and adds the car price which is the 26k
             car:{
                 ...state.car,
-                feature: [...state.car.features, action.payload],
+                features: [...state.car.features, action.payload],
             }
+           
         
         }
         case REMOVE_FEATURE:
             return{
                 ...state,
-                additionalPrice: state.additionalPrice - action.payload,price,
+                additionalPrice:(state.additionalPrice -= action.payload.price),
                 car:{
                     ...state.car,
-                    features:[
-                        ...state.car.features.filter(
-                            (carData) => carData.id === action.payload.id
-                        )
-                    ]
-                }
+                    price: state.car.price - action.payload.price,
+                    features: state.car.features.filter(
+                        (feature) => feature.id !== action.payload.id
+                    ),
+                 },
+                
             }
-            default:
-            return state; //returning back to original state
+            default: return state; //returning back to original state
     }
 }
 

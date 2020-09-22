@@ -8,9 +8,12 @@ export const addNewFeature = (carData) =>{
     }
 }
 
-export const removeAddedFeature = (carData) =>{
+export const removeAddedFeature = (feature) =>{
+    console.log("removing",feature )
     return {
-        type:ADD_FEATURE,
-        payload:carData
+        
+        type:REMOVE_FEATURE,
+        payload:feature
+        
     }
 }
