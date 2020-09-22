@@ -7,7 +7,7 @@ import { connect } from "react-redux"
 const AdditionalFeatures = (props) => {
 
   const featurePurchase = item =>{
-    props.add(item)
+    props.addNewFeature(item)
   }
   return (
     <div className="content">
@@ -25,7 +25,7 @@ const AdditionalFeatures = (props) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {//selecting additionalFeatures from store 
   return {
     additionalFeatures: state.additionalFeatures
   }

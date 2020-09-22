@@ -13,7 +13,7 @@ const AddedFeature = (props) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {//selecting car from store 
   return {
     car: state.car
   }

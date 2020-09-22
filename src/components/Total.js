@@ -10,7 +10,7 @@ const Total = (props) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {//selecting additionalPrice/car from store 
   return {
     additionalPrice: state.additionalPrice,
     car:state.car

@@ -1,6 +1,6 @@
 import { ADD_FEATURE, REMOVE_FEATURE } from "../Actions/actions"
 
-const initialState ={
+const initialState ={//reinstated state from app.js
     additionalPrice: 0,
     car: {
       price: 26395,
@@ -25,7 +25,7 @@ export const carSalesReducer = (state = initialState, action) =>{
             additionalPrice: state.additionalPrice + action.payload.price,// pulls additional price which is 0 and adds the car price which is the 26k
             car:{
                 ...state.car,
-                features: [...state.car.features, action.payload],
+                features: [...state.car.features, action.payload],//printing added feature to screen
             }
            
         
@@ -33,12 +33,12 @@ export const carSalesReducer = (state = initialState, action) =>{
         case REMOVE_FEATURE:
             return{
                 ...state,
-                additionalPrice:(state.additionalPrice -= action.payload.price),
+                additionalPrice:(state.additionalPrice -= action.payload.price),//takes the price that was added to the original price and subtracts the added feature
                 car:{
                     ...state.car,
-                    price: state.car.price - action.payload.price,
+                    price: state.car.price - action.payload.price,//takes price of that car and subtracts it from the additional features price
                     features: state.car.features.filter(
-                        (feature) => feature.id !== action.payload.id
+                        (feature) => feature.id !== action.payload.id//targets the additional features inside "features" array and 
                     ),
                  },
                 

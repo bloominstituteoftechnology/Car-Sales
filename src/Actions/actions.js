@@ -1,6 +1,7 @@
 export const ADD_FEATURE = "ADD_FEATURE";
 export const REMOVE_FEATURE ="REMOVE_FEATURE"
 
+//add feature
 export const addNewFeature = (carData) =>{
     return {
         type:ADD_FEATURE,
@@ -8,6 +9,7 @@ export const addNewFeature = (carData) =>{
     }
 }
 
+//remove feature
 export const removeAddedFeature = (feature) =>{
     console.log("removing",feature )
     return {

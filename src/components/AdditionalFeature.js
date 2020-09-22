@@ -19,4 +19,4 @@ const AdditionalFeature = (props) => {
   );
   
 };
-export default connect(null, {addNewFeature}) (AdditionalFeature);
+export default connect(null, {addNewFeature}) (AdditionalFeature);//null no longer want to subscribe
