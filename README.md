@@ -69,13 +69,6 @@ write the reducer logic for the actions 👉 Rinse and repeat
 - User should be able to remove added features from their car
 - Total should update as user adds and removes features from their car
 
-### Task 2b: Exit Ticket
-
-Once you begin, you will have 15 minutes to answer the questions [here](https://app.codesignal.com/public-test/aqXHiPPM4uCzqD3T5/mbDWo3KwoFmquD).
-
-The completion of these questions is mandatory for MVP. However, passing the quiz doesn't affect your standing as a Lambda School student whatsoever. This is Lambda School testing itself! Please answer honestly and to the best of your ability without using external references.
-
-
 ### Task 3: Stretch Problems
 
 Do not attempt stretch problems until MVP has been reached and a final commit has been made.
@@ -87,5 +80,3 @@ Do not attempt stretch problems until MVP has been reached and a final commit ha
 
 ## Submission Format
 * [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
-* [ ] Fill out your module retrospective form [here](https://forms.lambdaschool.com/module-retrospective) with a link to your PR
-
