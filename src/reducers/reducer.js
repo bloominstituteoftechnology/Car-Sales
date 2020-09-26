@@ -1,5 +1,4 @@
-import React from "react";
-import { ADD_NEW_FEATURE } from "../actions/carAction";
+import { ADD_NEW_FEATURE, REMOVE_NEW_FEATURE } from "../actions/carAction";
 
 const initialState = {
   additionalPrice: 0,
@@ -21,6 +20,32 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_FEATURE:
-      const newFeature = { id: Date.now(), name: action.payload, price: "" };
+      console.log(state);
+      return {
+        ...state,
+        additionalFeatures: state.additionalFeatures.filter(
+          (feature) => feature.id !== action.payload.id
+        ),
+        car: {
+          ...state.car,
+          features: [...state.car.features, action.payload],
+        },
+        additionalPrice: state.additionalPrice + action.payload.price,
+      };
+
+    case REMOVE_NEW_FEATURE:
+      return {
+        ...state,
+        car: {
+          ...state.car,
+          features: state.car.features.filter(
+            (feature) => feature.id !== action.payload.id
+          ),
+        },
+        additionalFeatures: [...state.additionalFeatures, action.payload],
+        additionalPrice: state.additionalPrice - action.payload.price,
+      };
+    default:
+      return state;
   }
 };
