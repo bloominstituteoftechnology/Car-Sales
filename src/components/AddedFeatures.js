@@ -1,6 +1,5 @@
-import React from 'react';
-
-import AddedFeature from './AddedFeature';
+import React from 'react'
+import AddedFeature from './AddedFeature'
 
 const AddedFeatures = props => {
   return (

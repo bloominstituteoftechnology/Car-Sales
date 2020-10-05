@@ -1,19 +1,15 @@
-export const REMOVE_FEATURE = "REMOVE_FEATURE";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 
-export const removeFeature = (feature) => {
-  console.log(feature);
-  return {
-    type: REMOVE_FEATURE,
-    payload: feature
-  };
-};
+import App from './App'
+import { reducer } from './reducers'
 
-export const ADD_FEATURE = "ADD_FEATURE";
+import 'bulma/css/bulma.css'
+import './styles.scss'
 
-export const addFeature = (newFeature) => {
-  console.log(newFeature);
-  return {
-    type: ADD_FEATURE,
-    payload: newFeature,
-  };
-};
+const store = createStore(reducer)
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(<Provider store = {store}><App /></Provider>, rootElement);
