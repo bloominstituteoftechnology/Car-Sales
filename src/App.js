@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { featureReducer } from "./reducers/featureReducer";
-
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
