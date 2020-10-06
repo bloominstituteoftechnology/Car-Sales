@@ -8,26 +8,22 @@ const initialState = {
     header: "Features"
 };
 
+function newFeature(name) {
+    return { id: Date.now(), name: name, complete: false }
+}
+
 export const featureReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_NEW_FEATURE:
-            return {
-                ...state,
-                features: [
-                    ...state.features,
-                    { name: action.payload, featureStatus: false }
-                ]
-            };
 
-            case REMOVE_FEATURE:
-                return {
-                    ...state,
-                    features: [
-                        ...state.features,
-                        { name: action.payload, featureStatus: false }
-                    ]
-                };
+        case ADD_NEW_FEATURE:
+            return [...features, newFeature(action.payload.name)]
+             
+
+        case REMOVE_FEATURE:
+            return features.filter(feature =>
+                feature.id !== action.payload.id)
+            
             default:
-                return state;
+                return features
         }
     };
