@@ -1,21 +1,24 @@
-import React, { useState, useReducer } from "react";
-import { initialState, reducer } from "../reducers/FeatureReducer";
-
+import React from "react";
+import { removeFeature } from "../actions/index";
+import { connect } from "react-redux";
 const AddedFeature = (props) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  //console.log();
+  const handler = (event) => {
+    event.preventDefault();
 
+    props.removeFeature(props.feature);
+  };
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button
-        onClick={() => dispatch({ type: "UPDATE_FEATURE", payload: "" })}
-        className="button"
-      >
+
+      <button className="button" onClick={handler}>
         X
       </button>
+
       {props.feature.name}
     </li>
   );
 };
 
-export default AddedFeature;
+export default connect(null, { removeFeature })(AddedFeature);
