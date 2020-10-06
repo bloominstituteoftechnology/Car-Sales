@@ -5,7 +5,7 @@ const initialState = {
         { name: "paint job", featureStatus: true },
         { name: "chrome", featureStatus: false}
     ],
-    header: "Features"
+    header: "Other Features"
 };
 
 export const featureReducer = (state = initialState, action) => {
