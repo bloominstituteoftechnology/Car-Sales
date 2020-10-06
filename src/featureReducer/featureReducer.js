@@ -43,10 +43,3 @@ export const featureReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-//event
-//action
-//reducer
-//changes state - updates store
-//triggers a render
-//new info displayed
