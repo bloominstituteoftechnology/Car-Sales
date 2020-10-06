@@ -1,20 +1,27 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {addFeature} from '../actions/'
+import { useSelector, useDispatch } from 'react-redux'
+import { addFeature } from '../actions/actions'
 
 const AdditionalFeature = props => {
+  const features = useSelector(state => state.additionalFeatures)
+  const dispatch = useDispatch();
+
   return (
-    <li>
-      
-      <button 
-      onClick={(e) => {
-          e.preventDefault();
-          props.addFeature(props.feature);
-        }} 
-      className="button">Add</button>
-      {props.feature.name} (+{props.feature.price})
-    </li>
+    <>
+      {features.map(feature => {
+        return (
+          <li>
+            <button
+              className="button"
+              id={feature.id}
+              onClick={e => dispatch(addFeature(e.target.id))}
+            >Add</button>
+            {feature.name} (+{feature.price})
+          </li>
+        );
+      })}
+    </>
   );
 };
 
-export default connect(null, {addFeature})(AdditionalFeature);
+export default AdditionalFeature;
