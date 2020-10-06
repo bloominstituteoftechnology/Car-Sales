@@ -1,6 +1,4 @@
 import React from 'react';
-import { createStore } from "redux";
-import { Provider } from "react-redux";
 
 import { featureReducer } from "./reducers/featureReducer";
 
@@ -9,7 +7,6 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-const store = createStore(featureReducer);
 
 const App = () => {
   const state = {

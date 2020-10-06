@@ -1,6 +1,17 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { addFeature } from "../actions/featureActions";
+
 
 const AdditionalFeature = props => {
+  state = {
+    newFeature: ""
+  };
+
+handleChanges = (e) => {
+  this.setState({ newFeature: e.target.value });
+};
+
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
@@ -12,4 +23,12 @@ const AdditionalFeature = props => {
   );
 };
 
-export default AdditionalFeature;
+
+const mapStateToProps = (state) => {
+  return {
+    features: state.features,
+    headerFromRedux: state.header
+  };
+};
+
+export default connect(mapStateToProps, { addFeature })(AdditionalFeature);
