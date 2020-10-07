@@ -1,10 +1,7 @@
 import { ADD_NEW_FEATURE, REMOVE_FEATURE } from "../actions/featureActions";
 
 const initialState = {
-    features: [
-        { name: "paint job", featureStatus: true },
-        { name: "chrome", featureStatus: false}
-    ],
+    features: [],
     header: "Features"
 };
 
@@ -24,6 +21,8 @@ export const featureReducer = (state = initialState, action) => {
                 feature.id !== action.payload.id)
             
             default:
-                return features
+                return state;
         }
     };
+
+    
