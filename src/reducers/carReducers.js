@@ -1,3 +1,6 @@
+import { ADD_FEATURE } from "../actions/carActions";
+import { NEW_PRICE } from "../actions/carActions";
+
 export const initialState = {
   additionalPrice: 0,
   car: {
@@ -18,6 +21,23 @@ export const initialState = {
 export const carReducer = (state = initialState, action) => {
   console.log("what redux is calling our reducer with:", state, action);
   switch (action.type) {
+    case ADD_FEATURE:
+      console.log("action", action.payload.addNewFeature);
+      return {
+        ...state,
+        additionalPrice: state.additionalPrice + action.payload.price,
+        car: {
+          ...state.car,
+          features: [
+            ...state.car.features,
+            {
+              id: action.payload.id,
+              name: action.payload.name,
+              price: action.payload.price,
+            },
+          ],
+        },
+      };
     default:
       return state;
   }

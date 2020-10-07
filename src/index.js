@@ -9,7 +9,7 @@ import { carReducer } from "./reducers/carReducers";
 import "bulma/css/bulma.css";
 import "./styles.scss";
 
-const store = createStore(carReducer());
+const store = createStore(carReducer);
 
 console.log("the initial store:", store.getState());
 
