@@ -11,6 +11,8 @@ const AdditionalFeature = props => {
     </li>
   );
 };
+// const mapStateToProps = state=>{
 
-
-export default connect(null,{addFeature})(AdditionalFeature);
+// }
+// export default AdditionalFeature
+export default AdditionalFeature;

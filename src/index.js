@@ -7,10 +7,10 @@ import './styles.scss';
 
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
-import {rootReducer} from './components/reducers'
+import {reducer} from './components/reducers/reducer'
 
-const store = createStore(rootReducer)
-
+const store = createStore(reducer)
+console.log('store at index ',store)
 const rootElement = document.getElementById('root');
 ReactDOM.render(
     <Provider store={store}>
