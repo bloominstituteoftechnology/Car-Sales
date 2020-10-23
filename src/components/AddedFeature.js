@@ -1,8 +1,9 @@
 import React from 'react';
-import {addFeature} from './actions/featureAction';
+import {removeFeature} from './actions/featureAction';
 import {connect} from 'react-redux'
 
 const AddedFeature = props => {
+  console.log('props in addedfeature',props)
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
@@ -16,8 +17,8 @@ const mapStateToProps = state=>{
   console.log('state in propsState in AddedFeature',state);
   return {
     
-    feature : state.feature.name
+    name : state.name
   }
 }
-export default connect(mapStateToProps,{addFeature})(AddedFeature);
+export default connect(mapStateToProps,{removeFeature})(AddedFeature);
 

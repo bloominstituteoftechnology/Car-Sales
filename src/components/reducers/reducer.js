@@ -31,7 +31,8 @@ export const reducer=(state = initialState,action)=>{
                      additionalPrice: state.additionalPrice + action.payload.price,
                     car:{...state.car,
                         price: state.car.price + action.payload.price,
-                        features: state.car.features.includes(action.payload) ? [...state.car.features] : [...state.car.features, action.payload]
+                        features: [...state.car.features,action.payload] 
+                        
                     }
             };
                 
