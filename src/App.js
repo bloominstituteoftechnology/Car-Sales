@@ -4,7 +4,7 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import { removeFeature, buyItem } from './actions/AppActions';
+import { removeFeature, purchaseItem } from './actions/AppActions';
 
 
 
@@ -31,6 +31,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   removeFeature,
-  buyItem
+  purchaseItem
 };
 export default connect(mapStateToProps, mapDispatchToProps) (App);
