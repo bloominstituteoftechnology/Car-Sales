@@ -16,7 +16,7 @@ Commit your code regularly and meaningfully. This helps both you and your team l
 
 In this project you will implement Redux to manage the state for this React application.
 
-# _Project - Car Sales_
+## _Project - Car Sales_
 
 - This is a really fun project, and one to show your family and friends when you've finished.
 - You will be starting with a structured and styled app
@@ -43,14 +43,14 @@ This project was put together using create-react-app (CRA). You will not need to
 
 ### Task 2a:  _MVP Requirements:_
 
-**Step 1 - Planning 📝**
+Step 1 - Planning 📝
 
 - Take a good amount of time to familiarize yourself with the project structure. Figure out what data you have and where it's being used (Pen and paper or a whiteboard will be your best friend here!)
-- Plan out your state management structure as mentioned above. The only requirment is that you _must_ use Redux
+- Plan out your state management structure as mentioned above. The only requirement is that you _must_ use Redux
 - Write out the steps you think you'll need to complete this project. It seems silly, but doing this with every project will help you grow into a better developer a lot faster.
 - Take note of the few comments throughout the app. They are there as little guides to nudge you in the right direction. You're welcome 😉
 
-**Step 2 - And... Action! 🎬**
+Step 2 - And... Action! 🎬
 
 - Time to get your hands on your keyboard. Look at the first step you wrote down and start implementing!
 - As you work through setting up redux, you can do it however you'd like. This is the flow that works for me:
@@ -79,4 +79,5 @@ Do not attempt stretch problems until MVP has been reached and a final commit ha
 - Implement an API from one of these sites [here](https://www.google.com/search?q=car+sales+api&rlz=1C5CHFA_enUS809US809&oq=car+sales+api&aqs=chrome..69i57j0l5.3580j0j1&sourceid=chrome&ie=UTF-8). I don't know if there are any good open APIs for this, so explore around. Check out what data these APIs return, and what you think would be fun to work with. The sky is the limit here!
 
 ## Submission Format
-* [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+
+- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
