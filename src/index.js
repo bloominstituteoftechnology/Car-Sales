@@ -4,11 +4,11 @@ import App from './App';
 
 import 'bulma/css/bulma.css';
 import './styles.css';
-
+import { carSalesReducer } from "./reducer/carSalesReducer"
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-const store = createStore(() =>{})
+const store = createStore(carSalesReducer)
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(<Provider store={store}>
