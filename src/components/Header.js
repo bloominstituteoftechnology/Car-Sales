@@ -1,9 +1,11 @@
-import React from 'react';
+// Import Dependencies
+import React from "react";
+import { connect } from "react-redux";
 
-const Header = props => {
+const Header = (props) => {
   return (
     <>
-      <figure className="image is-128x128">
+      <figure className='image is-128x128'>
         <img src={props.car.image} alt={props.car.name} />
       </figure>
       <h2>{props.car.name}</h2>
@@ -12,4 +14,11 @@ const Header = props => {
   );
 };
 
-export default Header;
+// Variable to connect the props into the component
+const mapStateToProps = (state) => {
+  return {
+    car: state.carReducer.car,
+  };
+};
+
+export default connect(mapStateToProps)(Header);
