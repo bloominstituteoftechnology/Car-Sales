@@ -2,11 +2,11 @@ export const ADD_FEATURE ="ADD_FEATURE";
 export const REMOVE_FEATURE= "REMOVE_FEATURE"
 
 
-export const addFeature = (feature) =>{//action creator (creates actions)
-    console.log("kh:actions:index.js:addMovie: ====>",feature)
+export const addFeature = (newFeature) =>{//action creator (creates actions)
+    console.log("kh:actions:index.js:addMovie: ====>",newFeature)
     return{//action (performs action)
         type:ADD_FEATURE,
-        payload:feature
+        payload:newFeature
     }
 }
 

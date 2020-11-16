@@ -27,26 +27,29 @@ export const carSalesReducer = (state = initialState,action) =>{
         //do something... add out payload and replace state
         return{
         ...state,
-        additionalPrice:state.additionalPrice + action.payload.price,
+        price:state.price + action.payload.price,
+        
         car:{
             ...state.car,
+            price:state.car.price + action.payload.price,
             features:[
                 ...state.car.features, 
                 action.payload
             ]//printing added feature to screen
         }
+        
     }
         
         case REMOVE_FEATURE:
         //do something
         return{
             ...state,
-        additionalPrice:(state.additionalPrice -= action.payload.price),//takes the price that was added to the original price and subtracts the added feature
+        price:(state.price -= action.payload.price),//takes the price that was added to the original price and subtracts the added feature
         car:{
             ...state.car,
             price: state.car.price - action.payload.price,//takes price of that car and subtracts it from the additional features price
             features: state.car.features.filter(
-                (feature) => feature.id == action.payload.id//targets the additional features inside "features" array and filters it removing it from the list
+                (feature) => feature.id !== action.payload.id//targets the additional features inside "features" array and filters it removing it from the list
             )
         }
     }
