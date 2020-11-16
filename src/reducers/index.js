@@ -1,5 +1,6 @@
 
-import {ADD_ITEM} from "../actions/addItem"
+import {ADD_ITEM} from "../actions/itemActions"
+import {REMOVE_ITEM} from "../actions/itemActions"
 
 const inititialState = {
     additionalPrice: 0,
@@ -33,6 +34,18 @@ export const reducer = (state=inititialState, action) => {
                 additionalFeatures: state.additionalFeatures.filter(feature => feature.id !== action.payload.id)
 
                 }
+        case REMOVE_ITEM:
+            return {
+                ...state,
+                car: {
+                    ...state.car,
+                    features: state.car.features.filter(feature => feature.id !== action.payload.id),
+                    price: state.car.price - action.payload.price
+                },
+                additionalFeatures: [...state.additionalFeatures, action.payload]
+            }
+
+
         default:
             return state
 
