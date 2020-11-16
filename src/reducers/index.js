@@ -22,15 +22,16 @@ export const reducer = (state=inititialState, action) => {
      
     switch (action.type) {
         case ADD_ITEM:
-            if(
-                state.car.features.includes(action.payload)
-            )
-        
+
         return {
                 ...state, car: {
                     ...state.car,
                     features:   
-                    [...state.car.features,action.payload]}
+                    [...state.car.features,action.payload],
+                price: state.car.price+ action.payload.price},
+
+                additionalFeatures: state.additionalFeatures.filter(feature => feature.id !== action.payload.id)
+
                 }
         default:
             return state
