@@ -18,22 +18,23 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  h1 {
+}
+  .box .h1 {
     font-size: 20px;
     margin: 0 0 1rem 0;
   }
-  .content {
+ .box .content {
     padding-top: 1em;
   }
-  ol {
+  .box .ol {
     margin-left: 0;
-    li {
+  }
+   .box .li {
       align-items: center;
       display: flex;
       justify-content: flex-start;
     }
-  }
-}
+  
 .button {
   background: hotpink;
   border: 1px solid transparent;
