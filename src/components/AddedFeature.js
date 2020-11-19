@@ -1,6 +1,7 @@
 import React from 'react';
 // using redux hooks
 import { useSelector, useDispatch } from 'react-redux'
+import { removeFeature } from '../actions/actions'
 
 const AddedFeature = props => {
   // dispatch returns a reference to the dispatch function from the Redux store
@@ -10,8 +11,8 @@ const AddedFeature = props => {
 
   const removeFeature = (feature) => {
     removeFeature(feature)
-
   }
+
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}

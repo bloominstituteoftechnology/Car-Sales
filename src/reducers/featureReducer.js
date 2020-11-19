@@ -3,7 +3,7 @@ import { ADD_FEATURE, REMOVE_FEATURE } from '../actions/actions'
 const initialState = {
   additionalPrice: 0,
   car: {
-    Price: 1200000,
+    price: 1200000,
     name: 'Buggati',
     image: 'https://car-pictures-download.com/wp-content/uploads/Bugatti-super-car-pictures.jpg',
     features: []
@@ -35,7 +35,8 @@ export const featureReducer = (state = initialState, action) => {
         car: {
           ...state.car,
           features: [
-            ...state.car.features, action.payload
+            ...state.car.features,
+            action.payload
           ],
           price: state.car.price + action.payload.price
         }
@@ -47,14 +48,14 @@ export const featureReducer = (state = initialState, action) => {
           ...state.car,
           features: [
             ...state.car.features.filter((feature) => {
-              console.log('RT from feature reducer remove feature ', feature)
+              console.log('from feature reducer remove feature', feature);
               return feature.id !== action.payload.id
             })
           ],
-          price: state.car.price + action.payload.price
+          price: state.car.price - action.payload.price
         }
       }
     default:
-      return state
+      return state;
   }
 }

@@ -10,7 +10,7 @@ const App = () => {
     car,
     additionalFeatures,
     additionalPrice
-  } = useSelector(state => state)
+  } = useSelector(state => state);
 
   return (
     <div className="boxes">
@@ -19,7 +19,9 @@ const App = () => {
         <AddedFeatures car={car} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={additionalFeatures} />
+        <AdditionalFeatures
+          additionalFeatures={additionalFeatures}
+        />
         <Total car={car} additionalPrice={additionalPrice} />
       </div>
     </div>
