@@ -12,7 +12,12 @@ switch(action.type){
     case TOTALUP:
         return {
             ...state,
-            total: action.payload,
+            total: action.payload
+            
+        };
+    case ADD:
+        return {
+            ...state,
             add: action.payload
         };
 
