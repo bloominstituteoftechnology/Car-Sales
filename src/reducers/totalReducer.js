@@ -1,8 +1,8 @@
 import { TOTALUP } from "../actions/totalupAction"
 
 const initState = {
-    total: 0,
-    add: 0
+    total: 0
+    // add: 0
 
 }
 
@@ -15,11 +15,11 @@ switch(action.type){
             total: action.payload
             
         };
-    case ADD:
-        return {
-            ...state,
-            add: action.payload
-        };
+    // case ADD:
+    //     return {
+    //         ...state,
+    //         add: action.payload
+    //     };
 
     default: 
         return state;
