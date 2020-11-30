@@ -1,4 +1,5 @@
 import React from 'react';
+import {addNewFeature} from "../Actions/additionalNewFeaturesAction"
 
 import AddedFeature from './AddedFeature';
 
