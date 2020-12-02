@@ -4,10 +4,10 @@ import { combineReducers } from "redux";
 // The reducers the get combined here
 // export default combineReducers({ titleState: titleReducer, membersReducer });
 
-import { totalReducer } from './totalReducer';
+import { totalReducer as TR } from './totalReducer';
 
 
 
-export default combineReducers({totalState: totalReducer})
+export default combineReducers({TR})
 
 

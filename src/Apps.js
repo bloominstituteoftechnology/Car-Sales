@@ -6,16 +6,17 @@ import Header from "./components/Header"
 
 class Apps extends React.Component {
         constructor(props){
+            super(props)
             this.state ={
                 total: 0,
                 car: {
-                    image: '', name: '', price: 0
+                    image: '', name: '', price: 322
                 },
                 additionalFeatures: {
                     key: 0 , feature: ''
                 },
                 feature: {
-                    name: '', price: 0
+                    name: '', price:222
                 }
         
             };
@@ -46,7 +47,7 @@ class Apps extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        total: state.totalReducer.total
+        total: state.TR.total
     };
   };
   
