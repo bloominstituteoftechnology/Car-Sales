@@ -2,22 +2,30 @@ import  React from "react"
 import { connect } from "react-redux"
 import { totalup } from "./actions/totalupAction"
 import Header from "./components/Header"
-
-
+import AddedFeatures from "./components/AddedFeatures"
+import Total from "./components/Total"
+import AdditionalFeatures from "./components/AdditionalFeatures"
 class Apps extends React.Component {
         constructor(props){
             super(props)
             this.state ={
+                
                 total: 0,
+                additionalPrice: 0,
                 car: {
-                    image: '', name: '', price: 322
+                price: 26395,
+                name: '2019 Ford Mustang',
+                image:
+                    'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
+                features: []
                 },
-                additionalFeatures: {
-                    key: 0 , feature: ''
-                },
-                feature: {
-                    name: '', price:222
-                }
+                additionalFeatures: [
+                { id: 1, name: 'V-6 engine', price: 1500 },
+                { id: 2, name: 'Racing detail package', price: 1500 },
+                { id: 3, name: 'Premium sound system', price: 500 },
+                { id: 4, name: 'Rear spoiler', price: 250 }
+                ]
+               
         
             };
         }
@@ -28,12 +36,12 @@ class Apps extends React.Component {
         <React.Fragment>
           <div className="box">
             <Header car={this.state.car} />
-            {/* <AddedFeatures car={state.car} /> */}
+            { <AddedFeatures car={this.state.car} /> }
           </div>
-          {/* <div className="box">
-            <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
-            <Total car={state.car} additionalPrice={state.additionalPrice} />
-          </div> */
+          {<div className="box">
+            <AdditionalFeatures additionalFeatures={this.state.additionalFeatures} />
+            <Total car={this.state.car} additionalPrice={this.state.additionalPrice} />
+          </div> 
           
           
           }
