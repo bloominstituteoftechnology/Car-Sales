@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { totalup } from "../actions/totalupAction"
 
-const Header = props => {
+function Header(props ) {
   return (
     <>
       <figure className="image is-128x128">
@@ -12,4 +14,13 @@ const Header = props => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  console.log("MSTP", state);
+  return {
+    total: state.TR.total,
+    car: state.TR.car
+  };
+};
+
+export default connect(mapStateToProps, { totalup })(Header);
+

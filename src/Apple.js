@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-const App = () => {
+const Apple = () => {
   const state = {
     additionalPrice: 0,
     car: {
@@ -37,4 +37,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Apple;
