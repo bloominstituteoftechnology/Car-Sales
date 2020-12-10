@@ -1,10 +1,13 @@
 export const ADD_FEATURE = 'ADD_FEATURE'
-export const TOGGLE_FEATURE = 'TOGGLE_FEATURE'
+export const REMOVE_FEATURE = 'REMOVE_FEATURE'
 
 export const addFeature = additionalFeature => {
-    return({type: ADD_FEATURE, payload:additionalFeature.id})
+    return({type: ADD_FEATURE, payload:additionalFeature})
 }
 
-export const toggleFeature = additionalFeature => {
-    return({type: TOGGLE_FEATURE})
+export const removeFeature = feature => {
+    return {
+        type:'REMOVE_ITEM',
+        payload: feature
+    }
 }
