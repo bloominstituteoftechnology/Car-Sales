@@ -4,6 +4,7 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import { addFeature, removeFeature } from './actions/featureActions';
 
 const App = () => {
 	//added initial state to reducers/index.js

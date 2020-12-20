@@ -1,4 +1,4 @@
-export const state = {
+export const initialState = {
 	additionalPrice: 0,
 	car: {
 		price: 26395,
@@ -14,7 +14,7 @@ export const state = {
 	]
 };
 
-export const featureReducer = (state = state, action) => {
+export const featureReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'ADD_FEATURE':
 			return state;
