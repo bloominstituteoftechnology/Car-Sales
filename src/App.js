@@ -1,11 +1,9 @@
 import React from 'react';
-import { connect, Connect } from 'react-redux';
+import { connect } from 'react-redux';
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-// import { addFeature, removeFeature } from './actions/featureActions';
-import { initialState } from './reducers/index';
 
 const App = props => {
 	//added initial state to reducers/index.js
@@ -27,14 +25,12 @@ const App = props => {
 //this we read state values from store
 const mapStateToProps = state => {
 	return {
+		additionalPrice: state.additionalPrice,
 		car: state.car,
 		additionalFeatures: state.additionalFeatures
 	};
 };
 
 //this is how we update state in the store (reducer actionss)
-const mapDispatchToProps = () => {
-	return null;
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);
