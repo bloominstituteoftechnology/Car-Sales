@@ -1,4 +1,4 @@
-const state = {
+export const state = {
 	additionalPrice: 0,
 	car: {
 		price: 26395,
@@ -12,4 +12,15 @@ const state = {
 		{ id: 3, name: 'Premium sound system', price: 500 },
 		{ id: 4, name: 'Rear spoiler', price: 250 }
 	]
+};
+
+export const featureReducer = (state = state, action) => {
+	switch (action.type) {
+		case 'ADD_FEATURE':
+			return state;
+		case 'REMOVE_FEATURE':
+			return state;
+		default:
+			return state;
+	}
 };
