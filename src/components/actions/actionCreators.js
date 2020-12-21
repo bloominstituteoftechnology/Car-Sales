@@ -1,8 +1,10 @@
 import * as actions from "./actions"
 
 export const item = (id, state) => {
+    // Filter by serched item
+    const findItem = state.additionalFeatures.filter((n) => n.id === id);
+    
     // Find price
-   const findItem = state.additionalFeatures.filter((n) => n.id === id);
    const convertPrice = parseInt(findItem.map((item) => {return item.price }), 10);
 
    // Find Name
