@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const Header = props => {
+const Header = (props) => {
   return (
     <>
       <figure className="image is-128x128">
