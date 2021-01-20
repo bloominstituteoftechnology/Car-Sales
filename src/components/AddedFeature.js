@@ -1,14 +1,15 @@
 import React from "react";
 import { removeFeature } from "../actions/carSaleActions";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 const AddedFeature = (props) => {
+  const dispatch = useDispatch()
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
       <button
         className="button"
         onClick={() => {
-          props.removeFeature(props.feature);
+          dispatch(removeFeature(props.feature))
         }}
       >
         X
@@ -18,9 +19,5 @@ const AddedFeature = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    car: state.car,
-  };
-};
-export default connect(mapStateToProps, { removeFeature })(AddedFeature);
+
+export default AddedFeature;

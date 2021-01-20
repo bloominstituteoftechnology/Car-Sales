@@ -8,8 +8,8 @@ import {useSelector} from "react-redux"
 const App = (props) => {
   
   const car = useSelector(state => state.car)
-  const additionalFeatures = useSelector(state=> state.additionalFeatures)
   const additionalPrice = useSelector(state => state.additionalPrice)
+  
   return (
     <div className="boxes">
       <div className="box">

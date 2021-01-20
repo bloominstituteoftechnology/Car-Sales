@@ -1,14 +1,15 @@
 import React from "react";
 import { addFeature } from "../actions/carSaleActions";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 const AdditionalFeature = (props) => {
+  const dispatch = useDispatch();
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
       <button
         className="button"
         onClick={() => {
-          props.addFeature(props.feature);
+          dispatch(addFeature(props.feature));
         }}
       >
         Add
@@ -18,9 +19,5 @@ const AdditionalFeature = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    car: state.car,
-  };
-};
-export default connect(mapStateToProps, { addFeature })(AdditionalFeature);
+
+export default AdditionalFeature;
