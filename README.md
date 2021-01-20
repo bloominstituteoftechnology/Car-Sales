@@ -27,7 +27,7 @@ In this project you will implement Redux to manage the state for this React appl
 
 ### Task 1: Project Setup
 
-## Project Set Up
+## Project Set Up!
 
 This project was put together using create-react-app (CRA). You will not need to install CRA in order to make this project work. Follow the steps below to setup the project with the proper dependencies.
 
