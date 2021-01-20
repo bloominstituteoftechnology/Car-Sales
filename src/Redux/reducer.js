@@ -1,4 +1,5 @@
 import React from 'react';
+import ADD_FEATURE from './actions';
 
 const initialState = {
     additionalPrice: 0,
@@ -18,6 +19,9 @@ const initialState = {
   };
 
 const reducer=(state=initialState,action)=>{
-    return state;
+    switch(action.type){
+      case(ADD_FEATURE):
+       
+    }
 }
 export default reducer;
