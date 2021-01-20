@@ -7,7 +7,7 @@ const AdditionalFeature = props => {
 
  //onClick will:update state.additionalPrice, push a feature with given id into the features array
  const handleOnClick=(e)=>{
-    addFeature(props.feature.id)
+    props.dispatch(addFeature(props.feature))
  }
 //  console.log(props)
   return (
@@ -18,9 +18,7 @@ const AdditionalFeature = props => {
     </li>
   );
 };
-const mapStateToProps=(state)=>{
-  return state;
-}
 
 
-export default connect(mapStateToProps,{ addFeature })(AdditionalFeature);
+
+export default connect(null,{ addFeature })(AdditionalFeature);

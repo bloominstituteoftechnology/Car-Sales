@@ -2,8 +2,7 @@
 
 
 
-const addFeature=(id)=>{
-    console.log('id from action ',id)
-    return({type:"ADD_FEATURE"})
+const addFeature= ( feature ) =>{
+    return({type:"ADD_FEATURE", payload:feature})
 };
 export default addFeature;

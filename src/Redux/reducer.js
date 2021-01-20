@@ -21,8 +21,16 @@ const initialState = {
 const reducer=(state=initialState,action)=>{
     switch(action.type){
       case"ADD_FEATURE":
-        console.log("reducer called")
-        return state
+      //action.payload =  { id: 1, name: 'V-6 engine', price: 1500 },
+      if(!state.car.features.includes(action.payload)){
+        return{...state,
+          additionalPrice:(state.additionalPrice + action.payload.price),
+          car:{...state.car,
+              features:[...state.car.features, action.payload]
+            }
+          }
+      }
+     
       default:
         return state  
   
