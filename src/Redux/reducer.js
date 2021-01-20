@@ -30,7 +30,15 @@ const reducer=(state=initialState,action)=>{
             }
           }
       }
-     
+      case"REMOVE_FEATURE":
+         //action.payload =  { id: 1, name: 'V-6 engine', price: 1500 },
+         return{...state,
+        additionalPrice:(state.additionalPrice-action.payload.price),
+        car:{
+          ...state.car,
+          features:state.car.features.filter(feature=>feature.id !== action.payload.id)
+        }
+        }
       default:
         return state  
   
