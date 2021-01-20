@@ -1,9 +1,10 @@
-import React, {useReducer} from 'react';
+import React from 'react';
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 import rootReducer, { initialState } from './reducer';
+import { connect } from 'react-redux'; 
 
 // const reducer = () => {
 //   return {
@@ -25,21 +26,26 @@ import rootReducer, { initialState } from './reducer';
 // };
 
 
-const App = () => {
-  const [state, dispatch] = useReducer(rootReducer, initialState)
-
+const App = (state) => {
+console.log(state)
   return (
     <div className="boxes">
       <div className="box">
         <Header car={state.car} />
-        <AddedFeatures car={state.car} dispatch={dispatch}/>
+        <AddedFeatures car={state.car} dispatch={state.props.dispatch}/>
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} dispatch={dispatch} />
+        <AdditionalFeatures dispatch={state.props.dispatch} additionalFeatures={state.additionalFeatures}/>
         <Total car={state.car} additionalPrice={state.additionalPrice} />
       </div>
     </div>
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+     ...state, 
+  }
+}
+
+export default connect(mapStateToProps, {})(App); 

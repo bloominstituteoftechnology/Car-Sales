@@ -24,8 +24,10 @@ export default function reducer (state= initialState, action) {
             state.additionalPrice = state.additionalPrice + action.payload.price
             return {...state}
         case REMOVE_FEATURES: 
-            state.car.features = [...state.car.features].pop(action.payload)
+            const index = state.car.features.indexOf(action.payload)
+            state.car.features.splice(index, 1)
             state.additionalPrice = state.additionalPrice - action.payload.price
+            return {...state}
         default:
         return {...state}
     }
