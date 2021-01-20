@@ -1,4 +1,9 @@
 //Add feature, remove feature, both should update price
 
-export default  ADD_FEATURE ="ADD_FEATURE";
 
+
+const addFeature=(id)=>{
+    console.log('id from action ',id)
+    return({type:"ADD_FEATURE"})
+};
+export default addFeature;

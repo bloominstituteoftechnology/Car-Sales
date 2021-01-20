@@ -1,5 +1,5 @@
 import React from 'react';
-import ADD_FEATURE from './actions';
+
 
 const initialState = {
     additionalPrice: 0,
@@ -20,8 +20,13 @@ const initialState = {
 
 const reducer=(state=initialState,action)=>{
     switch(action.type){
-      case(ADD_FEATURE):
-       
+      case"ADD_FEATURE":
+        console.log("reducer called")
+        return state
+      default:
+        return state  
+  
     }
-}
-export default reducer;
+  }
+       
+export default reducer
