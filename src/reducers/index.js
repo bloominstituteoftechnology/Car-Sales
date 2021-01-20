@@ -17,6 +17,31 @@ export const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case ('ADD_FEATURE'):
+            // action.payload = { id: 1, name: 'V-6 engine', price: 1500 }
+            if (!state.car.features.includes(action.payload)) {
+                return ({
+                    ...state,
+                    additionalPrice: (state.additionalPrice + action.payload.price),
+                    car: {
+                        ...state.car,
+                        features: [...state.car.features, action.payload]
+                    }
+                });
+            } else {
+                return state;
+            }
+        case ('REMOVE_FEATURE'):
+            // action.payload = { id: 1, name: 'V-6 engine', price: 1500 }
+            const { id, price } = action.payload
+            return ({
+                ...state,
+                car: {
+                    ...state.car,
+                    additionalPrice: (state.additionalPrice - price),
+                    features: state.car.features.filter(feature => feature.id !== id)
+                }
+            });
         default:
             return state;
     }
