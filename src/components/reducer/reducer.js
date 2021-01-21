@@ -1,7 +1,7 @@
 
 export const ACTIONS ={
-    ADD_FEATURES :"add-features",
-    REMOVE_FEAT: "remove-feature",
+    ADD_FEATURE :"add-feature",
+    REMOVE_FEATURE: "remove-feature",
     ADD_PRICE: "add-price",
     REMOVE_PRICE: "remove-price"
 
@@ -32,44 +32,49 @@ export const InitialState = {
 
 export const reducer = (state=InitialState,action) => {
         switch(action.type){
-            case ACTIONS.ADD_FEATURES:
-              if(state.car.features.includes(action.payload)){
+            case ACTIONS.ADD_FEATURE:
+              if(!state.car.features.includes(action.payload)){
 
 
                 return {
                   
                   ...state, 
-                  car: {...state.car, 
+                  additionalPrice: (state.additionalPrice + action.payload.price),
+                  car: {
+                    ...state.car, 
                     features:[state.car.features, action.payload],
                   }
                  
                   
-                }
-                else {
                   
-                  return state
                 }
               }
-                 case(ACTIONS.REMOVE_FEAT):
+                else{
+                return state
+
+                
+                }  
+                
+                
+              
+                 case(ACTIONS.REMOVE_FEATURE):
                   return {
                     ...state,
-                    features: [...state.features, action.payload],
+                    additionalPrice:(state.additionalPrice - action.payload.price),
+                     car:{
+                    features: state.car.features.filter(feature => feature.id !==action.payload.id),
                     // ...car.features,
-                    car: state.car.features.filter(feature => feature.id !==action.payload.id),
-                    
-                  }
+                      } 
                      
-                           default:
-                             return state
-
-
-
+                    
 
                       }
                     
+                      
+                    default:
+                      return state
 
 
         }
         
-      
-      
+      }  

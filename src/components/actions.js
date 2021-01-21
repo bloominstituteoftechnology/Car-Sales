@@ -1,7 +1,7 @@
 
 
 export const ACTIONS ={
-  ADD_FEATURES :"add-features",
+  ADD_FEATURE :"add-feature",
   REMOVE_FEAT: "remove-feature",
   ADD_PRICE: "add-price",
   REMOVE_PRICE: "remove-price"
@@ -15,31 +15,31 @@ export const ACTIONS ={
 
 
 
-export const addFeatures = (features) =>{
+export const addFeatures = (feature) =>{
     return {
-        type: ACTIONS.ADD_FEATURES,
-        payload: features
+        type: ACTIONS.ADD_FEATURE,
+        payload: feature
     }
 }
 
-export const removeFeat = (features) =>{
+export const removeFeat = (feature) =>{
 return {
-  type: ACTIONS.REMOVE_FEAT,
-  payload: features,
+  type: ACTIONS.REMOVE_FEATURE,
+  payload: feature,
 
 }
 
 
 }
-export const addPrice = (price) =>{
-return{
-  type: ACTIONS.ADD_PRICE,
-  payload: price
-}
-}
-export const removePrice = (price) => {
-  return{
-    type:ACTIONS.REMOVE_PRICE,
-    payload:price
-  }
-}
+// export const addPrice = (price) =>{
+// return{
+//   type: ACTIONS.ADD_PRICE,
+//   payload: price
+// }
+// }
+// export const removePrice = (price) => {
+//   return{
+//     type:ACTIONS.REMOVE_PRICE,
+//     payload:price
+//   }
+// }

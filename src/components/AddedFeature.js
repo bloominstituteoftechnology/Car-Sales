@@ -1,16 +1,16 @@
 import React from 'react';
 import {removePrice,removeFeat} from "../components/actions.js"
 import { connect} from "react-redux"
-
+// import { removeFeat } from "./actions"
 
 
 
 
 const AddedFeature = props => {
 
-const onClick =(feature)=>{
+const onClick =()=>{
   // removePrice(price)
-  removeFeat(feature)
+  removeFeat(props.feature)
 
  
 
