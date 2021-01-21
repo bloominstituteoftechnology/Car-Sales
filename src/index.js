@@ -8,7 +8,9 @@ import { createStore } from "redux"
 import { reducer } from "./components/reducer/reducer"
 
 
-    const store=createStore(reducer,+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const ReactDevTools  = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+    const store=createStore(reducer,ReactDevTools)
 
 
 

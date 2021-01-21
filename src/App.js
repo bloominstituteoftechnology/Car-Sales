@@ -8,18 +8,17 @@ import { connect } from "react-redux"
 
 const App = (props) => {
 
-  
-  
+ 
 
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={this.state.car} />
-        <AddedFeatures car={this.state.car} />
+          <Header car={props.car} /> 
+         <AddedFeatures car={props.car} /> 
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={this.state.additionalFeatures} />
-        <Total car={this.state.car} additionalPrice={this.state.additionalPrice} />
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
   );
@@ -30,14 +29,11 @@ const App = (props) => {
 
 const mapStateToProps = state =>{
   return  {
-    car: state.car,
-    price: state.price,
-    name:  state.name,
-    image: state.image,
-    features:state.features,
+     car:state.car,
+    features:state.car.features,
     additionalPrice: state.additionalPrice,
     additionalFeatures:state.additionalFeatures
   
 }
 }
-export default connect(mapStateToProps,{},)(App)
+export default connect(mapStateToProps,{})(App)
