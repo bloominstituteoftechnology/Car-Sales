@@ -42,9 +42,9 @@ export const reducer = (state=InitialState,action) => {
                   return {
                     ...state,
                     features: [...state.features, action.payload],
-                    ...car.features,
-                    features: state.car.features.filter(feature => feature.id !==action.payload.id),
-                    additionalPrice: state.additionalPrice - action.payload.price
+                    // ...car.features,
+                    car: state.car.features.filter(feature => feature.id !==action.payload.id),
+                    
                   }
                      
                            default:
