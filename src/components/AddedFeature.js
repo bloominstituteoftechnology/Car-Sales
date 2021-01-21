@@ -1,16 +1,16 @@
 import React from 'react';
-import {removePrice,removeFeat} from "../components/actions.js"
 import { connect} from "react-redux"
-// import { removeFeat } from "./actions"
+ import { removeFeat } from "./actions"
 
 
 
 
 const AddedFeature = props => {
+  console.log(props)
 
 const onClick =()=>{
   // removePrice(price)
-  removeFeat(props.feature)
+  props.removeFeat(props.feature)
 
  
 
@@ -19,9 +19,9 @@ const onClick =()=>{
     <li>
       {/* Add an onClick to run a function to remove a feature */}
       <button onClick={onClick} className="button">X</button>
-      {props.feature.name}
+      {props.feature.name} 
     </li>
   );
 };
 
-export default connect(null)(AddedFeature)
+export default connect(null,{removeFeat})(AddedFeature)
