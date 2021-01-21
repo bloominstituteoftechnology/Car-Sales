@@ -1,6 +1,6 @@
 
 
-export const ACTION ={
+export const ACTIONS ={
   ADD_FEATURES :"add-features",
   REMOVE_FEAT: "remove-feature",
   ADD_PRICE: "add-price",

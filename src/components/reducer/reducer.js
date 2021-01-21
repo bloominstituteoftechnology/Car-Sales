@@ -7,7 +7,7 @@ export const ACTIONS ={
 
 }
 
-const InitialState = {
+export const InitialState = {
     additionalPrice: 0,
    car: {
      price: 26395,
@@ -33,11 +33,23 @@ const InitialState = {
 export const reducer = (state=InitialState,action) => {
         switch(action.type){
             case ACTIONS.ADD_FEATURES:
+              if(state.car.features.includes(action.payload)){
+
+
                 return {
-                    ...state, 
-                    features: [...state.features, action.payload],
-                    additionalPrice: state.additionalPrice + action.payload.price
-                }  
+                  
+                  ...state, 
+                  car: {...state.car, 
+                    features:[state.car.features, action.payload],
+                  }
+                 
+                  
+                }
+                else {
+                  
+                  return state
+                }
+              }
                  case(ACTIONS.REMOVE_FEAT):
                   return {
                     ...state,
@@ -59,4 +71,5 @@ export const reducer = (state=InitialState,action) => {
 
         }
         
+      
       

@@ -8,8 +8,8 @@ import { connect} from "react-redux"
 
 const AddedFeature = props => {
 
-const onClick =(feature,price)=>{
-  removePrice(price)
+const onClick =(feature)=>{
+  // removePrice(price)
   removeFeat(feature)
 
  
