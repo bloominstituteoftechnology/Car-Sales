@@ -2,8 +2,8 @@
 export const ACTIONS ={
     ADD_FEATURE :"add-feature",
     REMOVE_FEATURE: "remove-feature",
-    ADD_PRICE: "add-price",
-    REMOVE_PRICE: "remove-price"
+    // ADD_PRICE: "add-price",
+    // REMOVE_PRICE: "remove-price"
 
 }
 
