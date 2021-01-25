@@ -13,10 +13,10 @@ const App = (props) => {
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures removeFeature={props.removeFeature} car={props.car} updateAdditional={props.updateAdditional}/>
+        <AddedFeatures car={props.car}/>
       </div>
       <div className="box">
-        <AdditionalFeatures addFeature={props.addFeature} additionalFeatures={props.additionalFeatures} updateAdditional={props.updateAdditional}/>
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
         <Total car={props.car} additionalPrice={props.additionalPrice}  />
       </div>
     </div>
