@@ -20,12 +20,17 @@ const initialValue = {
 const salesReducer = (state = initialValue, action) => {
     switch (action.type) {
       case ADD_FEATURE:
-        console.log(action.type)
+        // return state.car.features.map(feature => {
+        //   if (feature.id === action.payload.id)
         return {
           ...state,
           car: {...state.car, features: [...state.car.features, {name: action.payload.name, price: action.payload.price}]},
           additionalPrice: (state.additionalPrice + action.payload.price)
         }
+        //   else return state;
+        // })
+          
+        
       case REMOVE_FEATURE:
         return {
           ...state,
