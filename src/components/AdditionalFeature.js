@@ -1,16 +1,17 @@
 import React from "react";
 
 const AdditionalFeature = (props) => {
+	console.log("NW: AdditionalFeature props =====> ", props);
 	return (
 		<li>
 			{/* Add an onClick that will let you add a feature to your car */}
 			<button
-				onClick={() => props.addFeature(props.feature)}
+				onClick={() => this.addFeature(this.feature)}
 				className="button"
 			>
 				Add
 			</button>
-			{props.feature.name} (+{props.feature.price})
+			{this.props.feature.name} (+{this.feature.price})
 		</li>
 	);
 };

@@ -17,7 +17,7 @@ const initialState = {
 	],
 };
 
-export const featuresReducer = (state = inistialState, action) => {
+export const featuresReducer = (state = initialState, action) => {
 	console.log("ACTION FROM REDUCER =====> ", action);
 	//  TODO switch (1)
 	switch (action.type) {
@@ -38,9 +38,9 @@ export const featuresReducer = (state = inistialState, action) => {
 				...state,
 				car: {
 					...state.car,
-					features: state.car.features.filter((item) => {
-						item.id !== action.payload.id;
-					}),
+					features: state.car.features.filter(
+						(item) => item.id !== action.payload.id
+					),
 					price: state.car.price - action.payload.price,
 				},
 			};
