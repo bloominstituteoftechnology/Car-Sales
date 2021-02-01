@@ -1,3 +1,6 @@
+import { act } from 'react-dom/test-utils';
+import { ADD_FEATURE, REMOVE_FEATURE } from '../actions/carSaleAction';
+
 export const initialState = {   
     additionalPrice: 0,
     car: {
@@ -15,6 +18,28 @@ export const initialState = {
     ]}
 export const carSaleReducer = (state = initialState, action) => {
 switch (action.type){
+    case ADD_FEATURE:
+        const addingFeatures = state.additionalFeatures.filter(feature => {
+         return feature.id !== action.payload.id
+        })
+        return{ ...state, 
+                car:{ ...state.car, 
+                        price: state.car.price + action.payload.price,
+                        feature: [...state.car.features, action.payload]
+                    },
+                additionalFeatures: addingFeatures
+            }
+    case REMOVE_FEATURE:
+        const removingFeatures = state.car.features.filter(feature => {
+         return feature.id !== action.payload.id
+        })
+        return{ ...state,
+                car:{ ...state.car,
+                        price: state.car.price - action.payload.price,
+                        feature: removingFeatures
+                    },
+                additionalFeatures: [...state.additionalFeatures, action.payload]
+            }
     default: return state;
 }
   };
