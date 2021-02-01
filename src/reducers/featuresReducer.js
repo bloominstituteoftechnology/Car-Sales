@@ -1,4 +1,14 @@
+import { ADD_FEATURE, REMOVE_FEATURE } from "../actions";
+
 const initialState = {
+	additionalPrice: 0,
+	car: {
+		price: 26395,
+		name: "2019 Ford Mustang",
+		image:
+			"https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg",
+		features: [],
+	},
 	additionalFeatures: [
 		{ id: 1, name: "V-6 engine", price: 1500 },
 		{ id: 2, name: "Racing detail package", price: 1500 },
@@ -9,9 +19,33 @@ const initialState = {
 
 export const featuresReducer = (state = inistialState, action) => {
 	console.log("ACTION FROM REDUCER =====> ", action);
-	//  TODO switch
-
-	//  TODO state
-
-	//  TODO default return
+	//  TODO switch (1)
+	switch (action.type) {
+		case ADD_FEATURE:
+			return {
+				//  TODO state (1)
+				...state,
+				car: {
+					...state.car,
+					features: [...state.car.features, action.payload],
+					price: state.car.price + action.payload.price,
+				},
+			};
+		// TODO switch (2)
+		case REMOVE_FEATURE:
+			return {
+				// TODO state (2)
+				...state,
+				car: {
+					...state.car,
+					features: state.car.features.filter((item) => {
+						item.id !== action.payload.id;
+					}),
+					price: state.car.price - action.payload.price,
+				},
+			};
+		//  TODO default return
+		default:
+			return state;
+	}
 };
