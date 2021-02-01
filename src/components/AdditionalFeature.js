@@ -6,12 +6,12 @@ const AdditionalFeature = (props) => {
 		<li>
 			{/* Add an onClick that will let you add a feature to your car */}
 			<button
-				onClick={() => this.addFeature(this.feature)}
+				onClick={() => props.addFeature(props.feature)}
 				className="button"
 			>
 				Add
 			</button>
-			{this.props.feature.name} (+{this.feature.price})
+			{props.feature.name} (+{props.feature.price})
 		</li>
 	);
 };

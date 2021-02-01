@@ -25,10 +25,11 @@ export const featuresReducer = (state = initialState, action) => {
 			return {
 				//  TODO state (1)
 				...state,
+				additionalPrice:
+					state.additionalPrice + action.payload.price,
 				car: {
 					...state.car,
 					features: [...state.car.features, action.payload],
-					price: state.car.price + action.payload.price,
 				},
 			};
 		// TODO switch (2)
@@ -36,12 +37,17 @@ export const featuresReducer = (state = initialState, action) => {
 			return {
 				// TODO state (2)
 				...state,
+				additionalPrice:
+					state.additionalPrice - action.payload.price,
 				car: {
 					...state.car,
-					features: state.car.features.filter(
-						(item) => item.id !== action.payload.id
-					),
-					price: state.car.price - action.payload.price,
+					features: state.car.features.filter((item) => {
+						if (action.payload !== item) {
+							return {
+								...item,
+							};
+						}
+					}),
 				},
 			};
 		//  TODO default return
