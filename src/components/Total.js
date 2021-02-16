@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Total = props => {
   return (
     <div className="content">
