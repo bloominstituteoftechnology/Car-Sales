@@ -28,6 +28,7 @@ const App = () => {
       <div className="box">
         <Header car={state.car} />
         <AddedFeatures car={state.car} />
+        <p>Let's Boogie.</p>
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
