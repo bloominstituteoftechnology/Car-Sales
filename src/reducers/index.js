@@ -1,4 +1,4 @@
-import { ADD_FEATURE, REMOVE_FEATURE } from "../actions"
+import { ADD_FEATURE, REMOVE_FEATURE } from "../actions/featureActions"
 
 
 const initialState = {
@@ -24,6 +24,7 @@ const initialState = {
 
     switch (action.type){
         case ADD_FEATURE:
+            if(!state.car.features.includes(action.payload)){
             return {
                 //copy state and reduce the price 
                 ...state,
@@ -39,9 +40,13 @@ const initialState = {
                         feature => feature.id !== action.payload.id
                     )
                 ]
-            };
+            }} else {
+                return state
+            }
         default:
             return state
     }
 
   }
+
+  export default reducer;

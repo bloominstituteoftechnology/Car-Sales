@@ -5,8 +5,8 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import { addFeature } from "./actions/featureActions"
 //import an adding feature
-import {addFeature} from "./actions"
 
 //reminder to change state calls to prop state calls
 const App = (props) => {
@@ -17,7 +17,6 @@ const App = (props) => {
 
         <Header car={props.state.car} />
         <AddedFeatures car={props.state.car} />
-        <p>Let's Boogie.</p>
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={props.state.additionalFeatures} />
@@ -27,5 +26,10 @@ const App = (props) => {
   );
 };
 
-//change default export call to be app with connector
-export default App;
+const mapStateToProps = (state) => {
+  return{
+    state: state
+  }
+}
+//change default export call to be app with connector. Remember currying.
+export default connect(mapStateToProps)(App)
