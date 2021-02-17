@@ -20,25 +20,28 @@ const initialState = {
 export const reducer = (state = initialState, action ) => {
       switch(action.type){
           case ADD_FEATURES:
-            const newAdditionalFeatures = state.additionalFeatures.filter((item) => item.id !== action.payload.id)
+            const newFeature = state.additionalFeatures.find(
+              (feature) => feature.id === action.payload)
                 return{
+                  ...state,
                     car: {
                         ...state.car,
-                        features: [...state.car.features, action.payload]
+                        features: [...state.car.features, newFeature]
                     },
-                    additionalPrice: (state.additionalPrice + action.payload.price),
-                    additionalFeatures: state.additionalFeatures.filter((item) => item.id !== action.payload.id)
+                    additionalFeatures: state.additionalFeatures.filter(feature => action.payload !== feature.id),
+                    additionalPrice: state.additionalPrice + newFeature.price
                 }
               case DELETE_FEATURES:
+                const removeFeature = state.car.features.find((feature) => feature.id === action.payload)
                   return{
+                    ...state, 
+                    additionalPrice: state.additionalPrice - removeFeature.price,
+                    additionalFeatures: [...state.additionalFeatures, removeFeature],
                     car: {
-                      ...state.car,
-                      features: state.car.features.filter((item) => item.id !== action.payload.id)
-                  },
-                  additionalPrice: (state.additionalPrice - action.payload.price),
-                  additionalFeatures: [...state.additionalFeatures, action.payload]
+                      ...state.car, 
+                      features: state.car.features.filter((feature) => feature.id !== action.payload)
+                    }
                 }
-
           default:
               return state;
       }
