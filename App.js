@@ -8,8 +8,6 @@ import Total from './components/Total';
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   
-  
-
 return (
   <div className="boxes">
     <div className="box">
