@@ -40,7 +40,7 @@ const reducer = (state=InitialState,action) => {
                   additionalPrice: (state.additionalPrice + action.payload.price),
                   car: {
                     ...state.car, 
-                    features:[state.car.features, action.payload],
+                    features:[...state.car.features, action.payload],
                     
                   }
                  
@@ -54,12 +54,13 @@ const reducer = (state=InitialState,action) => {
                 
                 }  
                  case(ACTIONS.REMOVE_FEATURE):
+                 console.log(state.additionalPrice - action.payload.price)
                   return {
                     ...state,
                     additionalPrice:(state.additionalPrice - action.payload.price),
                      car:{
+                       ...state.car,
                     features: state.car.features.filter(feature => feature.id !==action.payload.id),
-                    ...state.car.features,
                       } 
                      
                     

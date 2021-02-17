@@ -17,6 +17,7 @@ export const addFeatures = (feature) =>{
 }
 
 export const removeFeat = (feature) =>{
+  console.log(feature)
 return {
   type: ACTIONS.REMOVE_FEATURE,
   payload: feature
