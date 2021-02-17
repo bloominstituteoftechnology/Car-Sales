@@ -18,6 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+}
   h1 {
     font-size: 20px;
     margin: 0 0 1rem 0;
@@ -27,13 +28,14 @@ body {
   }
   ol {
     margin-left: 0;
+  }
     li {
       align-items: center;
       display: flex;
       justify-content: flex-start;
     }
-  }
-}
+  
+
 .button {
   background: hotpink;
   border: 1px solid transparent;
@@ -41,9 +43,9 @@ body {
   margin-right: 1em;
   padding: .25em .75em;
   transition: all .25s ease-in;
-  &:hover {
+}
+  .hover {
     background: white;
     border: 1px solid hotpink;
     color: #333;
   }
-}
