@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect} from "react-redux"
 
 import AddedFeature from './AddedFeature';
 
@@ -19,4 +20,4 @@ const AddedFeatures = props => {
   );
 };
 
-export default AddedFeatures;
+export default connect(null) (AddedFeatures);
