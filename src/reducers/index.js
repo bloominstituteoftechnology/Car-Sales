@@ -17,7 +17,7 @@ const initialState = {
       ]
     };
 
-export const reducer = (state= initialState, action) => {
+const reducer = (state= initialState, action) => {
     switch(action.type) {
         case(ADD_FEATURE):
             const newFeature = state.additionalFeatures[action.payload -1]
@@ -35,6 +35,7 @@ export const reducer = (state= initialState, action) => {
                    return item
                }
             })
+
             return ({
                 ...state, car: {...state.car, features: remFeature}, 
                 additionalPrice: state.additionalPrice - subtractFeature.price
@@ -43,3 +44,5 @@ export const reducer = (state= initialState, action) => {
             return(state);
     }
 }
+
+export default reducer;

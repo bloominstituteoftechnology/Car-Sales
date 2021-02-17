@@ -10,6 +10,6 @@ export const clearFeature = (itemId) => {
     return({type: CLEAR_FEATURE, payload:itemId});
 }
 
-export const totalFeature = (itemId) => {
-    return({type: TOTAL_FEATURE, payload:itemId});
-}
+// export const totalFeature = (itemId) => {
+//     return({type: TOTAL_FEATURE, payload:itemId});
+// }
