@@ -1,7 +1,4 @@
-import { ADD_FEATURE, REMOVE_FEATURE } from "../actions/featureActions"
-
-
-const initialState = {
+export const initialState = {
     additionalPrice: 0,
     car: {
       price: 26395,
@@ -18,35 +15,37 @@ const initialState = {
     ]
   };
 
-  export const reducer = (state = initialState, action) => {
-    console.log("action type:", action.type);
-    console.log("action payload:", action.payload);
-
-    switch (action.type){
-        case ADD_FEATURE:
-            if(!state.car.features.includes(action.payload)){
-            return {
-                //copy state and reduce the price 
+  export const reducer = (state=initialState, action) => {
+      switch(action.type) {
+          case("ADD_FEATURE"):
+          if(!state.car.features.includes(action.payload)){
+              return({
+                  ...state,
+                  additionalPrice: (state.additionalPrice + action.payload.price),
+                  car: {
+                      ...state.car,
+                      features: [...state.car.features, action.payload]
+                  }
+              });
+          } 
+          else {
+              return state
+          }
+          case("REMOVE_FEATURE"):
+            const {id, price} = action.payload;
+            return({
                 ...state,
-                additionalPrice: state.additionalPrice + action.payload.price,
+                additionalPrice: (state.additionalPrice - price),
                 car: {
-                    //copy state of car, set car.features equal to current features in copy of state, with payload feature.
                     ...state.car,
-                    features: [state.car.features, action.payload]
-                },
-                additionalFeatures: [
-                    //return copy of state where features remaining are not features with the payload id. Successfully removes from addtl.
-                    ...state.additionalFeatures.filter(
-                        feature => feature.id !== action.payload.id
-                    )
-                ]
-            }} else {
-                return state
-            }
-        default:
-            return state
-    }
+                    features: state.car.features.filter(feature => {
+                        return feature.id !== id
+                    })
+                }
 
+            })
+          default:
+              return state;
+
+      }
   }
-
-  export default reducer;

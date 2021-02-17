@@ -5,22 +5,21 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import { addFeature } from "./actions/featureActions"
+
 //import an adding feature
 
-//reminder to change state calls to prop state calls
 const App = (props) => {
 
   return (
     <div className="boxes">
       <div className="box">
 
-        <Header car={props.state.car} />
-        <AddedFeatures car={props.state.car} />
+        <Header car={props.car} />
+        <AddedFeatures car={props.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={props.state.additionalFeatures} />
-        <Total car={props.state.car} additionalPrice={props.state.additionalPrice} />
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
   );
@@ -28,8 +27,10 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return{
-    state: state
+    car: state.car,
+    additionalFeatures: state.additionalFeatures,
+    additionalPrice: state.additionalPrice
   }
 }
 //change default export call to be app with connector. Remember currying.
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(App);
