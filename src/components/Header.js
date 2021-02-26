@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Header = props => {
   return (
@@ -12,4 +13,14 @@ const Header = props => {
   );
 };
 
-export default Header;
+// function that takes in entire state object & returns object with properties that will be added to props
+// essentially redirecting the props to point to redux store
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    car: state.car
+  }
+}
+
+// Q: why empty curly braces again? use if need to bring action creators to file
+export default connect(mapStateToProps, {})(Header);
