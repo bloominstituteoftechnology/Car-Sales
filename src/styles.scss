@@ -1,4 +1,6 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 body {
@@ -39,11 +41,15 @@ body {
   border: 1px solid transparent;
   color: white;
   margin-right: 1em;
-  padding: .25em .75em;
-  transition: all .25s ease-in;
+  padding: 0.25em 0.75em;
+  transition: all 0.25s ease-in;
   &:hover {
     background: white;
     border: 1px solid hotpink;
     color: #333;
   }
+}
+
+.button[disabled] {
+  color: black !important;
 }

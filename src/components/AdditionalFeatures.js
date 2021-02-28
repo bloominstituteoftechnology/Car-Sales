@@ -1,14 +1,26 @@
-import React from 'react';
-import AdditionalFeature from './AdditionalFeature';
+// Import Dependencies
+import React from "react";
+import { connect } from "react-redux";
 
-const AdditionalFeatures = props => {
+// Import Components
+import AdditionalFeature from "./AdditionalFeature";
+
+// Import Actions
+import { addFeature } from "../store/actions";
+
+const AdditionalFeatures = (props) => {
   return (
-    <div className="content">
+    <div className='content'>
       <h4>Additional Features</h4>
       {props.additionalFeatures.length ? (
-        <ol type="1">
-          {props.additionalFeatures.map(item => (
-            <AdditionalFeature key={item.id} feature={item} />
+        <ol type='1'>
+          {props.additionalFeatures.map((item) => (
+            <AdditionalFeature
+              key={item.id}
+              feature={item}
+              addFeature={props.addFeature}
+              car={props.car}
+            />
           ))}
         </ol>
       ) : (
@@ -18,4 +30,12 @@ const AdditionalFeatures = props => {
   );
 };
 
-export default AdditionalFeatures;
+// Variable to connect the props into the component
+const mapStateToProps = (state) => {
+  return {
+    additionalFeatures: state.carReducer.additionalFeatures,
+    car: state.carReducer.car,
+  };
+};
+
+export default connect(mapStateToProps, { addFeature })(AdditionalFeatures);
