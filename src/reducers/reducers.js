@@ -24,10 +24,10 @@ export const reducer = (state = initialState, action) => {
       if(!state.car.features.includes(action.payload)){
         return ({
           ...state,
-          additionalPrice: state.additionalPrice + action.payload.price,
           car: {
             ...state.car,
-          features: [...state.car.features, action.payload]
+          features: [...state.car.features, action.payload],
+          price: state.car.price + action.payload.price,
         }
         })
       } else {
@@ -37,12 +37,11 @@ export const reducer = (state = initialState, action) => {
     case REMOVE_FEATURE:
         return {
           ...state,
-          additionalPrice: state.additionalPrice - action.payload.price,
           car: {
             ...state.car,
           features: [
-            ...state.car.features.filter(feat => feat.id === action.payload)
-        ]
+            ...state.car.features.filter(feat => feat.id === action.payload)],
+          price: state.car.price - action.payload.price,
       }}
 
         default:
