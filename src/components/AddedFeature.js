@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { addFeature } from '../actions/featureActions';
+import { removeFeature } from '../actions/featureActions';
 
 
 const AddedFeature = props => {
@@ -9,7 +9,7 @@ const AddedFeature = props => {
       {/* Add an onClick to run a function to remove a feature */}
       <button 
       className="button"
-      onClick={() => props.removedFeature( props.feature.id )}      
+      onClick={() => props.removeFeature( props.feature.id )}      
       >X</button>
       { props.feature.name }
     </li>
@@ -23,7 +23,7 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
-    addFeature: ( id ) => dispatch( addFeature( id ) )
+    removeFeature: ( id ) => dispatch( removeFeature( id ) )
   }
 }
 
