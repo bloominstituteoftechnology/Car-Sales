@@ -12,4 +12,4 @@ const AddedFeature = props => {
   );
 };
 
-export default AddedFeature;
+export default connect(null, {addFeature})(AddedFeature);
