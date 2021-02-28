@@ -1,11 +1,9 @@
-// import { FALSE } from "node-sass";
-
 export const initialState = {
   title: "Car Features",
   editing: false,
 };
 
-export const carReducer = (state, action) => {
+export const carReducer = (state = initialState, action) => {
   switch (action.type) {
     case "UPDATE_FEATURES":
       return {
