@@ -23,14 +23,14 @@ export const featureReducer = (state = initialState, action) => {
             //if additional feature id === action.payload, return the action.payload in the features array
             return {
                 ...state,
-                features: state.additionalFeatures.id === action.payload.id && action.payload
+                features: state.additionalFeatures.id === action.payload.id ? action.payload : state.features
             }
         case REMOVE_FEATURE:
             //if additional feature id === action payload id, return everything but that
             //what if there's more than one selected?
             return {
                 ...state,
-                features: feature => feature.filter(feature.id !== action.payload.id)
+                features: state.features.filter(feature => feature.id !== action.payload.id && feature)
             } 
         default:
             return state
