@@ -37,9 +37,9 @@ This project was put together using create-react-app (CRA). You will not need to
 - [x] Download project dependencies by running `npm install`.
 - [x] Add the dependencies you will need to implement Redux, using **npm**.
 - [x] Start up the app using `npm start`.
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [x] Create a new branch: git checkout -b `<firstName-lastName>`.
       Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 ### Task 2a:  _MVP Requirements:_
 
