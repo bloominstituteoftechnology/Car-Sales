@@ -21,14 +21,9 @@ const AddedFeatures = props => {
 
 const mapStateToProps = state => {
   return {
-    car: state.car
+    features: state.car.features
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-
-  }
-}
-
-export default connect(mapStateToProps)(AddedFeatures);
+export default connect(mapStateToProps, {})(AddedFeatures);
+ 
