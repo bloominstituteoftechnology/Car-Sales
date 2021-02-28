@@ -2,17 +2,17 @@ export const ADD_FEATURE = 'ADD_FEATURE';
 export const REMOVE_FEATURE = 'REMOVE_FEATURE';
 
 
-export const addFeature = (feature) => {
+export const addFeature = (added) => {
   return({
     type: ADD_FEATURE,
-    payload: feature
+    payload: added
   })
 }
 
 
-export const removeFeature = (feature) => {
+export const removeFeature = (removed) => {
   return({
     type: REMOVE_FEATURE,
-    payload: feature
+    payload: removed
   })
 }
