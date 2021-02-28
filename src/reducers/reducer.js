@@ -18,7 +18,7 @@ const initialState = {
 
 
 
-export const Reducer = () => {
+export const reducer = () => {
     return (
         <div>
             
