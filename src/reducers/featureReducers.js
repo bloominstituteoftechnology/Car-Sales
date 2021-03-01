@@ -10,27 +10,27 @@ export const initialState = {
       features: []
     },
     additionalFeatures: [
-      { id: 1, name: 'V-6 engine', price: 1500, selected: false },
-      { id: 2, name: 'Racing detail package', price: 1500, selected: false  },
-      { id: 3, name: 'Premium sound system', price: 500, selected: false  },
-      { id: 4, name: 'Rear spoiler', price: 250, selected: false  }
+      { id: 1, name: 'V-6 engine', price: 1500 },
+      { id: 2, name: 'Racing detail package', price: 1500, },
+      { id: 3, name: 'Premium sound system', price: 500 },
+      { id: 4, name: 'Rear spoiler', price: 250 }
     ]
   };
 
 export const featureReducer = (state = initialState, action) => {
+    console.log('reducer state', state)
     switch(action.type) {
         case ADD_FEATURE:
-            //if additional feature id === action.payload, return the action.payload in the features array
             return {
                 ...state,
-                features: state.additionalFeatures.id === action.payload.id ? action.payload : state.features
+                features: [...state.car.features, ...state.additionalFeatures.filter(feature => feature.id === action.payload.id)],
+                additionalFeatures: [...state.additionalFeatures.filter(feature => feature.id !== action.payload.id)]
             }
         case REMOVE_FEATURE:
-            //if additional feature id === action payload id, return everything but that
-            //what if there's more than one selected?
             return {
                 ...state,
-                features: state.features.filter(feature => feature.id !== action.payload.id && feature)
+                features: [...state.car.features.filter(feature => feature.id !== action.payload.id)],
+                additionalFeatures: [...state.car.features.filter(feature => feature.id === action.payload.id)]
             } 
         default:
             return state
