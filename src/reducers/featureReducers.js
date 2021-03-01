@@ -23,13 +23,13 @@ export const featureReducer = (state = initialState, action) => {
         case ADD_FEATURE:
             return {
                 ...state,
-                features: [...state.car.features, ...state.additionalFeatures.filter(feature => feature.id === action.payload.id)],
+                car: {...state.car, features: state.additionalFeatures.filter(feature => feature.id === action.payload.id)},
                 additionalFeatures: [...state.additionalFeatures.filter(feature => feature.id !== action.payload.id)]
             }
         case REMOVE_FEATURE:
             return {
                 ...state,
-                features: [...state.car.features.filter(feature => feature.id !== action.payload.id)],
+                car: {...state.car, features: state.car.features.filter(feature => feature.id !== action.payload.id)},
                 additionalFeatures: [...state.car.features.filter(feature => feature.id === action.payload.id)]
             } 
         default:
