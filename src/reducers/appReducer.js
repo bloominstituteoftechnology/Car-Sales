@@ -1,7 +1,7 @@
 import { REMOVE_FEATURE, ADD_FEATURE } from '../actions/appActions'
 
 // Initial state grabbed from App.js originally, State will be housed here then connected to store.
-const initialState = [{
+const initialState = {
   car: {
     price: 26395,
     name: '2019 Ford Mustang',
@@ -9,7 +9,7 @@ const initialState = [{
     features: []
 },
 
-}]
+}
 
 //Reducer for App.js
 
