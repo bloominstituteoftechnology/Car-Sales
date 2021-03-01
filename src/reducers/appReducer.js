@@ -23,16 +23,22 @@ export const appReducer = (state = initialState, action) => {
     // eslint-disable-next-line default-case
     switch(action.type) {
         case REMOVE_FEATURE:
+            console.log(action.payload)
             return {
-                ...state,
-                additionalFeatures: state.additionalFeatures.filter((feature) => feature.id !== action.payload && feature)
+                ...state, // feature.id - 1 !== {...} || feature.id !== action.payload.id
+                additionalPrice: state.additionalPrice - action.payload.price,
+                car: {...state.car, features: state.car.features.filter((feature) => feature[0].id !== action.payload.id)}
             };
+            //create a variable that stores addtionalFeatures
         case ADD_FEATURE:
+          console.log('Addfeature action is working ', action.payload)
+            const newFeatureAdded = state.additionalFeatures.filter((feature) => feature.id === action.payload)
             return {
               ...state,
-              features: state.additionalFeatures.filter((feature) => feature.id === action.payload && feature),
-              additionalFeatures: state.additionalFeatures.filter((feature) => 
-                feature.id === action.payload && feature)
+              additionalPrice: state.additionalPrice + newFeatureAdded[0].price,
+              // additionalFeatures: state.additionalFeatures.filter((feature) => 
+              // feature.id === action.payload)
+              car: {...state.car, features: [...state.car.features, newFeatureAdded]}
             }
         default:
             return state;
