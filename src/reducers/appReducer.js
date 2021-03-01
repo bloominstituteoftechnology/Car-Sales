@@ -22,10 +22,14 @@ export const appReducer = (state = initialState, action) => {
                 features: [...state.features, { features: action.payload }]
             };
         case ADD_FEATURE:
-            return{
-                ...state,
-                features: [...state.features, { features: action.payload }]
-            }
+            return state.map((feature) => {
+              if (feature === action.payload){
+                return {...feature, features: feature.features }
+              }
+              else{
+                return state;
+              }
+            })
         default:
             return state;
     };
