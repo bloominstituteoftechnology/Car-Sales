@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import { addFeature } from '../actions/appActions'
+import { removeFeature } from '../actions/appActions'
 
 const AddedFeature = props => {
   return (
@@ -26,7 +26,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    addFeature: (feature) => dispatch(addFeature(feature))
+    removeFeature: (feature) => dispatch(removeFeature(feature))
   }
 }
 
