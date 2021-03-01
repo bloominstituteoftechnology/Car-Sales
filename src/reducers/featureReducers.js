@@ -18,21 +18,42 @@ export const initialState = {
   };
 
 export const featureReducer = (state = initialState, action) => {
+
     console.log('reducer state', state)
+
     switch(action.type) {
-        case ADD_FEATURE:
-            return {
-                ...state,
-                car: {...state.car, features: state.additionalFeatures.filter(feature => feature.id === action.payload.id)},
-                additionalFeatures: [...state.additionalFeatures.filter(feature => feature.id !== action.payload.id)]
-            }
-        case REMOVE_FEATURE:
-            return {
-                ...state,
-                car: {...state.car, features: state.car.features.filter(feature => feature.id !== action.payload.id)},
-                additionalFeatures: [...state.car.features.filter(feature => feature.id === action.payload.id)]
-            } 
-        default:
-            return state
+
+      case ADD_FEATURE:
+
+        const removeSelectedFromAdditional = state.additionalFeatures.filter(feature => 
+          feature.id !== action.payload.id)
+
+        return {
+          ...state,
+          car: {
+            ...state.car, 
+            price: state.car.price + action.payload.price,
+            features: [...state.car.features, action.payload]
+          },
+          additionalFeatures: removeSelectedFromAdditional,
+          additionalPrice: state.additionalPrice + action.payload.price
+        }
+      case REMOVE_FEATURE:
+
+        const removeSelectedFromFeatures = state.car.features.filter(feature => 
+          feature.id !== action.payload.id);
+
+        return {
+          ...state,
+          car: {
+            ...state.car, 
+            price: state.car.price - action.payload.price,
+            features: removeSelectedFromFeatures,
+          },
+          additionalFeatures: [...state.additionalFeatures, action.payload],
+          additionalPrice: state.additionalPrice - action.payload.price
+        } 
+      default:
+        return state
     }
 }
