@@ -21,26 +21,31 @@ const initialState = {
 
 export const appReducer = (state = initialState, action) => {
     // eslint-disable-next-line default-case
+    console.log('Addfeature action is working ', action.payload)
     switch(action.type) {
         case REMOVE_FEATURE:
             console.log(action.payload)
             return {
                 ...state, // feature.id - 1 !== {...} || feature.id !== action.payload.id
                 additionalPrice: state.additionalPrice - action.payload.price,
-                car: {...state.car, features: state.car.features.filter((feature) => feature[0].id !== action.payload.id)}
+                car: {...state.car, features: state.car.features.filter((feature) => feature.id !== action.payload.id)}
             };
             //create a variable that stores addtionalFeatures
         case ADD_FEATURE:
-          console.log('Addfeature action is working ', action.payload)
-            const newFeatureAdded = state.additionalFeatures.filter((feature) => feature.id === action.payload)
+          
+            // const newFeatureAdded = state.additionalFeatures.filter((feature) => feature.id === action.payload)
             return {
               ...state,
-              additionalPrice: state.additionalPrice + newFeatureAdded[0].price,
-              // additionalFeatures: state.additionalFeatures.filter((feature) => 
-              // feature.id === action.payload)
-              car: {...state.car, features: [...state.car.features, newFeatureAdded]}
+              //this logic adds the additional price to the price of the newFeatureAdded
+              additionalPrice: state.additionalPrice + action.payload.price,
+              //car returns the original state of car and features. Features will have and array of the original features and the newFeatureAdded.
+              car: {...state.car, features: [...state.car.features, action.payload]}
             }
         default:
             return state;
     };
 };
+
+//adding something - spread operator
+//conditionally change - map 
+//remove an object - filter

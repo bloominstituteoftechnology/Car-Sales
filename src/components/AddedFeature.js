@@ -9,9 +9,10 @@ const AddedFeature = props => {
     <li>
       {/* Add an onClick to run a function to remove a feature */}
       <button 
-      onClick={() => props.removeFeature(props.feature[0])}
+      //connected removeFeature and passed feature[0]. Each feature had and index of [0].
+      onClick={() => props.removeFeature(props.feature)}
       className="button">X</button>
-      {props.feature[0].name}
+      {props.feature.name}
     </li>
   );
 };
@@ -26,6 +27,7 @@ const AddedFeature = props => {
   
 // }
 
+//only needed mapDispatchToProps because there was functionality needed for this component. Other parts of state were passed through props.
 const mapDispatchToProps = (dispatch) => {
   return{
     removeFeature: (feature) => dispatch(removeFeature(feature))

@@ -9,7 +9,8 @@ const AdditionalFeature = props => {
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
       <button 
-      onClick={() => props.addFeature(props.feature.id)}
+      //connected addFeature and passed in feature.id 
+      onClick={() => props.addFeature(props.feature)}
       className="button">Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
@@ -29,4 +30,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect( mapStateToProps, mapDispatchToProps)(AdditionalFeature);
+export default connect(mapStateToProps, mapDispatchToProps)(AdditionalFeature);
