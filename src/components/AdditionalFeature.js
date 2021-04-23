@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addFeature } from '../actions/featureActions'
+import { addFeature } from "../actions/featureActions";
 
 const AdditionalFeature = (props) => {
   return (

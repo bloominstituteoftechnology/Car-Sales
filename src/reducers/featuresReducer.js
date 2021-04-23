@@ -25,7 +25,7 @@ export const featuresReducer = (state = initialState, action) => {
     case "ADD_FEATURE":
       //3. Get the selected feature.......
       const selectedFeature = state.additionalFeatures.filter(
-        feature => feature.id === action.payload
+        (feature) => feature.id === action.payload
       );
       //4. Return spreads state of car, goes into car...
       return {
@@ -41,7 +41,7 @@ export const featuresReducer = (state = initialState, action) => {
     case "REMOVE_FEATURE":
       //7. filter to find feature to be removed...
       const removedFeature = state.car.features.filter(
-        feature => feature.id === action.payload
+        (feature) => feature.id === action.payload
       );
       log(removedFeature[0].price);
       //8. return creates shallow copy of state...
@@ -52,7 +52,7 @@ export const featuresReducer = (state = initialState, action) => {
           //10. creates shallow copy of state.car
           ...state.car,
           features: state.car.features.filter(
-            feature => feature.id !== action.payload
+            (feature) => feature.id !== action.payload
           ),
         },
         //11. removes price of feature from additional features total

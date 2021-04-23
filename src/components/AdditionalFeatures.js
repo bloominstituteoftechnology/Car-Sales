@@ -2,6 +2,7 @@ import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
 import { connect } from 'react-redux'
 
+
 const AdditionalFeatures = props => {
   return (
     <div className="content">
