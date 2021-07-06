@@ -8,12 +8,12 @@ const AdditionalFeatures = props => {
       {props.additionalFeatures.length ? (
         <ol type="1">
           {props.additionalFeatures.map(item => (
-            <AdditionalFeature key={item.id} feature={item} />
+            <AdditionalFeature buyItem={props.buyItem} key={item.id} feature={item} />
           ))}
         </ol>
       ) : (
         <p>Nice looking car!</p>
-      )}
+        )}
     </div>
   );
 };
